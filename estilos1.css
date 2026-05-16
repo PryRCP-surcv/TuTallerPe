@@ -1,0 +1,478 @@
+/* NAVBAR */
+/* RESET */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f5f5f5;
+}
+
+/* HEADER */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background:#19b5e8;
+    padding:20px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+}
+
+/* LOGO */
+
+.logo{
+    color:white;
+    text-decoration:none;
+    font-size:35px;
+    font-weight:bold;
+}
+
+/* MENU */
+
+.navbar ul{
+    display:flex;
+    list-style:none;
+    gap:35px;
+}
+
+.navbar ul li a{
+    color:white;
+    text-decoration:none;
+    font-size:20px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.navbar ul li a:hover{
+    color:yellow;
+}
+
+/* OCULTAR CHECKBOX */
+
+#menu{
+    display:none;
+}
+
+.menu-icono{
+    width:30px;
+    cursor:pointer;
+    display:none;
+}
+
+/* CONTENEDOR CARDS */
+
+.contenedor-cards{
+    width:95%;
+    margin:140px auto 40px auto;
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+/* CARDS */
+
+.card{
+    background:linear-gradient(135deg,#c94bff,#a100ff);
+    padding:20px;
+    border-radius:20px;
+    color:white;
+    box-shadow:0px 5px 15px rgba(0,0,0,0.2);
+
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+/* TITULOS */
+
+.card h2{
+    text-align:center;
+    margin-bottom:15px;
+    font-size:28px;
+}
+
+/* IMAGEN */
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:15px;
+    margin-bottom:15px;
+}
+
+/* INFO */
+
+.info{
+    background:white;
+    color:#222;
+    padding:20px;
+    border-radius:15px;
+    margin-top:15px;
+}
+
+.info h3{
+    color:#a100ff;
+    margin-bottom:10px;
+    font-size:26px;
+}
+
+.info ul{
+    margin-left:20px;
+    margin-top:10px;
+}
+
+.info li{
+    margin-bottom:8px;
+}
+
+/* PRECIO */
+
+.precio{
+    color:#00a651;
+    font-size:30px;
+    font-weight:bold;
+    margin-top:20px;
+}
+
+/* BOTON */
+
+.btn{
+    display:block;
+    background:#16213e;
+    color:white;
+    text-align:center;
+    padding:15px;
+    margin-top:20px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#0f3460;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:991px){
+
+    .contenedor-cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    header{
+        padding:20px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .contenedor-cards{
+        grid-template-columns:1fr;
+    }
+
+    .navbar ul{
+        flex-direction:column;
+        background:#19b5e8;
+        position:absolute;
+        top:80px;
+        right:0;
+        width:250px;
+        padding:20px;
+        display:none;
+    }
+
+    #menu:checked ~ .navbar ul{
+        display:flex;
+    }
+
+    .menu-icono{
+        display:block;
+    }
+
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #19b5e8;
+    z-index: 1000;
+}
+
+/* ESPACIO PARA QUE NO TAPE LAS CARDS */
+
+.contenedor-cards{
+    margin-top: 120px;
+}
+
+
+.contenedor-cards{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:25px;
+    padding:40px;
+    background:#f3f3f3;
+    justify-content:center;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card{
+    background:linear-gradient(180deg,#c44df0,#a83de0);
+    border-radius:14px;
+    padding:18px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.15);
+    transition:0.3s;
+    overflow:hidden;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+/* =========================
+   TITULO
+========================= */
+
+.card h2{
+    color:white;
+    font-size:24px;
+    margin-bottom:15px;
+    text-align:center;
+}
+
+/* =========================
+   IMAGEN
+========================= */
+
+.card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+/* =========================
+   TEXTO
+========================= */
+
+.card p{
+    color:white;
+    font-size:16px;
+    line-height:1.5;
+    margin-bottom:15px;
+}
+
+/* =========================
+   INFO
+========================= */
+
+.info{
+    background:white;
+    border-radius:12px;
+    padding:15px;
+}
+
+.info h3{
+    color:#a83de0;
+    font-size:20px;
+    margin-bottom:10px;
+}
+
+.info p{
+    color:#333;
+    font-size:15px;
+    margin-bottom:10px;
+}
+
+.info ul{
+    margin-left:20px;
+    margin-bottom:12px;
+}
+
+.info li{
+    color:#333;
+    font-size:15px;
+}
+
+/* =========================
+   PRECIO
+========================= */
+
+.precio{
+    color:#16a34a !important;
+    font-size:26px !important;
+    font-weight:bold;
+}
+
+/* =========================
+   BOTON
+========================= */
+
+.btn{
+    display:block;
+    text-align:center;
+    background:#16213e;
+    color:white;
+    text-decoration:none;
+    padding:12px;
+    border-radius:10px;
+    margin-top:15px;
+    font-size:16px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#0f172a;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:992px){
+
+    .contenedor-cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:768px){
+
+    .contenedor-cards{
+        grid-template-columns:1fr;
+    }
+
+    .card{
+        width:100%;
+    }
+
+
+
+}
+/* LINKS NAVBAR */
+
+.navbar ul li a{
+    color:white;
+    text-decoration:none;
+    font-size:20px;
+    font-weight:bold;
+    padding:10px 18px;
+    border-radius:10px;
+    transition:0.3s;
+    position:relative;
+}
+
+/* HOVER */
+
+.navbar ul li a:hover{
+    background:white;
+    color:#19b5e8;
+}
+
+/* PAGINA ACTIVA */
+
+.navbar ul li a.activo{
+    background:white;
+    color:#19b5e8;
+    box-shadow:0px 4px 10px rgba(0,0,0,0.2);
+}
+
+/* EFECTO LINEA ABAJO */
+
+.navbar ul li a.activo::after{
+    content:"";
+    position:absolute;
+    left:15%;
+    bottom:-5px;
+    width:70%;
+    height:3px;
+    background:yellow;
+    border-radius:10px;
+}
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    background:#0f172a;
+    color:#fff;
+    padding:35px 0 10px;
+    margin-top:50px;
+}
+
+.footer-container{
+    width:90%;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.footer-box h2{
+    font-size:28px;
+    margin-bottom:12px;
+    color:#38bdf8;
+}
+
+.footer-box h3{
+    font-size:24px;
+    margin-bottom:12px;
+    color:#38bdf8;
+}
+
+.footer-box p{
+    font-size:16px;
+    line-height:1.5;
+    color:#cbd5e1;
+}
+
+.sociales{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.sociales a{
+    color:#cbd5e1;
+    font-size:16px;
+}
+
+.footer-copy{
+    text-align:center;
+    margin-top:20px;
+    padding-top:12px;
+    border-top:1px solid rgba(255,255,255,0.1);
+}
+
+.footer-copy p{
+    color:#94a3b8;
+    font-size:14px;
+}
+
+/* =========================
+   TALLERES
+========================= */
+

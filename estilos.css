@@ -1,3 +1,7 @@
+/* =========================
+   RESET
+========================= */
+
 *{
     margin:0;
     padding:0;
@@ -7,13 +11,13 @@
     text-transform:capitalize;
 }
 
-/* BODY */
-
 body{
     background:#f5f5f5;
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 
 header{
     position:fixed;
@@ -29,7 +33,9 @@ header{
     z-index:1000;
 }
 
-/* LOGO */
+/* =========================
+   LOGO
+========================= */
 
 header .logo{
     font-size:30px;
@@ -37,7 +43,9 @@ header .logo{
     color:#fff;
 }
 
-/* NAVBAR */
+/* =========================
+   NAVBAR
+========================= */
 
 header .navbar ul{
     list-style:none;
@@ -48,31 +56,64 @@ header .navbar ul li{
     float:left;
 }
 
-header .navbar ul li a{
+/* LINKS */
+
+.navbar ul li a{
+    color:white;
     font-size:18px;
-    padding:20px;
-    color:#fff;
-    display:block;
+    font-weight:bold;
+    padding:12px 18px;
+    border-radius:8px;
     transition:0.3s;
+    position:relative;
+    display:block;
 }
 
-header .navbar ul li a:hover{
-    background:#adcd10;
+/* HOVER */
+
+.navbar ul li a:hover{
+    background:white;
+    color:#19b5e8;
 }
 
-/* SUBMENU */
+/* PAGINA ACTIVA */
+
+.navbar ul li a.activo{
+    background:white;
+    color:#19b5e8;
+    box-shadow:0px 4px 10px rgba(0,0,0,0.2);
+}
+
+/* LINEA ABAJO */
+
+.navbar ul li a.activo::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    width:100%;
+    height:3px;
+    background:#ffe600;
+    border-radius:10px;
+}
+
+/* =========================
+   SUBMENU
+========================= */
 
 header .navbar ul li ul{
     position:absolute;
     left:0;
     width:220px;
-    background:#20dcf0;
+    background:#20bcf0;
     display:none;
+    border-radius:10px;
+    overflow:hidden;
 }
 
 header .navbar ul li ul li{
     width:100%;
-    border-top:1px solid rgba(0,0,0,0.1);
+    border-top:1px solid rgba(255,255,255,0.1);
 }
 
 header .navbar ul li ul li ul{
@@ -85,14 +126,27 @@ header .navbar ul li:focus-within > ul{
     display:block;
 }
 
-/* ICONO DROP */
+header .navbar ul li ul li a{
+    padding:15px;
+}
+
+header .navbar ul li ul li a:hover{
+    background:#19a8d6;
+    color:#ffe600;
+}
+
+/* =========================
+   ICONO DROP
+========================= */
 
 .drop{
     margin-left:8px;
     width:12px;
 }
 
-/* TITULO PRINCIPAL */
+/* =========================
+   TITULO PRINCIPAL
+========================= */
 
 .titulo-principal{
     width:100%;
@@ -117,7 +171,9 @@ header .navbar ul li:focus-within > ul{
     line-height:1.6;
 }
 
-/* CARDS */
+/* =========================
+   CARDS INDEX
+========================= */
 
 .cards-container{
     width:100%;
@@ -127,8 +183,6 @@ header .navbar ul li:focus-within > ul{
     padding:40px;
     background:#f5f5f5;
 }
-
-/* CARD */
 
 .card{
     background:#fff;
@@ -142,15 +196,11 @@ header .navbar ul li:focus-within > ul{
     transform:translateY(-8px);
 }
 
-/* IMAGEN */
-
 .card img{
     width:100%;
     height:220px;
     object-fit:cover;
 }
-
-/* CONTENIDO */
 
 .card-content{
     padding:20px;
@@ -169,8 +219,6 @@ header .navbar ul li:focus-within > ul{
     font-size:17px;
 }
 
-/* BOTON */
-
 .card-content a{
     display:block;
     text-align:center;
@@ -186,7 +234,9 @@ header .navbar ul li:focus-within > ul{
     background:#f59e0b;
 }
 
-/* MENU RESPONSIVE */
+/* =========================
+   MENU RESPONSIVE
+========================= */
 
 #menu{
     display:none;
@@ -201,9 +251,9 @@ header label{
     display:none;
 }
 
-/* FOOTER */
-
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 .footer{
     background:#0f172a;
@@ -212,8 +262,6 @@ header label{
     margin-top:50px;
 }
 
-/* CONTENEDOR */
-
 .footer-container{
     width:90%;
     margin:auto;
@@ -221,8 +269,6 @@ header label{
     grid-template-columns:repeat(4,1fr);
     gap:25px;
 }
-
-/* TITULOS */
 
 .footer-box h2{
     font-size:28px;
@@ -236,15 +282,11 @@ header label{
     color:#38bdf8;
 }
 
-/* TEXTO */
-
 .footer-box p{
     font-size:16px;
     line-height:1.5;
     color:#cbd5e1;
 }
-
-/* REDES */
 
 .sociales{
     display:flex;
@@ -257,8 +299,6 @@ header label{
     font-size:16px;
 }
 
-/* COPYRIGHT */
-
 .footer-copy{
     text-align:center;
     margin-top:20px;
@@ -270,85 +310,8 @@ header label{
     color:#94a3b8;
     font-size:14px;
 }
-/* RESPONSIVE */
 
-@media(max-width:991px){
+/* =========================
+   TALLERES
+========================= */
 
-    header{
-        padding:20px;
-    }
-
-    header label{
-        display:block;
-    }
-
-    header .navbar{
-        position:absolute;
-        top:100%;
-        left:0;
-        right:0;
-        background:#20bcf0;
-        border-top:1px solid rgba(0,0,0,0.1);
-        display:none;
-    }
-
-    header .navbar ul li{
-        width:100%;
-    }
-
-    header .navbar ul li ul{
-        position:relative;
-        width:100%;
-    }
-
-    header .navbar ul li ul li{
-        background:#1ba0cd;
-    }
-
-    header .navbar ul li ul li ul{
-        width:100%;
-        left:0;
-    }
-
-    #menu:checked ~ .navbar{
-        display:block;
-    }
-
-    .titulo-principal h1{
-        font-size:40px;
-    }
-
-    .titulo-principal p{
-        font-size:18px;
-    }
-
-    .cards-container{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .footer-container{
-        grid-template-columns:1fr 1fr;
-    }
-}
-
-/* MOVIL */
-
-@media(max-width:600px){
-
-    .cards-container{
-        grid-template-columns:1fr;
-    }
-
-    .footer-container{
-        grid-template-columns:1fr;
-        text-align:center;
-    }
-
-    .sociales{
-        align-items:center;
-    }
-
-    .titulo-principal h1{
-        font-size:32px;
-    }
-}
