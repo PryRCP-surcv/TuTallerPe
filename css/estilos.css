@@ -611,6 +611,69 @@ footer,
     margin-top: 8px;
 }
 
+/* =========================
+CONFIRMACIÓN ADMIN
+========================= */
+
+.confirmation-box{
+    max-width: 700px;
+    margin: auto;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 50px;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.success-icon{
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 25px;
+    border-radius: 50%;
+    background: #e8fff0;
+    color: #1f9d55;
+    font-size: 42px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #1f9d55;
+}
+
+.confirmation-box h1{
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+.confirmation-box p{
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.confirmation-info{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 35px;
+    flex-wrap: wrap;
+}
+
+.info-item{
+    background: var(--background);
+    border: 1px solid var(--border);
+    padding: 15px 25px;
+    border-radius: var(--radius);
+}
+
+.confirmation-actions{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
 @media (max-width: 1200px) {
 
     .busqueda-home,
