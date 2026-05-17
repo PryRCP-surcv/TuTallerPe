@@ -1,246 +1,230 @@
 <!DOCTYPE html>
-<html  lang="en">
-    <head>
-        <meta charset="UTF-8">
-         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-         <meta name="viewport" content="width=device-width",initial-sacle=1.0>
-        <title>Tu TallerPe</title>
-        <link rel="stylesheet" href="estilos.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    </head>
-    <body>
-        <header>
-            <a href="#" class="logo">Tu TallerPe</a>
-            <input type="checkbox" id="menu">
-            <label for="menu"><img class="menu-icono" src="imagenes/menu-btn.png" alt=""></label>
-            <nav class="navbar">
-               <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Nosotros</a></li>
-                <li><a href="#">Talleres <img class="drop" src="imagenes/drop.svg" alt=""></a>
-                  <ul>
-                      <li><a href="#">Venta de Departamentos</a></li>
-                      <li><a href="#">Venta de Casas<img class="drop" src="imagenes/drop.svg" alt=""></a>
-                       <ul>
-                          <li><a href="#">Venta de Casas de 2 Pisos</a></li>
-                          <li><a href="#">Venta de Casas de 3 pisos</a></li>
-                          <li><a href="#">Transporte</a></li>
-                           </ul> 
-                        </li>
-                     </ul>
-                </li> 
-              
-               <li><a href="#">Contacto</a></li>
-               </ul> 
-            </nav>
-        </header>
- <section class="titulo-principal">
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href= "css/estilos.css">
+    <title>TuTaller.pe</title>
+</head>
+<body>
 
-    <h1>Busca Tu Pasión E Inscríbete</h1>
+    <!-- HEADER -->
 
-    <p>
-        Descubre talleres culturales, artísticos y creativos para desarrollar tu talento.
-    </p>
+    <header>
+
+        <div class="logo">
+            TuTaller.pe
+        </div>
+
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="talleres.html">Talleres</a>
+            <a href="login.html">Login</a>
+            <a href="registro.html">Registro</a>
+            <a href="admin.html">Administrador</a>
+        </nav>
+
+    </header>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <h1>
+            Busca e inscríbete en talleres
+        </h1>
+
+        <p>
+            Plataforma orientada a facilitar la búsqueda, comparación e inscripción en talleres culturales, educativos y recreativos.
+        </p>
+
+    </section>
+
+
+    <!-- BUSCADOR -->
+
+    <section class="busqueda">
+
+        <input type="text" placeholder="Buscar taller...">
+
+        <select>
+            <option>Categoría</option>
+            <option>Arte</option>
+            <option>Música</option>
+            <option>Danza</option>
+        </select>
+
+        <select>
+            <option>Modalidad</option>
+            <option>Presencial</option>
+            <option>Virtual</option>
+        </select>
+
+        <button>
+            Buscar
+        </button>
+
+    </section>
+
+    <section class="quick-categories">
+
+    <a href="talleres.html" class="quick-item">
+        <div class="quick-icon">🎨</div>
+        <span>Arte</span>
+    </a>
+
+    <a href="talleres.html" class="quick-item">
+        <div class="quick-icon">🎵</div>
+        <span>Música</span>
+    </a>
+
+    <a href="talleres.html" class="quick-item">
+        <div class="quick-icon">💃</div>
+        <span>Danza</span>
+    </a>
+
+    <a href="talleres.html" class="quick-item">
+        <div class="quick-icon">💻</div>
+        <span>Tecnología</span>
+    </a>
+
+    <a href="talleres.html" class="quick-item">
+        <div class="quick-icon">🍳</div>
+        <span>Cocina</span>
+    </a>
 
 </section>
-        <!-- CARDS -->
 
-<section class="cards-container">
 
-    <!-- CARD 1 -->
+    <!-- TALLERES -->
 
-    <div class="card">
+    <section class="seccion">
 
-        <img src="imagenes/bailes.webp" alt="Casa">
+        <h2>
+            Talleres destacados
+        </h2>
 
-        <div class="card-content">
+        <div class="cards">
 
-            <h3>Baile de diferentes generos</h3>
+            <!-- CARD 1 -->
 
-            <p>
-                ¡Bailar es como soñar con los pies!.
-            </p>
+            <div class="card">
 
-            <a href="#">Más Información</a>
+                <div class="placeholder">
+                    Imagen Taller
+                </div>
 
-        </div>
+                <h3>
+                    Taller de Baile
+                </h3>
 
-    </div>
+                <p>
+                    Categoría: Danza
+                </p>
 
-    <!-- CARD 2 -->
+                <p>
+                    Horario: Sábados 4:00 PM
+                </p>
 
-    <div class="card">
+                <p>
+                    Precio: S/ 50
+                </p>
 
-        <img src="imagenes/canto.png" alt="Departamento">
+                <a href="detalle-taller.html">
+                    Ver detalle
+                </a>
 
-        <div class="card-content">
+            </div>
 
-            <h3>CANTO DE DIFERENTES NIVELES</h3>
 
-            <p>
-                ¡Cantar es el arte de tocar corazones con hilos invisibles!
-            </p>
+            <!-- CARD 2 -->
 
-            <a href="#">Más Información</a>
+            <div class="card">
 
-        </div>
+                <div class="placeholder">
+                    Imagen Taller
+                </div>
 
-    </div>
+                <h3>
+                    Taller de Pintura
+                </h3>
 
-    <!-- CARD 3 -->
+                <p>
+                    Categoría: Arte
+                </p>
 
-    <div class="card">
+                <p>
+                    Horario: Domingos 10:00 AM
+                </p>
 
-        <img src="imagenes/oratoria1.avif" alt="Remodelacion">
+                <p>
+                    Precio: S/ 70
+                </p>
 
-        <div class="card-content">
+                <a href="detalle-taller.html">
+                    Ver detalle
+                </a>
 
-            <h3>clases de oratoria</h3>
+            </div>
 
-            <p>
-               ¡Tu potencial es infinito, atrévete a explorarlo!
-            </p>
 
-            <a href="#">Más Información</a>
+            <!-- CARD 3 -->
 
-        </div>
+            <div class="card">
 
-    </div>
+                <div class="placeholder">
+                    Imagen Taller
+                </div>
 
-    <!-- CARD 4 -->
+                <h3>
+                    Taller de Guitarra
+                </h3>
 
-    <div class="card">
+                <p>
+                    Categoría: Música
+                </p>
 
-        <img src="imagenes/pintura1.webp" alt="Oficina">
+                <p>
+                    Horario: Viernes 7:00 PM
+                </p>
 
-        <div class="card-content">
+                <p>
+                    Precio: S/ 60
+                </p>
 
-            <h3>Pintura y escultura recreativa</h3>
-
-            <p>
-              ¡Sueño mi pintura y pinto mi sueño!
-            </p>
-
-            <a href="#">Más Información</a>
-
-        </div>
-
-    </div>
-
-    <!-- CARD 5 -->
-
-    <div class="card">
-
-        <img src="imagenes/arton28927.jpg" alt="Construccion">
-
-        <div class="card-content">
-
-            <h3>Artes escenicas</h3>
-
-            <p>
-             ¡Descubre tu pasion en el escenario!
-            </p>
-
-            <a href="#">Más Información</a>
-
-        </div>
-
-    </div>
-
-    <!-- CARD 6 -->
-
-    <div class="card">
-
-        <img src="imagenes/ARTES GRAFICAS.png" alt="Ubicacion">
-
-        <div class="card-content">
-
-            <h3>Artes graficas</h3>
-
-            <p>
-                ¡Define tu estilo y crea sin Limites!
-            </p>
-
-            <a href="#">Más Información</a>
-
-        </div>
-
-    </div>
-
-</section>
-    </body>
-    <!-- FOOTER -->
-
-<footer class="footer">
-
-    <div class="footer-container">
-
-        <!-- LOGO -->
-
-        <div class="footer-box">
-
-            <h2>TallerPe</h2>
-
-            <p>
-                Descubre talleres culturales, artísticos y creativos para desarrollar tu talento y encontrar tu pasión.
-            </p>
-
-        </div>
-
-        <!-- CONTACTO -->
-
-        <div class="footer-box">
-
-            <h3>Contacto</h3>
-
-            <p>📞 +51 987 654 321</p>
-
-            <p>📧 contacto@tallerpe.com</p>
-
-        </div>
-
-        <!-- DIRECCION -->
-
-        <div class="footer-box">
-
-            <h3>Dirección</h3>
-
-            <p>
-                Av. Cultura 123 <br>
-                San Anita - Lima - Perú
-            </p>
-
-        </div>
-
-        <!-- REDES -->
-
-        <div class="footer-box">
-
-            <h3>Síguenos</h3>
-
-            <div class="sociales">
-
-                <a href="#">Facebook</a>
-
-                <a href="#">Instagram</a>
-
-                <a href="#">YouTube</a>
+                <a href="detalle-taller.html">
+                    Ver detalle
+                </a>
 
             </div>
 
         </div>
 
-    </div>
+    </section>
 
-    <!-- COPYRIGHT -->
 
-    <div class="footer-copy">
+    <!-- FOOTER -->
+
+    <footer>
 
         <p>
-            © 2026 TallerPe | Todos los derechos reservados
+            Prototipo de baja fidelidad - TuTaller.pe
         </p>
 
-    </div>
+    </footer>
 
-</footer>
-    </html>
+</body>
+</html>
+```
+
+<!-- Características aplicadas
+
+* Baja fidelidad
+* Navegación simple
+* Diseño minimalista
+* Responsive básico
+* Placeholder en lugar de imágenes reales
+* Estructura orientada a UX/UI
+* Enfocado en interacción y flujo del usuario
+* Compatible con el enfoque del Avance 2 de IHM -->

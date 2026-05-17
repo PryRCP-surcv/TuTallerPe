@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscripción - TuTaller.pe</title>
+
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">TuTaller.pe</div>
+
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="talleres.html">Talleres</a>
+            <a href="login.html">Login</a>
+            <a href="registro.html">Registro</a>
+            <a href="admin.html">Administrador</a>
+        </nav>
+    </header>
+
+
+    <main class="page">
+
+        <section class="section">
+
+            <h1 class="page-title">Formulario de inscripción</h1>
+
+            <p class="page-description">
+                Completa los datos principales para simular la inscripción al taller seleccionado.
+            </p>
+
+        </section>
+
+
+        <section class="section layout-detail">
+
+            <div class="detail-box">
+
+                <h2 class="section-title">Resumen del taller</h2>
+
+                <div class="placeholder">
+                    Imagen Taller
+                </div>
+
+                <ul class="detail-list">
+                    <li><strong>Taller:</strong> Taller de Pintura Artística</li>
+                    <li><strong>Categoría:</strong> Arte</li>
+                    <li><strong>Modalidad:</strong> Presencial</li>
+                    <li><strong>Horario:</strong> Domingos 10:00 AM</li>
+                    <li><strong>Precio:</strong> S/ 70</li>
+                    <li><strong>Ubicación:</strong> San Isidro - Lima</li>
+                </ul>
+
+                <div class="warning-box">
+                    Esta pantalla representa un flujo de inscripción de baja fidelidad. 
+                    El pago y la reserva se muestran de forma simulada.
+                </div>
+
+            </div>
+
+
+            <div class="form-box large">
+
+                <h2 class="form-title">Datos del participante</h2>
+
+                <form action="confirmacion.html">
+
+                    <div class="form-group">
+                        <label>Nombres completos</label>
+                        <input type="text" placeholder="Ingrese sus nombres">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Correo electrónico</label>
+                        <input type="email" placeholder="Ingrese su correo">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Teléfono</label>
+                        <input type="tel" placeholder="Ingrese su número de contacto">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Tipo de participante</label>
+                        <select>
+                            <option>Seleccione una opción</option>
+                            <option>Estudiante</option>
+                            <option>Profesional joven</option>
+                            <option>Padre/Madre de familia</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Modalidad de pago</label>
+                        <select>
+                            <option>Seleccione una opción</option>
+                            <option>Pago en línea simulado</option>
+                            <option>Pago en el local</option>
+                            <option>Transferencia bancaria</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Comentario adicional</label>
+                        <textarea placeholder="Ingrese alguna consulta o comentario opcional"></textarea>
+                    </div>
+
+                    <div style="display:flex; gap:15px; flex-wrap:wrap;">
+
+                        <button type="submit">
+                            Confirmar inscripción
+                        </button>
+
+                        <a href="detalle-taller.html" class="btn-secondary">
+                            Volver al detalle
+                        </a>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>
+            © 2026 TuTaller.pe - Prototipo de baja fidelidad
+        </p>
+    </footer>
+
+</body>
+</html>
