@@ -44,28 +44,86 @@
 
     <!-- BUSCADOR -->
 
-    <section class="busqueda">
+    <form class="busqueda busqueda-home" action="talleres.html" method="get">
 
-        <input type="text" placeholder="Buscar taller...">
+    <input type="text" name="q" placeholder="Buscar taller...">
 
-        <select>
-            <option>Categoría</option>
-            <option>Arte</option>
-            <option>Música</option>
-            <option>Danza</option>
-        </select>
+    <select name="categoria">
+        <option value="">Categoría</option>
+        <option>Arte</option>
+        <option>Música</option>
+        <option>Danza</option>
+        <option>Tecnología</option>
+        <option>Cocina</option>
+    </select>
 
-        <select>
-            <option>Modalidad</option>
-            <option>Presencial</option>
-            <option>Virtual</option>
-        </select>
+    <select name="distrito">
+        <option value="">Distrito</option>
+        <option>Ancón</option>
+        <option>Ate</option>
+        <option>Barranco</option>
+        <option>Breña</option>
+        <option>Carabayllo</option>
+        <option>Chaclacayo</option>
+        <option>Chorrillos</option>
+        <option>Cieneguilla</option>
+        <option>Comas</option>
+        <option>El Agustino</option>
+        <option>Independencia</option>
+        <option>Jesús María</option>
+        <option>La Molina</option>
+        <option>La Victoria</option>
+        <option>Lima</option>
+        <option>Lince</option>
+        <option>Los Olivos</option>
+        <option>Lurigancho</option>
+        <option>Lurín</option>
+        <option>Magdalena del Mar</option>
+        <option>Miraflores</option>
+        <option>Pachacamac</option>
+        <option>Pueblo Libre</option>
+        <option>Puente Piedra</option>
+        <option>Punta Hermosa</option>
+        <option>Rímac</option>
+        <option>San Borja</option>
+        <option>San Isidro</option>
+        <option>San Juan de Lurigancho</option>
+        <option>San Juan de Miraflores</option>
+        <option>San Miguel</option>
+        <option>Santiago de Surco</option>
+        <option>Surquillo</option>
+        <option>Villa El Salvador</option>
+        <option>Villa María del Triunfo</option>
+    </select>
 
-        <button>
-            Buscar
-        </button>
+    <select name="precio">
+        <option value="">Precio</option>
+        <option>Menos de S/ 50</option>
+        <option>S/ 50 - S/ 80</option>
+        <option>S/ 80 - S/ 120</option>
+        <option>Más de S/ 120</option>
+    </select>
 
-    </section>
+    <select name="horario">
+        <option value="">Horario</option>
+        <option>Mañana</option>
+        <option>Tarde</option>
+        <option>Noche</option>
+        <option>Fin de semana</option>
+    </select>
+
+    <select name="tipo">
+        <option value="">Tipo</option>
+        <option>Presencial</option>
+        <option>Virtual</option>
+        <option>Mixto</option>
+    </select>
+
+    <button type="submit">
+        Buscar
+    </button>
+
+</form>
 
     <section class="quick-categories">
 
@@ -97,111 +155,93 @@
 </section>
 
 
-    <!-- TALLERES -->
+   <!-- TALLERES -->
 
-    <section class="seccion">
+<section class="seccion">
 
-        <h2>
-            Talleres destacados
-        </h2>
+    <h2>
+        Talleres destacados
+    </h2>
 
-        <div class="cards">
+    <div class="cards">
 
-            <!-- CARD 1 -->
+        <!-- CARD 1 -->
 
-            <div class="card">
+        <div class="card">
 
-                <div class="placeholder">
-                    Imagen Taller
-                </div>
-
-                <h3>
-                    Taller de Baile
-                </h3>
-
-                <p>
-                    Categoría: Danza
-                </p>
-
-                <p>
-                    Horario: Sábados 4:00 PM
-                </p>
-
-                <p>
-                    Precio: S/ 50
-                </p>
-
-                <a href="detalle-taller.html">
-                    Ver detalle
-                </a>
-
+            <div class="placeholder">
+                Imagen Taller
             </div>
 
+            <h3>
+                Taller de Baile
+            </h3>
 
-            <!-- CARD 2 -->
+            <p>Categoría: Danza</p>
+            <p>Distrito: Ate</p>
+            <p>Tipo: Presencial</p>
+            <p>Horario: Sábados 4:00 PM</p>
+            <p>Precio: S/ 50</p>
 
-            <div class="card">
-
-                <div class="placeholder">
-                    Imagen Taller
-                </div>
-
-                <h3>
-                    Taller de Pintura
-                </h3>
-
-                <p>
-                    Categoría: Arte
-                </p>
-
-                <p>
-                    Horario: Domingos 10:00 AM
-                </p>
-
-                <p>
-                    Precio: S/ 70
-                </p>
-
-                <a href="detalle-taller.html">
-                    Ver detalle
-                </a>
-
-            </div>
-
-
-            <!-- CARD 3 -->
-
-            <div class="card">
-
-                <div class="placeholder">
-                    Imagen Taller
-                </div>
-
-                <h3>
-                    Taller de Guitarra
-                </h3>
-
-                <p>
-                    Categoría: Música
-                </p>
-
-                <p>
-                    Horario: Viernes 7:00 PM
-                </p>
-
-                <p>
-                    Precio: S/ 60
-                </p>
-
-                <a href="detalle-taller.html">
-                    Ver detalle
-                </a>
-
-            </div>
+            <a href="detalle-taller.html">
+                Ver detalle
+            </a>
 
         </div>
 
-    </section>
+
+        <!-- CARD 2 -->
+
+        <div class="card">
+
+            <div class="placeholder">
+                Imagen Taller
+            </div>
+
+            <h3>
+                Taller de Pintura
+            </h3>
+
+            <p>Categoría: Arte</p>
+            <p>Distrito: San Isidro</p>
+            <p>Tipo: Presencial</p>
+            <p>Horario: Domingos 10:00 AM</p>
+            <p>Precio: S/ 70</p>
+
+            <a href="detalle-taller.html">
+                Ver detalle
+            </a>
+
+        </div>
+
+
+        <!-- CARD 3 -->
+
+        <div class="card">
+
+            <div class="placeholder">
+                Imagen Taller
+            </div>
+
+            <h3>
+                Taller de Guitarra
+            </h3>
+
+            <p>Categoría: Música</p>
+            <p>Distrito: Virtual</p>
+            <p>Tipo: Virtual</p>
+            <p>Horario: Viernes 7:00 PM</p>
+            <p>Precio: S/ 60</p>
+
+            <a href="detalle-taller.html">
+                Ver detalle
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
 
 
     <!-- FOOTER -->
@@ -216,15 +256,3 @@
 
 </body>
 </html>
-```
-
-<!-- Características aplicadas
-
-* Baja fidelidad
-* Navegación simple
-* Diseño minimalista
-* Responsive básico
-* Placeholder en lugar de imágenes reales
-* Estructura orientada a UX/UI
-* Enfocado en interacción y flujo del usuario
-* Compatible con el enfoque del Avance 2 de IHM -->

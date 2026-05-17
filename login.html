@@ -10,85 +10,79 @@
 
 <body>
 
-    <!-- HEADER -->
+<header>
+    <div class="logo">TuTaller.pe</div>
 
-    <header>
-        <div class="logo">TuTaller.pe</div>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="talleres.html">Talleres</a>
+        <a href="login.html">Login</a>
+        <a href="registro.html">Registro</a>
+        <a href="admin.html">Administrador</a>
+    </nav>
+</header>
 
-        <nav>
-            <a href="index.html">Inicio</a>
-            <a href="talleres.html">Talleres</a>
-            <a href="login.html">Login</a>
-            <a href="registro.html">Registro</a>
-            <a href="admin.html">Administrador</a>
-        </nav>
-    </header>
+<main class="page">
 
+    <section class="form-box">
 
-    <!-- CONTENIDO -->
+        <h1 class="form-title">Iniciar sesión</h1>
 
-    <main class="page">
+        <form id="loginForm" novalidate>
 
-        <section class="form-box">
+            <div class="form-group">
+                <label for="loginCorreo">Correo electrónico</label>
 
-            <h1 class="form-title">Iniciar sesión</h1>
+                <input 
+                    type="email"
+                    id="loginCorreo"
+                    placeholder="Ingrese su correo">
 
-            <form>
-
-                <div class="form-group">
-                    <label>Correo electrónico</label>
-
-                    <input 
-                        type="email"
-                        placeholder="Ingrese su correo">
-                </div>
-
-
-                <div class="form-group">
-                    <label>Contraseña</label>
-
-                    <input 
-                        type="password"
-                        placeholder="Ingrese su contraseña">
-                </div>
-
-
-                <div class="form-group">
-                    <button type="submit" class="btn-full">
-                        Ingresar
-                    </button>
-                </div>
-
-            </form>
-
-
-            <div style="text-align:center; margin-top:20px;">
-
-                <p style="color:#666; margin-bottom:10px;">
-                    ¿No tienes cuenta?
-                </p>
-
-                <a href="registro.html" class="btn-secondary">
-                    Crear cuenta
-                </a>
-
+                <div id="errorLoginCorreo" class="error-msg"></div>
             </div>
 
-        </section>
+            <div class="form-group">
+                <label for="loginPassword">Contraseña</label>
 
-    </main>
+                <input 
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Ingrese su contraseña">
 
+                <div id="errorLoginPassword" class="error-msg"></div>
+            </div>
 
-    <!-- FOOTER -->
+            <div class="form-group">
+                <button type="submit" class="btn-full">
+                    Ingresar
+                </button>
+            </div>
 
-    <footer>
+        </form>
 
-        <p>
-            © 2026 TuTaller.pe - Plataforma de talleres culturales y educativos
-        </p>
+        <div style="text-align:center; margin-top:20px;">
 
-    </footer>
+            <p style="color:#666; margin-bottom:10px;">
+                ¿No tienes cuenta?
+            </p>
+
+            <a href="registro.html" class="btn-secondary">
+                Crear cuenta
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>
+        © 2026 TuTaller.pe - Plataforma de talleres culturales y educativos
+    </p>
+</footer>
+
+<script src="js/script.js"></script>
 
 </body>
 </html>
-```

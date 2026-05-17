@@ -4,238 +4,209 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explorar Talleres - TuTaller.pe</title>
-
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 
 <body>
 
-    <header>
-        <div class="logo">TuTaller.pe</div>
+<header>
+    <div class="logo">TuTaller.pe</div>
+
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="talleres.html">Talleres</a>
+        <a href="login.html">Login</a>
+        <a href="registro.html">Registro</a>
+        <a href="admin.html">Administrador</a>
+    </nav>
+</header>
+
+<main class="page">
+
+    <section class="section">
+        <h1 class="page-title">Explorar talleres</h1>
+
+        <p class="page-description">
+            Busca talleres por categoría, distrito, precio, horario y tipo.
+            Esta pantalla permite comparar opciones antes de inscribirse.
+        </p>
+    </section>
+
+    <section class="search-box filtros-completos">
+
+        <input type="text" placeholder="Buscar por nombre o palabra clave">
+
+        <select>
+            <option>Categoría</option>
+            <option>Arte</option>
+            <option>Música</option>
+            <option>Danza</option>
+            <option>Tecnología</option>
+            <option>Cocina</option>
+            <option>Idiomas</option>
+        </select>
+
+        <select>
+            <option>Distrito</option>
+            <option>San Isidro</option>
+            <option>Miraflores</option>
+            <option>Santiago de Surco</option>
+            <option>San Miguel</option>
+            <option>Los Olivos</option>
+            <option>La Molina</option>
+            <option>San Borja</option>
+            <option>Jesús María</option>
+            <option>Virtual</option>
+        </select>
+
+        <select>
+            <option>Precio</option>
+            <option>Menos de S/ 50</option>
+            <option>S/ 50 - S/ 80</option>
+            <option>S/ 80 - S/ 120</option>
+            <option>Más de S/ 120</option>
+        </select>
+
+        <select>
+            <option>Horario</option>
+            <option>Mañana</option>
+            <option>Tarde</option>
+            <option>Noche</option>
+            <option>Fin de semana</option>
+        </select>
+
+        <select>
+            <option>Tipo</option>
+            <option>Presencial</option>
+            <option>Virtual</option>
+            <option>Mixto</option>
+        </select>
+
+        <button type="button">Filtrar</button>
+
+    </section>
+
+    <section class="section layout-two">
+
+        <aside class="sidebar">
+            <h3>Categorías</h3>
+
+            <a href="#">Arte</a>
+            <a href="#">Música</a>
+            <a href="#">Danza</a>
+            <a href="#">Tecnología</a>
+            <a href="#">Cocina</a>
+            <a href="#">Idiomas</a>
+
+            <br>
+
+            <h3>Filtros rápidos</h3>
+
+            <a href="#">Menor precio</a>
+            <a href="#">Más cercanos</a>
+            <a href="#">Mejor valorados</a>
+            <a href="#">Fin de semana</a>
+        </aside>
+
+        <div>
+            <h2 class="section-title">Resultados encontrados</h2>
 
-        <nav>
-            <a href="index.html">Inicio</a>
-            <a href="talleres.html">Talleres</a>
-            <a href="login.html">Login</a>
-            <a href="registro.html">Registro</a>
-            <a href="admin.html">Administrador</a>
-        </nav>
-    </header>
+            <div class="grid">
 
+                <div class="card">
+                    <div class="placeholder">Imagen Taller</div>
 
-    <main class="page">
+                    <h3>Taller de Baile</h3>
 
-        <section class="section">
+                    <p>Categoría: Danza</p>
+                    <p>Distrito: Miraflores</p>
+                    <p>Tipo: Presencial</p>
+                    <p>Horario: Sábados 4:00 PM</p>
+                    <p>Precio: S/ 50</p>
 
-            <h1 class="page-title">Explorar talleres</h1>
+                    <a href="detalle-taller.html">Ver detalle</a>
+                </div>
 
-            <p class="page-description">
-                Busca talleres por categoría, modalidad, precio u horario. 
-                Esta pantalla permite al usuario comparar opciones antes de inscribirse.
-            </p>
+                <div class="card">
+                    <div class="placeholder">Imagen Taller</div>
 
-        </section>
+                    <h3>Taller de Pintura</h3>
 
+                    <p>Categoría: Arte</p>
+                    <p>Distrito: San Isidro</p>
+                    <p>Tipo: Presencial</p>
+                    <p>Horario: Domingos 10:00 AM</p>
+                    <p>Precio: S/ 70</p>
 
-        <!-- FILTROS -->
+                    <a href="detalle-taller.html">Ver detalle</a>
+                </div>
 
-        <section class="search-box">
+                <div class="card">
+                    <div class="placeholder">Imagen Taller</div>
 
-            <input type="text" placeholder="Buscar por nombre o palabra clave">
+                    <h3>Taller de Guitarra</h3>
 
-            <select>
-                <option>Categoría</option>
-                <option>Arte</option>
-                <option>Música</option>
-                <option>Danza</option>
-                <option>Tecnología</option>
-                <option>Cocina</option>
-            </select>
+                    <p>Categoría: Música</p>
+                    <p>Distrito: Virtual</p>
+                    <p>Tipo: Virtual</p>
+                    <p>Horario: Viernes 7:00 PM</p>
+                    <p>Precio: S/ 60</p>
 
-            <select>
-                <option>Modalidad</option>
-                <option>Presencial</option>
-                <option>Virtual</option>
-                <option>Mixto</option>
-            </select>
+                    <a href="detalle-taller.html">Ver detalle</a>
+                </div>
 
-            <button type="button">
-                Filtrar
-            </button>
+                <div class="card">
+                    <div class="placeholder">Imagen Taller</div>
 
-        </section>
+                    <h3>Taller de Cocina Básica</h3>
 
+                    <p>Categoría: Cocina</p>
+                    <p>Distrito: Santiago de Surco</p>
+                    <p>Tipo: Presencial</p>
+                    <p>Horario: Sábados 11:00 AM</p>
+                    <p>Precio: S/ 80</p>
 
-        <!-- LAYOUT PRINCIPAL -->
+                    <a href="detalle-taller.html">Ver detalle</a>
+                </div>
 
-        <section class="section layout-two">
+                <div class="card">
+                    <div class="placeholder">Imagen Taller</div>
 
-            <!-- CATEGORÍAS / FILTROS LATERALES -->
+                    <h3>Taller de Programación</h3>
 
-            <aside class="sidebar">
+                    <p>Categoría: Tecnología</p>
+                    <p>Distrito: Virtual</p>
+                    <p>Tipo: Virtual</p>
+                    <p>Horario: Lunes y miércoles 8:00 PM</p>
+                    <p>Precio: S/ 90</p>
 
-                <h3>Categorías</h3>
+                    <a href="detalle-taller.html">Ver detalle</a>
+                </div>
 
-                <a href="#">Arte</a>
-                <a href="#">Música</a>
-                <a href="#">Danza</a>
-                <a href="#">Tecnología</a>
-                <a href="#">Cocina</a>
-                <a href="#">Idiomas</a>
+                <div class="card">
+                    <div class="placeholder">Imagen Taller</div>
 
-                <br>
+                    <h3>Taller de Inglés Conversacional</h3>
 
-                <h3>Filtros rápidos</h3>
+                    <p>Categoría: Idiomas</p>
+                    <p>Distrito: San Miguel</p>
+                    <p>Tipo: Mixto</p>
+                    <p>Horario: Martes 6:00 PM</p>
+                    <p>Precio: S/ 75</p>
 
-                <a href="#">Menor precio</a>
-                <a href="#">Más cercanos</a>
-                <a href="#">Mejor valorados</a>
-                <a href="#">Fin de semana</a>
-
-            </aside>
-
-
-            <!-- LISTA DE TALLERES -->
-
-            <div>
-
-                <h2 class="section-title">Resultados encontrados</h2>
-
-                <div class="grid">
-
-                    <div class="card">
-
-                        <div class="placeholder">
-                            Imagen Taller
-                        </div>
-
-                        <h3>Taller de Baile</h3>
-
-                        <p>Categoría: Danza</p>
-                        <p>Modalidad: Presencial</p>
-                        <p>Horario: Sábados 4:00 PM</p>
-                        <p>Precio: S/ 50</p>
-
-                        <a href="detalle-taller.html">
-                            Ver detalle
-                        </a>
-
-                    </div>
-
-
-                    <div class="card">
-
-                        <div class="placeholder">
-                            Imagen Taller
-                        </div>
-
-                        <h3>Taller de Pintura</h3>
-
-                        <p>Categoría: Arte</p>
-                        <p>Modalidad: Presencial</p>
-                        <p>Horario: Domingos 10:00 AM</p>
-                        <p>Precio: S/ 70</p>
-
-                        <a href="detalle-taller.html">
-                            Ver detalle
-                        </a>
-
-                    </div>
-
-
-                    <div class="card">
-
-                        <div class="placeholder">
-                            Imagen Taller
-                        </div>
-
-                        <h3>Taller de Guitarra</h3>
-
-                        <p>Categoría: Música</p>
-                        <p>Modalidad: Virtual</p>
-                        <p>Horario: Viernes 7:00 PM</p>
-                        <p>Precio: S/ 60</p>
-
-                        <a href="detalle-taller.html">
-                            Ver detalle
-                        </a>
-
-                    </div>
-
-
-                    <div class="card">
-
-                        <div class="placeholder">
-                            Imagen Taller
-                        </div>
-
-                        <h3>Taller de Cocina Básica</h3>
-
-                        <p>Categoría: Cocina</p>
-                        <p>Modalidad: Presencial</p>
-                        <p>Horario: Sábados 11:00 AM</p>
-                        <p>Precio: S/ 80</p>
-
-                        <a href="detalle-taller.html">
-                            Ver detalle
-                        </a>
-
-                    </div>
-
-
-                    <div class="card">
-
-                        <div class="placeholder">
-                            Imagen Taller
-                        </div>
-
-                        <h3>Taller de Programación</h3>
-
-                        <p>Categoría: Tecnología</p>
-                        <p>Modalidad: Virtual</p>
-                        <p>Horario: Lunes y miércoles 8:00 PM</p>
-                        <p>Precio: S/ 90</p>
-
-                        <a href="detalle-taller.html">
-                            Ver detalle
-                        </a>
-
-                    </div>
-
-
-                    <div class="card">
-
-                        <div class="placeholder">
-                            Imagen Taller
-                        </div>
-
-                        <h3>Taller de Inglés Conversacional</h3>
-
-                        <p>Categoría: Idiomas</p>
-                        <p>Modalidad: Mixto</p>
-                        <p>Horario: Martes 6:00 PM</p>
-                        <p>Precio: S/ 75</p>
-
-                        <a href="detalle-taller.html">
-                            Ver detalle
-                        </a>
-
-                    </div>
-
+                    <a href="detalle-taller.html">Ver detalle</a>
                 </div>
 
             </div>
+        </div>
 
-        </section>
+    </section>
 
-    </main>
+</main>
 
-
-    <footer>
-        <p>
-            © 2026 TuTaller.pe - Prototipo de baja fidelidad
-        </p>
-    </footer>
+<footer>
+    <p>© 2026 TuTaller.pe - Prototipo de baja fidelidad</p>
+</footer>
 
 </body>
 </html>
