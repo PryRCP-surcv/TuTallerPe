@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluacion heuristica | TuTaller.pe</title>
+    <meta name="description" content="Evaluacion heuristica basada en las 10 heuristicas de Nielsen aplicada al prototipo TuTaller.pe.">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <script src="../js/script.js" defer></script>
+</head>
+<body data-page="avance3">
+    <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+    <header class="site-header">
+        <div class="container header-shell">
+            <a class="brand" href="../index.html" aria-label="Ir al inicio de TuTaller.pe">
+                <span class="brand-mark">TT</span>
+                <span class="brand-copy">
+                    <strong>TuTaller.pe</strong>
+                    <span>Encuentra, compara e inscribete</span>
+                </span>
+            </a>
+            <button class="nav-toggle" type="button" aria-label="Abrir menu principal" aria-expanded="false" aria-controls="menu-principal" data-nav-toggle>
+                <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 7h16M4 12h16M4 17h16"></path>
+                </svg>
+            </button>
+            <nav class="site-nav" id="menu-principal" aria-label="Principal" data-nav-menu>
+                <a class="nav-link" href="../index.html" data-nav-item="inicio">Inicio</a>
+                <a class="nav-link" href="../talleres.html" data-nav-item="talleres">Talleres</a>
+                <a class="nav-link" href="../ayuda.html" data-nav-item="ayuda">Ayuda</a>
+                <a class="nav-link" href="index.html" data-nav-item="avance3">Documentacion</a>
+                <a class="nav-link" href="../perfil.html" data-nav-item="perfil">Perfil</a>
+                <a class="nav-link" href="../admin.html" data-nav-item="admin">Administrador</a>
+                <a class="nav-link nav-cta" href="../login.html" data-nav-item="login">Ingresar</a>
+            </nav>
+        </div>
+    </header>
+    <main id="contenido-principal">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb-list">
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="index.html">Avance 3</a></li>
+                    <li aria-current="page">Evaluacion heuristica</li>
+                </ol>
+            </div>
+        </nav>
+        <section class="page-hero">
+            <div class="container surface-card page-hero-card fade-in">
+                <span class="eyebrow">Heuristicas de Nielsen</span>
+                <h1 class="page-title">Aplicacion de las 10 heuristicas al prototipo</h1>
+                <p class="page-description">Cada heuristica se documenta con evidencia en el prototipo, problema identificado y mejora propuesta.</p>
+            </div>
+        </section>
+        <section class="section">
+            <div class="container docs-layout">
+                <aside class="sidebar-card fade-in">
+                    <div>
+                        <span class="eyebrow">Contenido</span>
+                        <h2 class="section-title">Secciones del avance</h2>
+                    </div>
+                    <div class="doc-links">
+                        <a href="pruebas-usuario.html">Pruebas con usuarios</a>
+                        <a href="resultados-prueba.html">Resultados de prueba</a>
+                        <a class="is-active" href="evaluacion-heuristica.html">Evaluacion heuristica</a>
+                        <a href="accesibilidad.html">Accesibilidad</a>
+                        <a href="mejoras.html">Mejoras aplicadas</a>
+                        <a href="index.html">Resumen del avance</a>
+                    </div>
+                </aside>
+                <div class="section-stack">
+                    <article class="table-shell fade-in">
+                        <span class="eyebrow">Matriz heuristica</span>
+                        <h2 class="section-title">10 heuristicas, evidencia, problema y mejora</h2>
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Heuristica</th>
+                                        <th scope="col">Evidencia aplicada</th>
+                                        <th scope="col">Problema encontrado</th>
+                                        <th scope="col">Mejora propuesta</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1. Visibilidad del estado del sistema</td><td>Mensajes de confirmacion y estados en tarjetas y tablas.</td><td>Antes no habia confirmaciones claras.</td><td>Agregar pantallas de confirmacion y estados visuales consistentes.</td></tr>
+                                    <tr><td>2. Relacion con el mundo real</td><td>Lenguaje cercano: taller, vacantes, modalidad, perfil.</td><td>Algunos textos tecnicos o vagos generaban dudas.</td><td>Usar copys directos y familiares para usuarios y administradores.</td></tr>
+                                    <tr><td>3. Control y libertad</td><td>Botones de volver y breadcrumbs en pantallas internas.</td><td>El usuario podia sentirse atrapado en formularios.</td><td>Ofrecer rutas de regreso y cancelacion visibles.</td></tr>
+                                    <tr><td>4. Consistencia y estandares</td><td>Header, botones, cards y formularios unificados.</td><td>Las pantallas previas se sentian heterogeneas.</td><td>Aplicar una base visual comun y componentes repetibles.</td></tr>
+                                    <tr><td>5. Prevencion de errores</td><td>Validaciones en login, registro y creacion de taller.</td><td>Era facil enviar datos incompletos.</td><td>Bloquear el avance hasta cumplir reglas de cada campo.</td></tr>
+                                    <tr><td>6. Reconocimiento antes que memoria</td><td>Tarjetas con datos resumidos y etiquetas visuales.</td><td>Los usuarios debian recordar detalles entre pantallas.</td><td>Mostrar precio, horario y modalidad desde el catalogo y el detalle.</td></tr>
+                                    <tr><td>7. Flexibilidad y eficiencia</td><td>Filtros rapidos y accesos directos a tareas frecuentes.</td><td>Algunas tareas requerian demasiados pasos visuales.</td><td>Agregar chips, enlaces rapidos y CTA visibles.</td></tr>
+                                    <tr><td>8. Diseno estetico y minimalista</td><td>Jerarquia clara, menos ruido y mejor uso del espacio.</td><td>El wireframe anterior se veia muy basico.</td><td>Elevar fidelidad visual sin sobrecargar la interfaz.</td></tr>
+                                    <tr><td>9. Ayuda para reconocer y recuperarse</td><td>Mensajes de error especificos junto a los campos.</td><td>Los formularios no orientaban como corregir entradas.</td><td>Explicar el motivo del error y la accion correcta.</td></tr>
+                                    <tr><td>10. Ayuda y documentacion</td><td>Pagina de ayuda y hub de documentacion del avance.</td><td>Antes no habia soporte ni explicacion contextual.</td><td>Incluir FAQ, pruebas, heuristicas, accesibilidad y mejoras.</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h2>TuTaller.pe</h2>
+                    <p>Evaluacion heuristica sintetizada para explicar de manera concreta por que se aplicaron las mejoras del Avance 3.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Seguir revisando</h3>
+                    <a href="accesibilidad.html">Accesibilidad</a>
+                    <a href="mejoras.html">Mejoras</a>
+                    <a href="index.html">Resumen final</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Flujos</h3>
+                    <a href="../talleres.html">Usuario</a>
+                    <a href="../admin.html">Administrador</a>
+                    <a href="../ayuda.html">Ayuda</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Resultados</h3>
+                    <a href="resultados-prueba.html">Resultados de prueba</a>
+                    <a href="pruebas-usuario.html">Plan de pruebas</a>
+                    <a href="../../README.md">README</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mejoras aplicadas | TuTaller.pe</title>
+    <meta name="description" content="Comparacion antes vs despues del prototipo TuTaller.pe para el Avance 3.">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <script src="../js/script.js" defer></script>
+</head>
+<body data-page="avance3">
+    <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+    <header class="site-header">
+        <div class="container header-shell">
+            <a class="brand" href="../index.html" aria-label="Ir al inicio de TuTaller.pe">
+                <span class="brand-mark">TT</span>
+                <span class="brand-copy">
+                    <strong>TuTaller.pe</strong>
+                    <span>Encuentra, compara e inscribete</span>
+                </span>
+            </a>
+            <button class="nav-toggle" type="button" aria-label="Abrir menu principal" aria-expanded="false" aria-controls="menu-principal" data-nav-toggle>
+                <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 7h16M4 12h16M4 17h16"></path>
+                </svg>
+            </button>
+            <nav class="site-nav" id="menu-principal" aria-label="Principal" data-nav-menu>
+                <a class="nav-link" href="../index.html" data-nav-item="inicio">Inicio</a>
+                <a class="nav-link" href="../talleres.html" data-nav-item="talleres">Talleres</a>
+                <a class="nav-link" href="../ayuda.html" data-nav-item="ayuda">Ayuda</a>
+                <a class="nav-link" href="index.html" data-nav-item="avance3">Documentacion</a>
+                <a class="nav-link" href="../perfil.html" data-nav-item="perfil">Perfil</a>
+                <a class="nav-link" href="../admin.html" data-nav-item="admin">Administrador</a>
+                <a class="nav-link nav-cta" href="../login.html" data-nav-item="login">Ingresar</a>
+            </nav>
+        </div>
+    </header>
+    <main id="contenido-principal">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb-list">
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="index.html">Avance 3</a></li>
+                    <li aria-current="page">Mejoras aplicadas</li>
+                </ol>
+            </div>
+        </nav>
+        <section class="page-hero">
+            <div class="container surface-card page-hero-card fade-in">
+                <span class="eyebrow">Antes vs despues</span>
+                <h1 class="page-title">Mejoras incorporadas al prototipo</h1>
+                <p class="page-description">Se comparan problemas detectados, solucion aplicada y beneficio esperado para sustentar el avance de fidelidad.</p>
+            </div>
+        </section>
+        <section class="section">
+            <div class="container docs-layout">
+                <aside class="sidebar-card fade-in">
+                    <div>
+                        <span class="eyebrow">Contenido</span>
+                        <h2 class="section-title">Secciones del avance</h2>
+                    </div>
+                    <div class="doc-links">
+                        <a href="pruebas-usuario.html">Pruebas con usuarios</a>
+                        <a href="resultados-prueba.html">Resultados de prueba</a>
+                        <a href="evaluacion-heuristica.html">Evaluacion heuristica</a>
+                        <a href="accesibilidad.html">Accesibilidad</a>
+                        <a class="is-active" href="mejoras.html">Mejoras aplicadas</a>
+                        <a href="index.html">Resumen del avance</a>
+                    </div>
+                </aside>
+                <div class="section-stack">
+                    <article class="table-shell fade-in">
+                        <span class="eyebrow">Comparacion</span>
+                        <h2 class="section-title">Tabla antes vs despues</h2>
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Antes</th>
+                                        <th scope="col">Despues</th>
+                                        <th scope="col">Problema detectado</th>
+                                        <th scope="col">Mejora aplicada</th>
+                                        <th scope="col">Beneficio obtenido</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Wireframes basicos</td><td>Interfaz de alta fidelidad</td><td>Baja percepcion de realismo</td><td>Nueva identidad visual y uso de imagenes reales</td><td>Mayor credibilidad y mejor presentacion</td></tr>
+                                    <tr><td>Navegacion lineal</td><td>Breadcrumbs y menu activo</td><td>Perdida de contexto entre pantallas</td><td>Se agregaron rutas visibles y estado actual</td><td>Menor desorientacion</td></tr>
+                                    <tr><td>Formularios simples</td><td>Validaciones y mensajes claros</td><td>Errores sin explicacion</td><td>Estados de error, foco y ayuda contextual</td><td>Menos fallos al completar tareas</td></tr>
+                                    <tr><td>Cards con placeholder</td><td>Tarjetas con imagen, tags y CTA</td><td>Poca informacion para comparar talleres</td><td>Resumen de precio, horario y modalidad</td><td>Comparacion mas rapida</td></tr>
+                                    <tr><td>Sin soporte academico</td><td>Hub de documentacion</td><td>Faltaba sustento del proceso</td><td>Paginas de pruebas, resultados, heuristicas y accesibilidad</td><td>Mejor defensa del avance</td></tr>
+                                    <tr><td>Accesibilidad limitada</td><td>Foco visible y labels asociados</td><td>Dificultad para teclado y lectores de pantalla</td><td>Skip link, aria y jerarquia semantica</td><td>Mayor inclusion</td></tr>
+                                    <tr><td>Flujo admin basico</td><td>Panel y alta de taller validada</td><td>Publicar talleres no era convincente</td><td>Dashboard, tabla y formulario completo</td><td>Mejor demostracion del rol administrador</td></tr>
+                                    <tr><td>Sin base backend</td><td>Arquitectura futura con Spring Boot</td><td>Escalabilidad indefinida</td><td>Separacion frontend/backend y estructura API inicial</td><td>Mejor proyeccion tecnica</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h2>TuTaller.pe</h2>
+                    <p>Comparacion sintetica para explicar con claridad el salto entre el prototipo previo y el Avance 3.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Relacionados</h3>
+                    <a href="index.html">Resumen final</a>
+                    <a href="accesibilidad.html">Accesibilidad</a>
+                    <a href="evaluacion-heuristica.html">Heuristicas</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Usuario</h3>
+                    <a href="index.html">Inicio</a>
+                    <a href="../talleres.html">Catalogo</a>
+                    <a href="../perfil.html">Perfil</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Admin</h3>
+                    <a href="../admin.html">Panel</a>
+                    <a href="crear-taller.html">Publicar taller</a>
+                    <a href="../../README.md">README</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pruebas con usuarios | TuTaller.pe</title>
+    <meta name="description" content="Plan de pruebas con usuarios para el Avance 3 de TuTaller.pe.">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <script src="../js/script.js" defer></script>
+</head>
+<body data-page="avance3">
+    <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+
+    <header class="site-header">
+        <div class="container header-shell">
+            <a class="brand" href="../index.html" aria-label="Ir al inicio de TuTaller.pe">
+                <span class="brand-mark">TT</span>
+                <span class="brand-copy">
+                    <strong>TuTaller.pe</strong>
+                    <span>Encuentra, compara e inscribete</span>
+                </span>
+            </a>
+            <button class="nav-toggle" type="button" aria-label="Abrir menu principal" aria-expanded="false" aria-controls="menu-principal" data-nav-toggle>
+                <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 7h16M4 12h16M4 17h16"></path>
+                </svg>
+            </button>
+            <nav class="site-nav" id="menu-principal" aria-label="Principal" data-nav-menu>
+                <a class="nav-link" href="../index.html" data-nav-item="inicio">Inicio</a>
+                <a class="nav-link" href="../talleres.html" data-nav-item="talleres">Talleres</a>
+                <a class="nav-link" href="../ayuda.html" data-nav-item="ayuda">Ayuda</a>
+                <a class="nav-link" href="index.html" data-nav-item="avance3">Documentacion</a>
+                <a class="nav-link" href="../perfil.html" data-nav-item="perfil">Perfil</a>
+                <a class="nav-link" href="../admin.html" data-nav-item="admin">Administrador</a>
+                <a class="nav-link nav-cta" href="../login.html" data-nav-item="login">Ingresar</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="contenido-principal">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb-list">
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="index.html">Avance 3</a></li>
+                    <li aria-current="page">Pruebas con usuarios</li>
+                </ol>
+            </div>
+        </nav>
+
+        <section class="page-hero">
+            <div class="container surface-card page-hero-card fade-in">
+                <span class="eyebrow">Evaluacion con usuarios</span>
+                <h1 class="page-title">Plan de pruebas para 3 a 5 usuarios</h1>
+                <p class="page-description">
+                    Esta pantalla resume las tareas observadas en las sesiones de prueba para validar navegacion,
+                    comprension de la interfaz, prevencion de errores y percepcion general del prototipo.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container docs-layout">
+                <aside class="sidebar-card fade-in" aria-label="Subnavegacion del avance">
+                    <div>
+                        <span class="eyebrow">Contenido</span>
+                        <h2 class="section-title">Secciones del avance</h2>
+                    </div>
+                    <div class="doc-links">
+                        <a class="is-active" href="pruebas-usuario.html">Pruebas con usuarios</a>
+                        <a href="resultados-prueba.html">Resultados de prueba</a>
+                        <a href="evaluacion-heuristica.html">Evaluacion heuristica</a>
+                        <a href="accesibilidad.html">Accesibilidad</a>
+                        <a href="mejoras.html">Mejoras aplicadas</a>
+                        <a href="index.html">Resumen del avance</a>
+                    </div>
+                </aside>
+
+                <div class="section-stack">
+                    <article class="doc-shell fade-in">
+                        <span class="eyebrow">Participantes</span>
+                        <h2 class="section-title">Perfiles de usuarios considerados</h2>
+                        <div class="doc-grid">
+                            <div class="comparison-card">
+                                <h3>Usuario 1</h3>
+                                <p class="panel-text">Estudiante de 19 anos, alta familiaridad con apps web y foco en talleres artisticos.</p>
+                            </div>
+                            <div class="comparison-card">
+                                <h3>Usuario 2</h3>
+                                <p class="panel-text">Profesional joven de 27 anos, busca opciones nocturnas y virtuales.</p>
+                            </div>
+                            <div class="comparison-card">
+                                <h3>Usuario 3</h3>
+                                <p class="panel-text">Madre de familia de 36 anos, prioriza claridad y confianza antes de inscribirse.</p>
+                            </div>
+                            <div class="comparison-card">
+                                <h3>Usuario 4</h3>
+                                <p class="panel-text">Docente de 31 anos, evalua accesibilidad, consistencia visual y carga cognitiva.</p>
+                            </div>
+                            <div class="comparison-card">
+                                <h3>Usuario 5</h3>
+                                <p class="panel-text">Organizador cultural de 42 anos, revisa tambien el flujo administrativo.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="doc-shell fade-in">
+                        <span class="eyebrow">Tareas definidas</span>
+                        <h2 class="section-title">Secuencia de tareas del test</h2>
+                        <div class="callout-list">
+                            <div class="callout-item">
+                                <strong>Tarea 1: Registrarse</strong>
+                                <p class="panel-text">Crear una cuenta nueva con nombre, correo, telefono, categoria principal y contrasena segura.</p>
+                            </div>
+                            <div class="callout-item">
+                                <strong>Tarea 2: Buscar taller</strong>
+                                <p class="panel-text">Explorar el catalogo y aplicar filtros de categoria, distrito o modalidad.</p>
+                            </div>
+                            <div class="callout-item">
+                                <strong>Tarea 3: Ver detalle</strong>
+                                <p class="panel-text">Ingresar a una tarjeta del catalogo y revisar descripcion, horario, precio y comentarios.</p>
+                            </div>
+                            <div class="callout-item">
+                                <strong>Tarea 4: Inscribirse</strong>
+                                <p class="panel-text">Completar el formulario de inscripcion y verificar la pantalla de confirmacion.</p>
+                            </div>
+                            <div class="callout-item">
+                                <strong>Tarea 5: Publicar taller como administrador</strong>
+                                <p class="panel-text">Entrar al panel admin, registrar un nuevo taller y confirmar la publicacion.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="doc-shell fade-in">
+                        <span class="eyebrow">Criterios de observacion</span>
+                        <h2 class="section-title">Que se evalua en las sesiones</h2>
+                        <ul class="check-list">
+                            <li>Tiempo para completar cada tarea sin apoyo directo.</li>
+                            <li>Errores cometidos, dudas expresadas y puntos de confusion.</li>
+                            <li>Capacidad para reconocer botones principales y rutas de regreso.</li>
+                            <li>Percepcion de confianza, claridad visual y facilidad de uso.</li>
+                            <li>Nivel de satisfaccion general luego de completar el flujo.</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h2>TuTaller.pe</h2>
+                    <p>Documento de apoyo para explicar la metodologia de prueba y las tareas utilizadas durante el Avance 3.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Continuar</h3>
+                    <a href="resultados-prueba.html">Ver resultados</a>
+                    <a href="evaluacion-heuristica.html">Ver heuristicas</a>
+                    <a href="index.html">Resumen final</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Flujos</h3>
+                    <a href="../talleres.html">Flujo de usuario</a>
+                    <a href="../admin.html">Flujo admin</a>
+                    <a href="../ayuda.html">Ayuda</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Accesibilidad</h3>
+                    <a href="accesibilidad.html">Practicas aplicadas</a>
+                    <a href="mejoras.html">Mejoras visuales</a>
+                    <a href="../../README.md">README</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+

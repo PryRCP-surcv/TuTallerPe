@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicar taller | TuTaller.pe</title>
+    <meta name="description" content="Formulario de publicacion de talleres en TuTaller.pe con validaciones obligatorias y mensajes accesibles para organizadores.">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body data-page="admin">
+    <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+
+    <header class="site-header">
+        <div class="container header-shell">
+            <a class="brand" href="index.html" aria-label="Ir al inicio de TuTaller.pe">
+                <span class="brand-mark">TT</span>
+                <span class="brand-copy">
+                    <strong>TuTaller.pe</strong>
+                    <span>Encuentra, compara e inscribete</span>
+                </span>
+            </a>
+            <button class="nav-toggle" type="button" aria-label="Abrir menu principal" aria-expanded="false" aria-controls="menu-principal" data-nav-toggle>
+                <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 7h16M4 12h16M4 17h16"></path>
+                </svg>
+            </button>
+            <nav class="site-nav" id="menu-principal" aria-label="Principal" data-nav-menu>
+                <a class="nav-link" href="index.html" data-nav-item="inicio">Inicio</a>
+                <a class="nav-link" href="talleres.html" data-nav-item="talleres">Talleres</a>
+                <a class="nav-link" href="ayuda.html" data-nav-item="ayuda">Soporte</a>
+                <a class="nav-link" href="perfil.html" data-nav-item="perfil">Mi cuenta</a>
+                <a class="nav-link" href="admin.html" data-nav-item="admin">Publica tu taller</a>
+                <a class="nav-link nav-cta" href="login.html" data-nav-item="login">Ingresar</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="contenido-principal">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb-list">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="admin.html">Organizadores</a></li>
+                    <li aria-current="page">Publicar taller</li>
+                </ol>
+            </div>
+        </nav>
+
+        <section class="page-hero">
+            <div class="container surface-card page-hero-card fade-in">
+                <span class="eyebrow">Alta de talleres</span>
+                <h1 class="page-title">Publica un nuevo taller</h1>
+                <p class="page-description">
+                    Completa la informacion esencial de tu taller para publicarlo con una presentacion clara, confiable y facil de explorar.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container detail-layout">
+                <aside class="detail-panel fade-in">
+                    <span class="eyebrow">Guia del formulario</span>
+                    <h2 class="section-title">Recomendaciones para publicar</h2>
+                    <ul class="check-list">
+                        <li>Usa un nombre claro y orientado a la necesidad del usuario.</li>
+                        <li>Selecciona una categoria que facilite la busqueda en el catalogo.</li>
+                        <li>Define precio y vacantes para comunicar disponibilidad real.</li>
+                        <li>Describe el valor del taller y lo que aprendera el participante.</li>
+                    </ul>
+
+                    <div class="message-box warning">
+                        <strong>Importante</strong>
+                        <p class="panel-text">Completa todos los campos para mostrar una publicacion consistente, ordenada y facil de entender para los usuarios.</p>
+                    </div>
+                </aside>
+
+                <section class="form-shell fade-in" aria-labelledby="titulo-crear-taller">
+                    <span class="eyebrow">Formulario de publicacion</span>
+                    <h2 class="form-title" id="titulo-crear-taller">Datos del taller</h2>
+                    <p class="form-description">Completa la informacion principal del taller para publicarlo con datos claros y consistentes.</p>
+
+                    <form id="crearTallerForm" novalidate class="form-grid">
+                        <div class="form-feedback" role="alert" aria-live="assertive"></div>
+
+                        <div class="form-group">
+                            <label for="tallerNombre">Nombre del taller</label>
+                            <input id="tallerNombre" type="text" placeholder="Ejemplo: Taller de Fotografia Creativa">
+                            <div id="errorTallerNombre" class="error-msg" aria-live="polite"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tallerCategoria">Categoria</label>
+                            <select id="tallerCategoria">
+                                <option value="">Selecciona una categoria</option>
+                                <option>Arte</option>
+                                <option>Musica</option>
+                                <option>Danza</option>
+                                <option>Tecnologia</option>
+                                <option>Cocina</option>
+                                <option>Idiomas</option>
+                            </select>
+                            <div id="errorTallerCategoria" class="error-msg" aria-live="polite"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tallerDistrito">Distrito</label>
+                            <select id="tallerDistrito">
+                                <option value="">Selecciona un distrito</option>
+                                <option>Ancon</option>
+                                <option>Ate</option>
+                                <option>Barranco</option>
+                                <option>Bellavista</option>
+                                <option>Brena</option>
+                                <option>Callao</option>
+                                <option>Carabayllo</option>
+                                <option>Carmen de la Legua-Reynoso</option>
+                                <option>Chaclacayo</option>
+                                <option>Chorrillos</option>
+                                <option>Cieneguilla</option>
+                                <option>Comas</option>
+                                <option>El Agustino</option>
+                                <option>Independencia</option>
+                                <option>Jesus Maria</option>
+                                <option>La Molina</option>
+                                <option>La Perla</option>
+                                <option>La Punta</option>
+                                <option>La Victoria</option>
+                                <option>Lima Cercado</option>
+                                <option>Lince</option>
+                                <option>Los Olivos</option>
+                                <option>Lurigancho-Chosica</option>
+                                <option>Lurin</option>
+                                <option>Magdalena del Mar</option>
+                                <option>Mi Peru</option>
+                                <option>Miraflores</option>
+                                <option>Pachacamac</option>
+                                <option>Pucusana</option>
+                                <option>Pueblo Libre</option>
+                                <option>Puente Piedra</option>
+                                <option>Punta Hermosa</option>
+                                <option>Punta Negra</option>
+                                <option>Rimac</option>
+                                <option>San Bartolo</option>
+                                <option>San Borja</option>
+                                <option>San Isidro</option>
+                                <option>San Juan de Lurigancho</option>
+                                <option>San Juan de Miraflores</option>
+                                <option>San Luis</option>
+                                <option>San Martin de Porres</option>
+                                <option>San Miguel</option>
+                                <option>Santa Anita</option>
+                                <option>Santa Maria del Mar</option>
+                                <option>Santa Rosa</option>
+                                <option>Santiago de Surco</option>
+                                <option>Surquillo</option>
+                                <option>Virtual</option>
+                                <option>Ventanilla</option>
+                                <option>Villa El Salvador</option>
+                                <option>Villa Maria del Triunfo</option>
+                            </select>
+                            <div id="errorTallerDistrito" class="error-msg" aria-live="polite"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tallerTipo">Tipo</label>
+                            <select id="tallerTipo">
+                                <option value="">Selecciona el tipo</option>
+                                <option>Presencial</option>
+                                <option>Virtual</option>
+                                <option>Mixto</option>
+                            </select>
+                            <div id="errorTallerTipo" class="error-msg" aria-live="polite"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tallerHorario">Horario</label>
+                            <input id="tallerHorario" type="text" placeholder="Ejemplo: Sabados 4:00 PM">
+                            <div id="errorTallerHorario" class="error-msg" aria-live="polite"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tallerPrecio">Precio</label>
+                            <input id="tallerPrecio" type="number" min="1" step="0.01" placeholder="70">
+                            <div id="errorTallerPrecio" class="error-msg" aria-live="polite"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tallerVacantes">Vacantes</label>
+                            <input id="tallerVacantes" type="number" min="1" step="1" placeholder="15">
+                            <div id="errorTallerVacantes" class="error-msg" aria-live="polite"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tallerDescripcion">Descripcion</label>
+                            <textarea id="tallerDescripcion" placeholder="Describe el contenido, publico objetivo y beneficio del taller."></textarea>
+                            <div id="errorTallerDescripcion" class="error-msg" aria-live="polite"></div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button class="btn" type="submit">Publicar taller</button>
+                            <a class="btn-secondary" href="admin.html">Cancelar y volver</a>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h2>TuTaller.pe</h2>
+                    <p>Formulario pensado para que los organizadores publiquen experiencias con informacion clara y atractiva.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Organiza</h3>
+                    <a href="admin.html">Volver al panel</a>
+                    <a href="confirmacion-taller.html">Ver confirmacion</a>
+                    <a href="talleres.html">Ver catalogo</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Cuenta</h3>
+                    <a href="talleres.html">Ver catalogo</a>
+                    <a href="detalle-taller.html">Detalle del taller</a>
+                    <a href="perfil.html">Mi cuenta</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Soporte</h3>
+                    <a href="ayuda.html">Centro de soporte</a>
+                    <a href="confirmacion-taller.html">Ver confirmacion</a>
+                    <a href="perfil.html">Ir a mi cuenta</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

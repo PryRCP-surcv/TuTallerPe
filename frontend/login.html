@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingresar | TuTaller.pe</title>
+    <meta name="description" content="Accede a tu cuenta de TuTaller.pe para revisar tus talleres, reservas y preferencias.">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body data-page="login">
+    <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+
+    <header class="site-header">
+        <div class="container header-shell">
+            <a class="brand" href="index.html" aria-label="Ir al inicio de TuTaller.pe">
+                <span class="brand-mark">TT</span>
+                <span class="brand-copy">
+                    <strong>TuTaller.pe</strong>
+                    <span>Encuentra, compara e inscribete</span>
+                </span>
+            </a>
+            <button class="nav-toggle" type="button" aria-label="Abrir menu principal" aria-expanded="false" aria-controls="menu-principal" data-nav-toggle>
+                <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 7h16M4 12h16M4 17h16"></path>
+                </svg>
+            </button>
+            <nav class="site-nav" id="menu-principal" aria-label="Principal" data-nav-menu>
+                <a class="nav-link" href="index.html" data-nav-item="inicio">Inicio</a>
+                <a class="nav-link" href="talleres.html" data-nav-item="talleres">Talleres</a>
+                <a class="nav-link" href="ayuda.html" data-nav-item="ayuda">Soporte</a>
+                <a class="nav-link" href="perfil.html" data-nav-item="perfil">Mi cuenta</a>
+                <a class="nav-link" href="admin.html" data-nav-item="admin">Publica tu taller</a>
+                <a class="nav-link nav-cta" href="login.html" data-nav-item="login">Ingresar</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="contenido-principal">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb-list">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li aria-current="page">Ingresar</li>
+                </ol>
+            </div>
+        </nav>
+
+        <section class="section">
+            <div class="container auth-layout">
+                <aside class="surface-card auth-aside fade-in">
+                    <span class="eyebrow">Acceso seguro</span>
+                    <h1 class="page-title">Inicia sesion para continuar con tu inscripcion</h1>
+                    <p class="page-description">Accede a tu cuenta para revisar tus talleres, completar una reserva o gestionar tu informacion personal con seguridad.</p>
+                    <img src="imagenes/hero.jpg" alt="Personas revisando opciones de talleres en una computadora.">
+                    <div class="message-box info">
+                        <strong>Proteccion de tu cuenta</strong>
+                        <p class="panel-text">Verificamos tu correo y tu contrasena para ofrecerte un acceso claro, seguro y sin fricciones.</p>
+                    </div>
+                </aside>
+
+                <section class="form-shell fade-in" aria-labelledby="titulo-login">
+                    <span class="eyebrow">Acceso a la cuenta</span>
+                    <h2 class="form-title" id="titulo-login">Iniciar sesion</h2>
+                    <p class="form-description">Completa tus datos para ingresar. Si algo falta, veras mensajes claros para corregirlo al instante.</p>
+
+                    <form id="loginForm" novalidate class="form-grid">
+                        <div class="form-feedback" role="alert" aria-live="assertive"></div>
+
+                        <div class="form-group">
+                            <label for="loginCorreo">Correo electronico</label>
+                            <input id="loginCorreo" type="email" autocomplete="email" placeholder="usuario@correo.com">
+                            <div id="errorLoginCorreo" class="error-msg" aria-live="polite"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="loginPassword">Contrasena</label>
+                            <input id="loginPassword" type="password" autocomplete="current-password" placeholder="Minimo 8 caracteres, una mayuscula y un numero">
+                            <div id="errorLoginPassword" class="error-msg" aria-live="polite"></div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button class="btn btn-block" type="submit">Ingresar</button>
+                        </div>
+                    </form>
+
+                    <div class="message-box" style="margin-top: 18px;">
+                        <strong>Necesitas una cuenta?</strong>
+                        <p class="panel-text">Crea tu cuenta en pocos pasos y empieza a guardar tus talleres favoritos e inscripciones.</p>
+                        <div class="button-row">
+                            <a class="btn-secondary" href="registro.html">Crear cuenta</a>
+                            <a class="btn-ghost" href="ayuda.html">Ver soporte</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h2>TuTaller.pe</h2>
+                    <p>Acceso seguro a tu cuenta para revisar reservas, preferencias y nuevas oportunidades de aprendizaje.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Cuenta</h3>
+                    <a href="registro.html">Crear cuenta</a>
+                    <a href="perfil.html">Ver mi cuenta</a>
+                    <a href="ayuda.html">Centro de soporte</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Explorar</h3>
+                    <a href="index.html">Volver al inicio</a>
+                    <a href="talleres.html">Explorar talleres</a>
+                    <a href="admin.html">Portal para organizadores</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Soporte</h3>
+                    <a href="ayuda.html">Centro de soporte</a>
+                    <a href="index.html">Volver al inicio</a>
+                    <a href="detalle-taller.html">Ver un taller</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscripcion confirmada | TuTaller.pe</title>
+    <meta name="description" content="Pantalla de confirmacion de inscripcion al taller con resumen del registro y siguientes pasos.">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body data-page="talleres">
+    <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+
+    <header class="site-header">
+        <div class="container header-shell">
+            <a class="brand" href="index.html" aria-label="Ir al inicio de TuTaller.pe">
+                <span class="brand-mark">TT</span>
+                <span class="brand-copy">
+                    <strong>TuTaller.pe</strong>
+                    <span>Encuentra, compara e inscribete</span>
+                </span>
+            </a>
+            <button class="nav-toggle" type="button" aria-label="Abrir menu principal" aria-expanded="false" aria-controls="menu-principal" data-nav-toggle>
+                <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 7h16M4 12h16M4 17h16"></path>
+                </svg>
+            </button>
+            <nav class="site-nav" id="menu-principal" aria-label="Principal" data-nav-menu>
+                <a class="nav-link" href="index.html" data-nav-item="inicio">Inicio</a>
+                <a class="nav-link" href="talleres.html" data-nav-item="talleres">Talleres</a>
+                <a class="nav-link" href="ayuda.html" data-nav-item="ayuda">Soporte</a>
+                <a class="nav-link" href="perfil.html" data-nav-item="perfil">Mi cuenta</a>
+                <a class="nav-link" href="admin.html" data-nav-item="admin">Publica tu taller</a>
+                <a class="nav-link nav-cta" href="login.html" data-nav-item="login">Ingresar</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="contenido-principal">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb-list">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="talleres.html">Talleres</a></li>
+                    <li><a href="inscripcion.html">Inscripcion</a></li>
+                    <li aria-current="page">Confirmacion</li>
+                </ol>
+            </div>
+        </nav>
+
+        <section class="section">
+            <div class="container confirmation-card fade-in">
+                <div class="confirmation-mark" aria-hidden="true">OK</div>
+                <span class="eyebrow">Inscripcion registrada</span>
+                <h1 class="confirmation-title">Tu inscripcion fue realizada correctamente</h1>
+                <p class="confirmation-copy">
+                    Hemos confirmado tu reserva para el Taller de Pintura Artistica. Ahora puedes revisar el estado de tu inscripcion y seguir explorando nuevas opciones.
+                </p>
+
+                <div class="summary-card table-shell">
+                    <h2 class="section-title">Resumen de la inscripcion</h2>
+                    <ul class="detail-list">
+                        <li><strong>Taller</strong><span>Taller de Pintura Artistica</span></li>
+                        <li><strong>Modalidad</strong><span>Presencial</span></li>
+                        <li><strong>Horario</strong><span>Domingos 10:00 AM</span></li>
+                        <li><strong>Duracion</strong><span>8 semanas</span></li>
+                        <li><strong>Estado</strong><span>Confirmado</span></li>
+                    </ul>
+                </div>
+
+                <div class="button-row" style="justify-content:center; margin-top: 28px;">
+                    <a class="btn" href="perfil.html">Ir a mi perfil</a>
+                    <a class="btn-secondary" href="talleres.html">Explorar mas talleres</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h2>TuTaller.pe</h2>
+                    <p>Confirmacion visual clara, con mensaje positivo, resumen util y acceso directo al perfil.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Continuar</h3>
+                    <a href="perfil.html">Ver mi cuenta</a>
+                    <a href="talleres.html">Buscar otros talleres</a>
+                    <a href="detalle-taller.html">Volver al detalle</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Soporte</h3>
+                    <a href="ayuda.html">Centro de soporte</a>
+                    <a href="perfil.html">Ir a mi cuenta</a>
+                    <a href="index.html">Volver al inicio</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Organizadores</h3>
+                    <a href="admin.html">Portal</a>
+                    <a href="crear-taller.html">Crear taller</a>
+                    <a href="confirmacion-taller.html">Ultima publicacion</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal para organizadores | TuTaller.pe</title>
+    <meta name="description" content="Portal para organizadores de TuTaller.pe con gestion de talleres, usuarios e inscripciones.">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body data-page="admin">
+    <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+
+    <header class="site-header">
+        <div class="container header-shell">
+            <a class="brand" href="index.html" aria-label="Ir al inicio de TuTaller.pe">
+                <span class="brand-mark">TT</span>
+                <span class="brand-copy">
+                    <strong>TuTaller.pe</strong>
+                    <span>Encuentra, compara e inscribete</span>
+                </span>
+            </a>
+            <button class="nav-toggle" type="button" aria-label="Abrir menu principal" aria-expanded="false" aria-controls="menu-principal" data-nav-toggle>
+                <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 7h16M4 12h16M4 17h16"></path>
+                </svg>
+            </button>
+            <nav class="site-nav" id="menu-principal" aria-label="Principal" data-nav-menu>
+                <a class="nav-link" href="index.html" data-nav-item="inicio">Inicio</a>
+                <a class="nav-link" href="talleres.html" data-nav-item="talleres">Talleres</a>
+                <a class="nav-link" href="ayuda.html" data-nav-item="ayuda">Soporte</a>
+                <a class="nav-link" href="perfil.html" data-nav-item="perfil">Mi cuenta</a>
+                <a class="nav-link" href="admin.html" data-nav-item="admin">Publica tu taller</a>
+                <a class="nav-link nav-cta" href="login.html" data-nav-item="login">Ingresar</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="contenido-principal">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb-list">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li aria-current="page">Organizadores</li>
+                </ol>
+            </div>
+        </nav>
+
+        <section class="page-hero">
+            <div class="container surface-card page-hero-card fade-in">
+                <span class="eyebrow">Portal para organizadores</span>
+                <h1 class="page-title">Haz crecer tus talleres con una gestion simple</h1>
+                <p class="page-description">
+                    Publica nuevas experiencias, mantente al tanto de tus reservas y ordena tu oferta con una vista clara y facil de usar.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container friendly-grid">
+                <article class="friendly-card fade-in">
+                    <strong>Publica mas rapido</strong>
+                    <p>Registra nombre, categoria, modalidad, precio y vacantes en pocos pasos.</p>
+                </article>
+                <article class="friendly-card fade-in">
+                    <strong>Sigue tu actividad</strong>
+                    <p>Revisa talleres activos, reservas y alertas desde un mismo espacio.</p>
+                </article>
+                <article class="friendly-card fade-in">
+                    <strong>Ordena mejor tu oferta</strong>
+                    <p>Visualiza estados, categorias y modalidades con menos friccion.</p>
+                </article>
+                <article class="friendly-card fade-in">
+                    <strong>Llega a mas personas</strong>
+                    <p>Mantente visible dentro del catalogo y presenta experiencias mas claras.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container dashboard-layout">
+                <aside class="sidebar-card fade-in">
+                    <div>
+                        <span class="eyebrow">Accesos rapidos</span>
+                        <h2 class="section-title">Empieza por lo importante</h2>
+                    </div>
+                    <div class="sidebar-links">
+                        <a href="admin.html">Resumen general</a>
+                        <a href="crear-taller.html">Publicar taller</a>
+                        <a href="talleres.html">Ver catalogo publico</a>
+                        <a href="ayuda.html">Consultar soporte</a>
+                    </div>
+                    <div class="message-box info">
+                        <strong>Gestion centralizada</strong>
+                        <p class="panel-text">Ten a la mano tus publicaciones, movimientos recientes y proximas oportunidades en un panel mucho mas claro.</p>
+                    </div>
+                </aside>
+
+                <div class="section-stack">
+                    <div class="stats-grid">
+                        <div class="surface-card metric-card fade-in">
+                            <span>Talleres activos</span>
+                            <strong>12</strong>
+                            <span>Publicaciones visibles para usuarios.</span>
+                        </div>
+                        <div class="surface-card metric-card fade-in">
+                            <span>Usuarios registrados</span>
+                            <strong>85</strong>
+                            <span>Personas interesadas en nuevas experiencias.</span>
+                        </div>
+                        <div class="surface-card metric-card fade-in">
+                            <span>Reservas recibidas</span>
+                            <strong>34</strong>
+                            <span>Solicitudes pendientes de seguimiento.</span>
+                        </div>
+                        <div class="surface-card metric-card fade-in">
+                            <span>Alertas</span>
+                            <strong>3</strong>
+                            <span>Talleres con vacantes por revisar.</span>
+                        </div>
+                    </div>
+
+                    <article class="panel fade-in">
+                        <div class="section-heading">
+                            <div>
+                                <span class="eyebrow">Gestion de talleres</span>
+                                <h2 class="section-title">Publicaciones recientes</h2>
+                            </div>
+                            <a class="btn" href="crear-taller.html">Agregar taller</a>
+                        </div>
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Taller</th>
+                                        <th scope="col">Categoria</th>
+                                        <th scope="col">Modalidad</th>
+                                        <th scope="col">Estado</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Taller de Pintura Artistica</td>
+                                        <td>Arte</td>
+                                        <td>Presencial</td>
+                                        <td><span class="status-pill">Activo</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Taller de Canto Inicial</td>
+                                        <td>Musica</td>
+                                        <td>Virtual</td>
+                                        <td><span class="status-pill">Activo</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Taller de Cocina Basica</td>
+                                        <td>Cocina</td>
+                                        <td>Presencial</td>
+                                        <td><span class="status-pill warning">Pendiente</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </article>
+
+                    <div class="info-grid">
+                        <article class="table-shell fade-in">
+                            <span class="eyebrow">Usuarios recientes</span>
+                            <h2 class="section-title">Ultimos registros</h2>
+                            <div class="table-wrapper">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Usuario</th>
+                                            <th scope="col">Correo</th>
+                                            <th scope="col">Tipo</th>
+                                            <th scope="col">Estado</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Maria Lopez</td>
+                                            <td>maria@correo.com</td>
+                                            <td>Estudiante</td>
+                                            <td><span class="status-pill">Activo</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Carlos Ramirez</td>
+                                            <td>carlos@correo.com</td>
+                                            <td>Profesional</td>
+                                            <td><span class="status-pill">Activo</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Andrea Torres</td>
+                                            <td>andrea@correo.com</td>
+                                            <td>Padre o madre</td>
+                                            <td><span class="status-pill">Activo</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </article>
+
+                        <article class="panel fade-in">
+                            <span class="eyebrow">Reportes basicos</span>
+                            <h2 class="section-title">Hallazgos rapidos</h2>
+                            <ul class="timeline">
+                                <li>Arte y musica concentran una alta demanda entre las publicaciones visibles.</li>
+                                <li>La accion "Publicar taller" se mantiene siempre visible para acelerar la gestion.</li>
+                                <li>Las tablas con estados y categorias ayudan a ordenar mejor la operacion diaria.</li>
+                            </ul>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h2>TuTaller.pe</h2>
+                    <p>Espacio pensado para que los organizadores publiquen, revisen y hagan crecer su oferta de talleres.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Organiza</h3>
+                    <a href="crear-taller.html">Publicar taller</a>
+                    <a href="confirmacion-taller.html">Ver ultima publicacion</a>
+                    <a href="talleres.html">Ver catalogo</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Cuenta</h3>
+                    <a href="index.html">Inicio</a>
+                    <a href="talleres.html">Catalogo</a>
+                    <a href="perfil.html">Mi cuenta</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Soporte</h3>
+                    <a href="ayuda.html">Centro de soporte</a>
+                    <a href="confirmacion-taller.html">Ver confirmacion</a>
+                    <a href="talleres.html">Explorar talleres</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

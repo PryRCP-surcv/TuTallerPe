@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi perfil | TuTaller.pe</title>
+    <meta name="description" content="Mi cuenta en TuTaller.pe con datos personales, talleres inscritos y acciones de seguimiento.">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body data-page="perfil">
+    <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+
+    <header class="site-header">
+        <div class="container header-shell">
+            <a class="brand" href="index.html" aria-label="Ir al inicio de TuTaller.pe">
+                <span class="brand-mark">TT</span>
+                <span class="brand-copy">
+                    <strong>TuTaller.pe</strong>
+                    <span>Encuentra, compara e inscribete</span>
+                </span>
+            </a>
+            <button class="nav-toggle" type="button" aria-label="Abrir menu principal" aria-expanded="false" aria-controls="menu-principal" data-nav-toggle>
+                <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 7h16M4 12h16M4 17h16"></path>
+                </svg>
+            </button>
+            <nav class="site-nav" id="menu-principal" aria-label="Principal" data-nav-menu>
+                <a class="nav-link" href="index.html" data-nav-item="inicio">Inicio</a>
+                <a class="nav-link" href="talleres.html" data-nav-item="talleres">Talleres</a>
+                <a class="nav-link" href="ayuda.html" data-nav-item="ayuda">Soporte</a>
+                <a class="nav-link" href="perfil.html" data-nav-item="perfil">Mi cuenta</a>
+                <a class="nav-link" href="admin.html" data-nav-item="admin">Publica tu taller</a>
+                <a class="nav-link nav-cta" href="login.html" data-nav-item="login">Ingresar</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="contenido-principal">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb-list">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li aria-current="page">Mi perfil</li>
+                </ol>
+            </div>
+        </nav>
+
+        <section class="page-hero">
+            <div class="container surface-card page-hero-card fade-in">
+                <span class="eyebrow">Mi cuenta</span>
+                <h1 class="page-title">Gestiona tus datos y tus talleres en un solo lugar</h1>
+                <p class="page-description">
+                    Revisa tu informacion personal, consulta el estado de tus reservas y encuentra nuevas acciones para seguir explorando experiencias.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container profile-layout">
+                <aside class="sidebar-card fade-in">
+                    <div>
+                        <span class="eyebrow">Menu del perfil</span>
+                        <h2 class="section-title">Accesos rapidos</h2>
+                    </div>
+                    <div class="sidebar-links">
+                        <a href="#datos-personales">Datos personales</a>
+                        <a href="#talleres-inscritos">Mis talleres</a>
+                        <a href="#siguientes-pasos">Siguientes pasos</a>
+                        <a href="talleres.html">Explorar nuevos talleres</a>
+                    </div>
+                    <div class="message-box info">
+                        <strong>Estado actual</strong>
+                        <p class="panel-text">El usuario ya cuenta con una inscripcion confirmada y puede revisar el resumen desde este panel.</p>
+                    </div>
+                </aside>
+
+                <div class="section-stack">
+                    <article class="panel fade-in" id="datos-personales">
+                        <span class="eyebrow">Datos personales</span>
+                        <h2 class="section-title">Informacion del usuario</h2>
+                        <ul class="detail-list">
+                            <li><strong>Nombre</strong><span>Usuario de prueba</span></li>
+                            <li><strong>Correo</strong><span>usuario@tutaller.pe</span></li>
+                            <li><strong>Telefono</strong><span>999 888 777</span></li>
+                            <li><strong>Interes principal</strong><span>Arte y Musica</span></li>
+                        </ul>
+                    </article>
+
+                    <article class="table-shell fade-in" id="talleres-inscritos">
+                        <span class="eyebrow">Mis talleres</span>
+                        <h2 class="section-title">Inscripciones activas</h2>
+                        <div class="table-wrapper">
+                            <table>
+                                <caption>Seguimiento de talleres asociados al usuario.</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Taller</th>
+                                        <th scope="col">Modalidad</th>
+                                        <th scope="col">Horario</th>
+                                        <th scope="col">Estado</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Taller de Pintura Artistica</td>
+                                        <td>Presencial</td>
+                                        <td>Domingos 10:00 AM</td>
+                                        <td><span class="status-pill">Confirmado</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Taller de Canto Inicial</td>
+                                        <td>Virtual</td>
+                                        <td>Viernes 7:00 PM</td>
+                                        <td><span class="status-pill warning">Pendiente de pago</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </article>
+
+                    <article class="info-grid" id="siguientes-pasos">
+                        <div class="panel fade-in">
+                            <span class="eyebrow">Seguimiento</span>
+                            <h2 class="section-title">Proximas acciones</h2>
+                            <ul class="check-list">
+                                <li>Revisar el correo de confirmacion del taller inscrito.</li>
+                                <li>Explorar nuevas opciones relacionadas con arte y musica.</li>
+                                <li>Actualizar preferencias para recibir mejores recomendaciones.</li>
+                            </ul>
+                        </div>
+                        <div class="panel fade-in">
+                            <span class="eyebrow">Navegacion</span>
+                            <h2 class="section-title">Acciones disponibles</h2>
+                            <div class="button-row">
+                                <a class="btn" href="talleres.html">Buscar nuevos talleres</a>
+                                <a class="btn-secondary" href="detalle-taller.html">Volver al detalle</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h2>TuTaller.pe</h2>
+                    <p>Espacio personal para seguir tus talleres, actualizar tu informacion y descubrir nuevas oportunidades.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Mi actividad</h3>
+                    <a href="talleres.html">Seguir explorando</a>
+                    <a href="confirmacion.html">Ver confirmacion</a>
+                    <a href="ayuda.html">Solicitar soporte</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Acciones</h3>
+                    <a href="talleres.html">Buscar talleres</a>
+                    <a href="detalle-taller.html">Ver detalle</a>
+                    <a href="ayuda.html">Centro de soporte</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Organizadores</h3>
+                    <a href="admin.html">Portal</a>
+                    <a href="crear-taller.html">Crear taller</a>
+                    <a href="confirmacion-taller.html">Ultima publicacion</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TuTaller.pe | Descubre talleres en Lima</title>
+    <meta name="description" content="Explora talleres culturales, creativos y recreativos en TuTaller.pe. Encuentra opciones por categoria, distrito y modalidad.">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body data-page="inicio">
+    <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+
+    <header class="site-header">
+        <div class="container header-shell">
+            <a class="brand" href="index.html" aria-label="Ir al inicio de TuTaller.pe">
+                <span class="brand-mark">TT</span>
+                <span class="brand-copy">
+                    <strong>TuTaller.pe</strong>
+                    <span>Encuentra, compara e inscribete</span>
+                </span>
+            </a>
+
+            <button class="nav-toggle" type="button" aria-label="Abrir menu principal" aria-expanded="false" aria-controls="menu-principal" data-nav-toggle>
+                <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 7h16M4 12h16M4 17h16"></path>
+                </svg>
+            </button>
+
+            <nav class="site-nav" id="menu-principal" aria-label="Principal" data-nav-menu>
+                <a class="nav-link" href="index.html" data-nav-item="inicio">Inicio</a>
+                <a class="nav-link" href="talleres.html" data-nav-item="talleres">Talleres</a>
+                <a class="nav-link" href="ayuda.html" data-nav-item="ayuda">Soporte</a>
+                <a class="nav-link" href="perfil.html" data-nav-item="perfil">Mi cuenta</a>
+                <a class="nav-link" href="admin.html" data-nav-item="admin">Publica tu taller</a>
+                <a class="nav-link nav-cta" href="login.html" data-nav-item="login">Ingresar</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="contenido-principal">
+        <section class="hero">
+            <div class="container hero-shell hero-shell-simple">
+                <div class="hero-copy fade-in">
+                    <h1 class="hero-title">Busca e inscribete en talleres</h1>
+                    <p class="hero-description">
+                        Plataforma orientada a facilitar la busqueda, comparacion e inscripcion en talleres culturales,
+                        educativos y recreativos.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container search-shell fade-in">
+                <form class="search-form search-form-wide" action="talleres.html" method="get">
+                    <div class="form-group search-wide">
+                        <label for="homeBusqueda">Buscar taller</label>
+                        <input id="homeBusqueda" name="q" type="text" placeholder="Buscar taller...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="homeCategoria">Categoria</label>
+                        <select id="homeCategoria" name="categoria">
+                            <option value="">Todas</option>
+                            <option>Arte</option>
+                            <option>Musica</option>
+                            <option>Danza</option>
+                            <option>Tecnologia</option>
+                            <option>Cocina</option>
+                            <option>Idiomas</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="homeDistrito">Distrito</label>
+                        <select id="homeDistrito" name="distrito">
+                            <option value="">Todos</option>
+                            <option>Ancon</option>
+                            <option>Ate</option>
+                            <option>Barranco</option>
+                            <option>Bellavista</option>
+                            <option>Brena</option>
+                            <option>Callao</option>
+                            <option>Carabayllo</option>
+                            <option>Carmen de la Legua-Reynoso</option>
+                            <option>Chaclacayo</option>
+                            <option>Chorrillos</option>
+                            <option>Cieneguilla</option>
+                            <option>Comas</option>
+                            <option>El Agustino</option>
+                            <option>Independencia</option>
+                            <option>Jesus Maria</option>
+                            <option>La Molina</option>
+                            <option>La Perla</option>
+                            <option>La Punta</option>
+                            <option>La Victoria</option>
+                            <option>Lima Cercado</option>
+                            <option>Lince</option>
+                            <option>Los Olivos</option>
+                            <option>Lurigancho-Chosica</option>
+                            <option>Lurin</option>
+                            <option>Magdalena del Mar</option>
+                            <option>Mi Peru</option>
+                            <option>Miraflores</option>
+                            <option>Pachacamac</option>
+                            <option>Pucusana</option>
+                            <option>Pueblo Libre</option>
+                            <option>Puente Piedra</option>
+                            <option>Punta Hermosa</option>
+                            <option>Punta Negra</option>
+                            <option>Rimac</option>
+                            <option>San Bartolo</option>
+                            <option>San Borja</option>
+                            <option>San Isidro</option>
+                            <option>San Juan de Lurigancho</option>
+                            <option>San Juan de Miraflores</option>
+                            <option>San Luis</option>
+                            <option>San Martin de Porres</option>
+                            <option>San Miguel</option>
+                            <option>Santa Anita</option>
+                            <option>Santa Maria del Mar</option>
+                            <option>Santa Rosa</option>
+                            <option>Santiago de Surco</option>
+                            <option>Surquillo</option>
+                            <option>Virtual</option>
+                            <option>Ventanilla</option>
+                            <option>Villa El Salvador</option>
+                            <option>Villa Maria del Triunfo</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="homePrecio">Precio</label>
+                        <select id="homePrecio" name="precio">
+                            <option value="">Todos</option>
+                            <option>Menos de S/ 50</option>
+                            <option>S/ 50 - S/ 80</option>
+                            <option>S/ 80 - S/ 120</option>
+                            <option>Mas de S/ 120</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="homeHorario">Horario</label>
+                        <select id="homeHorario" name="horario">
+                            <option value="">Todos</option>
+                            <option>Manana</option>
+                            <option>Tarde</option>
+                            <option>Noche</option>
+                            <option>Fin de semana</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="homeTipo">Tipo</label>
+                        <select id="homeTipo" name="tipo">
+                            <option value="">Todos</option>
+                            <option>Presencial</option>
+                            <option>Virtual</option>
+                            <option>Mixto</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <button class="btn btn-block" type="submit">Buscar talleres</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <span class="eyebrow">Talleres destacados</span>
+                        <h2 class="section-title">Talleres destacados</h2>
+                    </div>
+                    <p class="section-description">Explora opciones recomendadas para empezar a comparar.</p>
+                </div>
+
+                <div class="card-grid">
+                    <article class="workshop-card fade-in">
+                        <div class="workshop-media">
+                            <img src="imagenes/pintura.webp" alt="Participantes pintando en un taller artistico.">
+                        </div>
+                        <div class="workshop-body">
+                            <div class="tag-list">
+                                <span class="tag">Arte</span>
+                                <span class="status-pill">Presencial</span>
+                            </div>
+                            <h3>Taller de Pintura Artistica</h3>
+                            <div class="workshop-meta">
+                                <div class="meta-row"><span>Distrito</span><span>San Isidro</span></div>
+                                <div class="meta-row"><span>Horario</span><span>Domingos 10:00 AM</span></div>
+                                <div class="meta-row"><span>Precio</span><span>S/ 70</span></div>
+                            </div>
+                            <a class="btn" href="detalle-taller.html" aria-label="Ver detalle del taller de pintura artistica">Ver detalle</a>
+                        </div>
+                    </article>
+
+                    <article class="workshop-card fade-in">
+                        <div class="workshop-media">
+                            <img src="imagenes/bailes.webp" alt="Grupo de personas ensayando una coreografia.">
+                        </div>
+                        <div class="workshop-body">
+                            <div class="tag-list">
+                                <span class="tag">Danza</span>
+                                <span class="status-pill warning">Fin de semana</span>
+                            </div>
+                            <h3>Taller de Baile Urbano</h3>
+                            <div class="workshop-meta">
+                                <div class="meta-row"><span>Distrito</span><span>Miraflores</span></div>
+                                <div class="meta-row"><span>Horario</span><span>Sabados 4:00 PM</span></div>
+                                <div class="meta-row"><span>Precio</span><span>S/ 50</span></div>
+                            </div>
+                            <a class="btn" href="detalle-taller.html" aria-label="Ver detalle del taller de baile urbano">Ver detalle</a>
+                        </div>
+                    </article>
+
+                    <article class="workshop-card fade-in">
+                        <div class="workshop-media">
+                            <img src="imagenes/canto.png" alt="Persona practicando tecnica vocal en un estudio.">
+                        </div>
+                        <div class="workshop-body">
+                            <div class="tag-list">
+                                <span class="tag">Musica</span>
+                                <span class="status-pill info">Virtual</span>
+                            </div>
+                            <h3>Taller de Canto Inicial</h3>
+                            <div class="workshop-meta">
+                                <div class="meta-row"><span>Distrito</span><span>Virtual</span></div>
+                                <div class="meta-row"><span>Horario</span><span>Viernes 7:00 PM</span></div>
+                                <div class="meta-row"><span>Precio</span><span>S/ 60</span></div>
+                            </div>
+                            <a class="btn" href="detalle-taller.html" aria-label="Ver detalle del taller de canto inicial">Ver detalle</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container stats-grid">
+                <div class="surface-card metric-card fade-in">
+                    <span>Categorias destacadas</span>
+                    <strong>6</strong>
+                    <span>Arte, musica, danza, cocina, tecnologia e idiomas.</span>
+                </div>
+                <div class="surface-card metric-card fade-in">
+                    <span>Modalidades</span>
+                    <strong>3</strong>
+                    <span>Presencial, virtual y mixto segun el tipo de experiencia que prefieras.</span>
+                </div>
+                <div class="surface-card metric-card fade-in">
+                    <span>Distritos disponibles</span>
+                    <strong>50+</strong>
+                    <span>Busqueda ampliada con distritos de Lima Metropolitana y opciones virtuales.</span>
+                </div>
+                <div class="surface-card metric-card fade-in">
+                    <span>Talleres activos</span>
+                    <strong>12</strong>
+                    <span>Publicaciones visibles con precio, horario y vacantes para comparar mejor.</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <span class="eyebrow">TuTaller.pe te acompana</span>
+                        <h2 class="section-title">Todo lo que necesitas para decidir mejor</h2>
+                    </div>
+                    <p class="section-description">Menos vueltas, mas claridad: descubre talleres, revisa detalles y toma accion cuando encuentres algo para ti.</p>
+                </div>
+
+                <div class="resource-grid">
+                    <a class="doc-shell fade-in" href="talleres.html">
+                        <h3>Encuentra talleres</h3>
+                        <p class="panel-text">Busca por categoria, distrito, modalidad y horario segun lo que necesites hoy.</p>
+                    </a>
+                    <a class="doc-shell fade-in" href="detalle-taller.html">
+                        <h3>Compara opciones</h3>
+                        <p class="panel-text">Revisa descripcion, precio, comentarios y vacantes antes de decidirte.</p>
+                    </a>
+                    <a class="doc-shell fade-in" href="inscripcion.html">
+                        <h3>Reserva tu cupo</h3>
+                        <p class="panel-text">Completa tu inscripcion en pocos pasos y revisa el estado desde tu perfil.</p>
+                    </a>
+                    <a class="doc-shell fade-in" href="admin.html">
+                        <h3>Publica tu taller</h3>
+                        <p class="panel-text">Comparte tu propuesta, publica nuevas fechas y manten tu oferta visible para mas personas.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h2>TuTaller.pe</h2>
+                    <p>Plataforma para descubrir talleres culturales, creativos y recreativos con una navegacion clara y rapida.</p>
+                    <p class="footer-note">Explora actividades, revisa detalles y sigue tus inscripciones en un solo lugar.</p>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Explorar</h3>
+                    <a href="talleres.html">Catalogo de talleres</a>
+                    <a href="detalle-taller.html">Detalle del taller</a>
+                    <a href="perfil.html">Mi cuenta</a>
+                    <a href="ayuda.html">Centro de soporte</a>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Descubre</h3>
+                    <a href="talleres.html">Explorar por categorias</a>
+                    <a href="detalle-taller.html">Ver un taller destacado</a>
+                    <a href="inscripcion.html">Inscribirme</a>
+                    <a href="perfil.html">Seguir mis talleres</a>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Acciones</h3>
+                    <a href="login.html">Iniciar sesion</a>
+                    <a href="registro.html">Crear cuenta</a>
+                    <a href="admin.html">Portal para organizadores</a>
+                    <a href="crear-taller.html">Publicar taller</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

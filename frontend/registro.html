@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro | TuTaller.pe</title>
+    <meta name="description" content="Pantalla de registro de TuTaller.pe con validaciones de nombre, correo, telefono, categoria y contrasena segura.">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body data-page="login">
+    <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+
+    <header class="site-header">
+        <div class="container header-shell">
+            <a class="brand" href="index.html" aria-label="Ir al inicio de TuTaller.pe">
+                <span class="brand-mark">TT</span>
+                <span class="brand-copy">
+                    <strong>TuTaller.pe</strong>
+                    <span>Encuentra, compara e inscribete</span>
+                </span>
+            </a>
+            <button class="nav-toggle" type="button" aria-label="Abrir menu principal" aria-expanded="false" aria-controls="menu-principal" data-nav-toggle>
+                <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 7h16M4 12h16M4 17h16"></path>
+                </svg>
+            </button>
+            <nav class="site-nav" id="menu-principal" aria-label="Principal" data-nav-menu>
+                <a class="nav-link" href="index.html" data-nav-item="inicio">Inicio</a>
+                <a class="nav-link" href="talleres.html" data-nav-item="talleres">Talleres</a>
+                <a class="nav-link" href="ayuda.html" data-nav-item="ayuda">Soporte</a>
+                <a class="nav-link" href="perfil.html" data-nav-item="perfil">Mi cuenta</a>
+                <a class="nav-link" href="admin.html" data-nav-item="admin">Publica tu taller</a>
+                <a class="nav-link nav-cta" href="login.html" data-nav-item="login">Ingresar</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="contenido-principal">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb-list">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="login.html">Ingresar</a></li>
+                    <li aria-current="page">Registro</li>
+                </ol>
+            </div>
+        </nav>
+
+        <section class="section">
+            <div class="container auth-layout">
+                <aside class="surface-card auth-aside fade-in">
+                    <span class="eyebrow">Nueva cuenta</span>
+                    <h1 class="page-title">Crea tu cuenta y empieza a descubrir mejores talleres</h1>
+                    <p class="page-description">Registra tus datos para guardar tus intereses, revisar tus inscripciones y acceder a recomendaciones mas utiles para ti.</p>
+                    <img src="imagenes/pintura1.webp" alt="Materiales artisticos sobre una mesa de trabajo.">
+                    <ul class="check-list">
+                        <li>Guarda tus preferencias para recibir mejores sugerencias.</li>
+                        <li>Accede a tus reservas y talleres desde un solo espacio.</li>
+                        <li>Corrige errores rapidamente con mensajes claros en el formulario.</li>
+                    </ul>
+                </aside>
+
+                <section class="form-shell fade-in" aria-labelledby="titulo-registro">
+                    <span class="eyebrow">Nueva cuenta</span>
+                    <h2 class="form-title" id="titulo-registro">Registrarse</h2>
+                    <p class="form-description">Completa tus datos para crear tu cuenta. El formulario te guiara si necesitas corregir algun campo.</p>
+
+                    <form id="registroForm" novalidate class="form-grid">
+                        <div class="form-feedback" role="alert" aria-live="assertive"></div>
+
+                        <div class="form-group">
+                            <label for="registroNombre">Nombres completos</label>
+                            <input id="registroNombre" type="text" autocomplete="name" placeholder="Ingresa tus nombres y apellidos">
+                            <div id="errorRegistroNombre" class="error-msg" aria-live="polite"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="registroCorreo">Correo electronico</label>
+                            <input id="registroCorreo" type="email" autocomplete="email" placeholder="usuario@correo.com">
+                            <div id="errorRegistroCorreo" class="error-msg" aria-live="polite"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="registroTelefono">Telefono</label>
+                            <input id="registroTelefono" type="tel" inputmode="numeric" autocomplete="tel" placeholder="999888777">
+                            <div id="errorRegistroTelefono" class="error-msg" aria-live="polite"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="registroInteres">Categoria principal de interes</label>
+                            <select id="registroInteres">
+                                <option value="">Selecciona una categoria</option>
+                                <option>Arte</option>
+                                <option>Musica</option>
+                                <option>Danza</option>
+                                <option>Tecnologia</option>
+                                <option>Cocina</option>
+                            </select>
+                            <div id="errorRegistroInteres" class="error-msg" aria-live="polite"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="registroPassword">Contrasena</label>
+                            <input id="registroPassword" type="password" autocomplete="new-password" placeholder="Minimo 8 caracteres, una mayuscula y un numero">
+                            <div id="errorRegistroPassword" class="error-msg" aria-live="polite"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="registroConfirmar">Confirmar contrasena</label>
+                            <input id="registroConfirmar" type="password" autocomplete="new-password" placeholder="Repite la contrasena">
+                            <div id="errorRegistroConfirmar" class="error-msg" aria-live="polite"></div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button class="btn btn-block" type="submit">Crear cuenta</button>
+                        </div>
+                    </form>
+
+                    <div class="message-box" style="margin-top: 18px;">
+                        <strong>Ya tienes una cuenta?</strong>
+                        <div class="button-row">
+                            <a class="btn-secondary" href="login.html">Volver a iniciar sesion</a>
+                            <a class="btn-ghost" href="ayuda.html">Necesito soporte</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h2>TuTaller.pe</h2>
+                    <p>Registro con prevencion de errores y continuidad directa hacia el inicio de sesion.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Siguiente paso</h3>
+                    <a href="login.html">Iniciar sesion</a>
+                    <a href="index.html">Volver al inicio</a>
+                    <a href="ayuda.html">Consultar soporte</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Explora</h3>
+                    <a href="talleres.html">Ver talleres</a>
+                    <a href="detalle-taller.html">Detalle del taller</a>
+                    <a href="perfil.html">Mi cuenta</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Soporte</h3>
+                    <a href="ayuda.html">Centro de soporte</a>
+                    <a href="index.html">Volver al inicio</a>
+                    <a href="admin.html">Portal para organizadores</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
