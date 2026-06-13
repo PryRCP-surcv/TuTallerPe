@@ -8,7 +8,7 @@ Este repositorio queda organizado en tres partes:
 
 - frontend web en `frontend/`.
 - backend Spring Boot en `backend/`.
-- documentacion dentro de `frontend/documentacion/`.
+- bitacora de avance dentro de `frontend/documentacion/`.
 
 ## Frontend
 
@@ -47,16 +47,10 @@ Luego abre `http://localhost:5500/frontend/index.html`.
 - [frontend/admin.html](C:\Users\SURICH\Documents\TuTallerPe\frontend\admin.html)
 - [frontend/crear-taller.html](C:\Users\SURICH\Documents\TuTallerPe\frontend\crear-taller.html)
 - [frontend/confirmacion-taller.html](C:\Users\SURICH\Documents\TuTallerPe\frontend\confirmacion-taller.html)
-- [frontend/ayuda.html](C:\Users\SURICH\Documents\TuTallerPe\frontend\ayuda.html)
 
-### Documentacion separada
+### Bitacora del avance
 
-- [frontend/documentacion/index.html](C:\Users\SURICH\Documents\TuTallerPe\frontend\documentacion\index.html)
-- [frontend/documentacion/pruebas-usuario.html](C:\Users\SURICH\Documents\TuTallerPe\frontend\documentacion\pruebas-usuario.html)
-- [frontend/documentacion/resultados-prueba.html](C:\Users\SURICH\Documents\TuTallerPe\frontend\documentacion\resultados-prueba.html)
-- [frontend/documentacion/evaluacion-heuristica.html](C:\Users\SURICH\Documents\TuTallerPe\frontend\documentacion\evaluacion-heuristica.html)
-- [frontend/documentacion/accesibilidad.html](C:\Users\SURICH\Documents\TuTallerPe\frontend\documentacion\accesibilidad.html)
-- [frontend/documentacion/mejoras.html](C:\Users\SURICH\Documents\TuTallerPe\frontend\documentacion\mejoras.html)
+- [frontend/documentacion/bitacora-avance3.txt](C:\Users\SURICH\Documents\TuTallerPe\frontend\documentacion\bitacora-avance3.txt)
 
 ### Mejoras aplicadas en el sitio
 

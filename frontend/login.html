@@ -14,7 +14,9 @@
     <header class="site-header">
         <div class="container header-shell">
             <a class="brand" href="index.html" aria-label="Ir al inicio de TuTaller.pe">
-                <span class="brand-mark">TT</span>
+                <span class="brand-mark">
+                    <img class="brand-logo" src="imagenes/logo-tutaller-mark.png" alt="">
+                </span>
                 <span class="brand-copy">
                     <strong>TuTaller.pe</strong>
                     <span>Encuentra, compara e inscribete</span>
@@ -28,10 +30,9 @@
             <nav class="site-nav" id="menu-principal" aria-label="Principal" data-nav-menu>
                 <a class="nav-link" href="index.html" data-nav-item="inicio">Inicio</a>
                 <a class="nav-link" href="talleres.html" data-nav-item="talleres">Talleres</a>
-                <a class="nav-link" href="ayuda.html" data-nav-item="ayuda">Soporte</a>
-                <a class="nav-link" href="perfil.html" data-nav-item="perfil">Mi cuenta</a>
                 <a class="nav-link" href="admin.html" data-nav-item="admin">Publica tu taller</a>
-                <a class="nav-link nav-cta" href="login.html" data-nav-item="login">Ingresar</a>
+                <a class="nav-link" href="login.html" data-nav-item="login">Ingresar</a>
+                <a class="nav-link nav-cta" href="registro.html" data-nav-item="registro">Crear cuenta</a>
             </nav>
         </div>
     </header>
@@ -49,21 +50,43 @@
         <section class="section">
             <div class="container auth-layout">
                 <aside class="surface-card auth-aside fade-in">
-                    <span class="eyebrow">Acceso seguro</span>
-                    <h1 class="page-title">Inicia sesion para continuar con tu inscripcion</h1>
-                    <p class="page-description">Accede a tu cuenta para revisar tus talleres, completar una reserva o gestionar tu informacion personal con seguridad.</p>
+                    <span class="eyebrow" id="loginHeroEyebrow">Acceso seguro</span>
+                    <h1 class="page-title" id="loginHeroTitle">Inicia sesion para continuar con tu inscripcion</h1>
+                    <p class="page-description" id="loginHeroDescription">Accede a tu cuenta para revisar tus talleres, completar una reserva o gestionar tu informacion personal con seguridad.</p>
                     <img src="imagenes/hero.jpg" alt="Personas revisando opciones de talleres en una computadora.">
                     <div class="message-box info">
-                        <strong>Proteccion de tu cuenta</strong>
-                        <p class="panel-text">Verificamos tu correo y tu contrasena para ofrecerte un acceso claro, seguro y sin fricciones.</p>
+                        <strong id="loginHeroNoteTitle">Proteccion de tu cuenta</strong>
+                        <p class="panel-text" id="loginHeroNoteCopy">Verificamos tu correo y tu contrasena para ofrecerte un acceso claro, seguro y sin fricciones.</p>
                     </div>
                 </aside>
 
                 <section class="form-shell fade-in" aria-labelledby="titulo-login">
-                    <span class="eyebrow">Acceso a la cuenta</span>
+                    <span class="eyebrow" id="loginFormEyebrow">Acceso a la cuenta</span>
                     <h2 class="form-title" id="titulo-login">Iniciar sesion</h2>
-                    <p class="form-description">Completa tus datos para ingresar. Si algo falta, veras mensajes claros para corregirlo al instante.</p>
-
+                    <div class="access-choice" aria-label="Tipo de acceso">
+                        <p class="hint">Elige lo que quieres hacer en TuTaller.pe.</p>
+                        <div class="access-choice-row">
+                            <a class="access-choice-link" id="loginChoiceUser" href="login.html" data-choice="inscripcion">
+                                <span class="access-choice-kicker">Ruta principal</span>
+                                <strong>Quiero inscribirme</strong>
+                                <span>Accede para buscar talleres, ver detalles y reservar tu cupo.</span>
+                            </a>
+                            <a class="access-choice-link" id="loginChoiceOrganizer" href="login.html?redirect=admin.html&amp;mode=organizador" data-choice="publicar">
+                                <span class="access-choice-kicker">Ruta de negocio</span>
+                                <strong>Quiero publicar talleres</strong>
+                                <span>Ingresa para publicar, editar y gestionar tus actividades.</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="route-banner" id="loginRouteBanner" data-route="inscripcion">
+                        <span class="route-badge" id="loginRouteBadge">Ruta activa</span>
+                        <strong id="loginRouteTitle">Estas entrando para inscribirte</strong>
+                        <p class="panel-text" id="loginRouteCopy">Continua para explorar talleres, revisar detalles y reservar tu cupo sin perder tu progreso.</p>
+                        <div class="route-pills">
+                            <span class="route-pill" id="loginRoutePillOne">Acceso personal</span>
+                            <span class="route-pill" id="loginRoutePillTwo">Siguiente: explorar talleres</span>
+                        </div>
+                    </div>
                     <form id="loginForm" novalidate class="form-grid">
                         <div class="form-feedback" role="alert" aria-live="assertive"></div>
 
@@ -80,7 +103,7 @@
                         </div>
 
                         <div class="form-actions">
-                            <button class="btn btn-block" type="submit">Ingresar</button>
+                            <button class="btn btn-block" type="submit" id="loginSubmitButton">Ingresar</button>
                         </div>
                     </form>
 
@@ -88,8 +111,8 @@
                         <strong>Necesitas una cuenta?</strong>
                         <p class="panel-text">Crea tu cuenta en pocos pasos y empieza a guardar tus talleres favoritos e inscripciones.</p>
                         <div class="button-row">
-                            <a class="btn-secondary" href="registro.html">Crear cuenta</a>
-                            <a class="btn-ghost" href="ayuda.html">Ver soporte</a>
+                            <a class="btn-secondary" href="registro.html" id="loginCreateAccountLink">Crear cuenta</a>
+                            <a class="btn-ghost" href="index.html">Volver al inicio</a>
                         </div>
                     </div>
                 </section>
@@ -108,7 +131,7 @@
                     <h3>Cuenta</h3>
                     <a href="registro.html">Crear cuenta</a>
                     <a href="perfil.html">Ver mi cuenta</a>
-                    <a href="ayuda.html">Centro de soporte</a>
+                    <a href="index.html">Volver al inicio</a>
                 </div>
                 <div class="footer-column">
                     <h3>Explorar</h3>
@@ -117,8 +140,8 @@
                     <a href="admin.html">Portal para organizadores</a>
                 </div>
                 <div class="footer-column">
-                    <h3>Soporte</h3>
-                    <a href="ayuda.html">Centro de soporte</a>
+                    <h3>Explora mas</h3>
+                    <a href="talleres.html">Explorar talleres</a>
                     <a href="index.html">Volver al inicio</a>
                     <a href="detalle-taller.html">Ver un taller</a>
                 </div>

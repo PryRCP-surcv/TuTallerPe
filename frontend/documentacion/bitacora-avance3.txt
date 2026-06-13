@@ -1,0 +1,179 @@
+TuTaller.pe - Bitacora del Avance 3
+===================================
+
+Objetivo de la bitacora
+-----------------------
+Este archivo sirve para registrar decisiones, cambios y pendientes del Avance 3.
+No forma parte de la interfaz del producto y no debe mostrarse como pagina visible.
+
+Cambios realizados hasta ahora
+------------------------------
+1. Separacion del proyecto en dos carpetas principales:
+   - frontend/
+   - backend/
+
+2. Reorganizacion del frontend:
+   - HTML, CSS, JS, imagenes y recursos movidos a frontend/
+   - backend Spring Boot movido a backend/
+   - configuracion de VS Code ajustada para servir frontend/ con Live Server
+
+3. Limpieza tecnica:
+   - se elimino indexprueba.html
+   - se elimino un estilos.css antiguo que no pertenecia al flujo principal
+   - se mantuvo un solo CSS principal: frontend/css/estilos.css
+
+4. Ajustes de producto:
+   - home simplificado hacia una busqueda mas directa
+   - filtros mejorados en index y talleres
+   - lista ampliada de distritos de Lima Metropolitana
+   - estructura lista para una futura migracion a React + Vite
+   - se elimino la pagina ayuda.html para evitar exponer texto de soporte como una seccion separada del producto
+   - la ayuda visible queda solo como orientacion contextual dentro de formularios, mensajes y flujos reales
+
+5. Estado del backend:
+   - backend separado y ejecutable desde backend/
+   - pruebas Maven ejecutadas correctamente
+
+Decision importante
+-------------------
+La documentacion del avance no debe presentarse como paginas dentro de la interfaz del producto.
+La evidencia academica debe mantenerse en archivos de apoyo como esta bitacora, README y entregables separados.
+
+Fases de trabajo recomendadas
+-----------------------------
+Fase 1. Base funcional del producto
+- Objetivo:
+  dejar clara la estructura del sistema y el recorrido principal.
+- Debe tener:
+  - frontend y backend separados
+  - home directo
+  - navegacion clara
+  - buscador principal util
+  - filtros completos
+  - flujo usuario definido
+
+Fase 2. Diseno visual consistente
+- Objetivo:
+  que el producto se vea serio, entendible y listo para mostrar.
+- Debe tener:
+  - header consistente
+  - footer consistente
+  - cards uniformes
+  - botones coherentes
+  - formularios claros
+  - breadcrumbs
+  - responsive base
+
+Avance aplicado en Fase 2
+------------------------
+- se reforzo la paleta principal con base azul para confianza y naranja para llamados a la accion
+- index.html se convirtio en una landing mas comercial y directa
+- talleres.html se reforzo como catalogo con mejor jerarquia visual
+- se agregaron bloques de apoyo contextual en busqueda y resultados
+- las cards de talleres ahora muestran vacantes y CTA mas consistentes
+- header, hero, filtros y footer quedaron visualmente mas cohesionados
+
+Fase 3. Accesibilidad e inclusion reales
+- Objetivo:
+  que la accesibilidad se vea en el uso, no como texto explicativo.
+- Debe tener:
+  - contraste adecuado
+  - foco visible
+  - teclado funcional
+  - labels y atributos aria
+  - mensajes de error claros
+  - textos simples
+  - apoyo para personas con discapacidad o poca experiencia digital
+  - mejoras visibles como skip link, ayudas y estados claros
+
+Fase 4. Integracion catalogo y detalle
+- Objetivo:
+  conectar el frontend con el backend en el flujo de exploracion.
+- Debe tener:
+  - GET /api/talleres
+  - GET /api/talleres/{id}
+  - talleres cargados desde backend
+  - detalle cargado desde backend
+  - manejo de estados vacio, error y carga
+
+Fase 5. Integracion de autenticacion
+- Objetivo:
+  que registro y login sean reales.
+- Debe tener:
+  - POST /api/auth/register
+  - POST /api/auth/login
+  - validaciones del frontend
+  - respuestas reales del backend
+  - mensajes de exito y error utiles
+
+Fase 6. Integracion de inscripcion
+- Objetivo:
+  volver funcional el flujo principal del usuario.
+- Debe tener:
+  - POST /api/inscripciones
+  - confirmacion consistente
+  - datos reales o semireales en perfil
+  - seguimiento del estado de inscripcion
+
+Fase 7. Integracion de organizador o admin
+- Objetivo:
+  que el flujo de publicar taller sea funcional.
+- Debe tener:
+  - POST /api/talleres
+  - admin con lectura de talleres
+  - crear taller conectado
+  - confirmacion-taller consistente
+
+Fase 8. Evaluacion real del producto
+- Objetivo:
+  validar con usuarios y detectar mejoras.
+- Debe tener:
+  - pruebas con 3 a 5 personas
+  - tareas definidas
+  - tiempo, errores, satisfaccion
+  - observaciones y problemas encontrados
+  - evaluacion heuristica de Nielsen
+
+Fase 9. Mejoras finales del avance
+- Objetivo:
+  mostrar evolucion real del sistema.
+- Debe tener:
+  - mejoras aplicadas despues de pruebas
+  - comparacion antes vs despues
+  - ajustes de accesibilidad
+  - ajustes de responsive
+  - consistencia visual final
+
+Fase 10. Entrega y sustento
+- Objetivo:
+  dejar el proyecto listo para presentar.
+- Debe tener:
+  - frontend funcional
+  - backend funcional
+  - integracion minima obligatoria funcionando
+  - README actualizado
+  - bitacora de cambios
+  - puntos clave para sustentar el avance
+
+Prioridad recomendada
+---------------------
+1. Fase 1
+2. Fase 2
+3. Fase 3
+4. Fase 4
+5. Fase 5
+6. Fase 6
+7. Fase 7
+8. Fase 8
+9. Fase 9
+10. Fase 10
+
+Siguiente paso sugerido
+-----------------------
+Trabajar Fase 2: diseno visual consistente del producto, empezando por:
+- index.html
+- talleres.html
+- header y footer
+- cards
+- botones
+- filtros

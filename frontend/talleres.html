@@ -14,7 +14,9 @@
     <header class="site-header">
         <div class="container header-shell">
             <a class="brand" href="index.html" aria-label="Ir al inicio de TuTaller.pe">
-                <span class="brand-mark">TT</span>
+                <span class="brand-mark">
+                    <img class="brand-logo" src="imagenes/logo-tutaller-mark.png" alt="">
+                </span>
                 <span class="brand-copy">
                     <strong>TuTaller.pe</strong>
                     <span>Encuentra, compara e inscribete</span>
@@ -28,10 +30,9 @@
             <nav class="site-nav" id="menu-principal" aria-label="Principal" data-nav-menu>
                 <a class="nav-link" href="index.html" data-nav-item="inicio">Inicio</a>
                 <a class="nav-link" href="talleres.html" data-nav-item="talleres">Talleres</a>
-                <a class="nav-link" href="ayuda.html" data-nav-item="ayuda">Soporte</a>
-                <a class="nav-link" href="perfil.html" data-nav-item="perfil">Mi cuenta</a>
                 <a class="nav-link" href="admin.html" data-nav-item="admin">Publica tu taller</a>
-                <a class="nav-link nav-cta" href="login.html" data-nav-item="login">Ingresar</a>
+                <a class="nav-link" href="login.html" data-nav-item="login">Ingresar</a>
+                <a class="nav-link nav-cta" href="registro.html" data-nav-item="registro">Crear cuenta</a>
             </nav>
         </div>
     </header>
@@ -46,18 +47,19 @@
             </div>
         </nav>
 
-        <section class="page-hero">
-            <div class="container surface-card page-hero-card fade-in">
-                <span class="eyebrow">Explora talleres</span>
-                <h1 class="page-title">Busca talleres segun categoria, distrito y horario</h1>
-                <p class="page-description">
-                    Usa filtros directos para encontrar una opcion que se ajuste a tu interes, tu zona y tu presupuesto.
-                </p>
-            </div>
-        </section>
-
         <section class="section">
             <div class="container search-shell fade-in">
+                <div class="search-shell-head">
+                    <div>
+                        <span class="eyebrow">Catalogo de talleres</span>
+                        <h1 class="section-title">Encuentra talleres en pocos pasos</h1>
+                        <p>Filtra por categoria, distrito, precio, horario y tipo para ir directo a opciones relevantes.</p>
+                    </div>
+                    <div class="filter-chip-row" aria-label="Estado general del catalogo">
+                        <span class="filter-chip is-active">50+ distritos</span>
+                        <span class="filter-chip">Presencial, virtual y mixto</span>
+                    </div>
+                </div>
                 <form class="search-form search-form-wide" action="talleres.html" method="get">
                     <div class="form-group search-wide">
                         <label for="catalogoBusqueda">Buscar taller</label>
@@ -168,7 +170,7 @@
                     </div>
 
                     <div class="form-group">
-                        <button class="btn btn-block" type="submit">Aplicar filtros</button>
+                        <button class="btn btn-filter-action btn-block" type="submit">Aplicar filtros</button>
                     </div>
                 </form>
             </div>
@@ -177,12 +179,15 @@
         <section class="section">
             <div class="container">
                 <div class="section-stack">
-                    <div class="section-heading">
+                    <div class="results-toolbar fade-in">
                         <div>
-                            <span class="eyebrow">Resultados</span>
                             <h2 class="section-title">Talleres encontrados</h2>
+                            <p class="section-description">6 opciones visibles para comparar rapido y entrar al detalle.</p>
                         </div>
-                        <p class="section-description">Cada tarjeta resume precio, horario, distrito y modalidad para comparar mas rapido.</p>
+                        <div class="results-meta" aria-label="Resumen de resultados">
+                            <span class="filter-chip is-active">6 resultados</span>
+                            <span class="filter-chip">Acceso directo al detalle</span>
+                        </div>
                     </div>
 
                     <div class="card-grid">
@@ -201,7 +206,10 @@
                                     <div class="meta-row"><span>Horario</span><span>Domingos 10:00 AM</span></div>
                                     <div class="meta-row"><span>Precio</span><span>S/ 70</span></div>
                                 </div>
-                                <a class="btn" href="detalle-taller.html" aria-label="Ver detalle del taller de pintura artistica">Ver detalle</a>
+                                <div class="workshop-card-footer">
+                                    <span class="mini-note">15 vacantes</span>
+                                    <a class="btn btn-detail" href="detalle-taller.html" aria-label="Ver detalle del taller de pintura artistica">Ver detalle</a>
+                                </div>
                             </div>
                         </article>
 
@@ -220,7 +228,10 @@
                                     <div class="meta-row"><span>Horario</span><span>Sabados 4:00 PM</span></div>
                                     <div class="meta-row"><span>Precio</span><span>S/ 50</span></div>
                                 </div>
-                                <a class="btn" href="detalle-taller.html" aria-label="Ver detalle del taller de baile urbano">Ver detalle</a>
+                                <div class="workshop-card-footer">
+                                    <span class="mini-note">12 vacantes</span>
+                                    <a class="btn btn-detail" href="detalle-taller.html" aria-label="Ver detalle del taller de baile urbano">Ver detalle</a>
+                                </div>
                             </div>
                         </article>
 
@@ -239,7 +250,10 @@
                                     <div class="meta-row"><span>Horario</span><span>Viernes 7:00 PM</span></div>
                                     <div class="meta-row"><span>Precio</span><span>S/ 60</span></div>
                                 </div>
-                                <a class="btn" href="detalle-taller.html" aria-label="Ver detalle del taller de canto inicial">Ver detalle</a>
+                                <div class="workshop-card-footer">
+                                    <span class="mini-note">18 vacantes</span>
+                                    <a class="btn btn-detail" href="detalle-taller.html" aria-label="Ver detalle del taller de canto inicial">Ver detalle</a>
+                                </div>
                             </div>
                         </article>
 
@@ -258,7 +272,10 @@
                                     <div class="meta-row"><span>Horario</span><span>Miercoles 7:30 PM</span></div>
                                     <div class="meta-row"><span>Precio</span><span>S/ 85</span></div>
                                 </div>
-                                <a class="btn-secondary" href="detalle-taller.html" aria-label="Ver detalle del taller de oratoria practica">Ver detalle</a>
+                                <div class="workshop-card-footer">
+                                    <span class="mini-note">10 vacantes</span>
+                                    <a class="btn btn-detail" href="detalle-taller.html" aria-label="Ver detalle del taller de oratoria practica">Ver detalle</a>
+                                </div>
                             </div>
                         </article>
 
@@ -277,7 +294,10 @@
                                     <div class="meta-row"><span>Horario</span><span>Martes y jueves 8:00 PM</span></div>
                                     <div class="meta-row"><span>Precio</span><span>S/ 90</span></div>
                                 </div>
-                                <a class="btn-secondary" href="detalle-taller.html" aria-label="Ver detalle del taller de diseno grafico basico">Ver detalle</a>
+                                <div class="workshop-card-footer">
+                                    <span class="mini-note">20 vacantes</span>
+                                    <a class="btn btn-detail" href="detalle-taller.html" aria-label="Ver detalle del taller de diseno grafico basico">Ver detalle</a>
+                                </div>
                             </div>
                         </article>
 
@@ -296,7 +316,10 @@
                                     <div class="meta-row"><span>Horario</span><span>Sabados 11:00 AM</span></div>
                                     <div class="meta-row"><span>Precio</span><span>S/ 75</span></div>
                                 </div>
-                                <a class="btn-secondary" href="detalle-taller.html" aria-label="Ver detalle del taller de artes escenicas">Ver detalle</a>
+                                <div class="workshop-card-footer">
+                                    <span class="mini-note">14 vacantes</span>
+                                    <a class="btn btn-detail" href="detalle-taller.html" aria-label="Ver detalle del taller de artes escenicas">Ver detalle</a>
+                                </div>
                             </div>
                         </article>
                     </div>
@@ -325,11 +348,11 @@
                     <a href="detalle-taller.html">Ver un taller</a>
                     <a href="inscripcion.html">Inscribirme</a>
                     <a href="perfil.html">Seguir mis talleres</a>
-                    <a href="ayuda.html">Centro de soporte</a>
+                    <a href="login.html">Ingresar</a>
                 </div>
                 <div class="footer-column">
-                    <h3>Soporte</h3>
-                    <a href="ayuda.html">Centro de soporte</a>
+                    <h3>Acciones</h3>
+                    <a href="index.html">Volver al inicio</a>
                     <a href="login.html">Ingresar</a>
                     <a href="registro.html">Crear cuenta</a>
                     <a href="admin.html">Portal para organizadores</a>

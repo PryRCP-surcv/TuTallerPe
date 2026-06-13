@@ -14,7 +14,9 @@
     <header class="site-header">
         <div class="container header-shell">
             <a class="brand" href="index.html" aria-label="Ir al inicio de TuTaller.pe">
-                <span class="brand-mark">TT</span>
+                <span class="brand-mark">
+                    <img class="brand-logo" src="imagenes/logo-tutaller-mark.png" alt="">
+                </span>
                 <span class="brand-copy">
                     <strong>TuTaller.pe</strong>
                     <span>Encuentra, compara e inscribete</span>
@@ -30,30 +32,38 @@
             <nav class="site-nav" id="menu-principal" aria-label="Principal" data-nav-menu>
                 <a class="nav-link" href="index.html" data-nav-item="inicio">Inicio</a>
                 <a class="nav-link" href="talleres.html" data-nav-item="talleres">Talleres</a>
-                <a class="nav-link" href="ayuda.html" data-nav-item="ayuda">Soporte</a>
-                <a class="nav-link" href="perfil.html" data-nav-item="perfil">Mi cuenta</a>
                 <a class="nav-link" href="admin.html" data-nav-item="admin">Publica tu taller</a>
-                <a class="nav-link nav-cta" href="login.html" data-nav-item="login">Ingresar</a>
+                <a class="nav-link" href="login.html" data-nav-item="login">Ingresar</a>
+                <a class="nav-link nav-cta" href="registro.html" data-nav-item="registro">Crear cuenta</a>
             </nav>
         </div>
     </header>
 
     <main id="contenido-principal">
-        <section class="hero">
-            <div class="container hero-shell hero-shell-simple">
-                <div class="hero-copy fade-in">
+        <section class="hero hero-home">
+            <div class="container home-top-shell">
+                <div class="hero-copy hero-copy-compact hero-shell-simple fade-in">
+                    <span class="eyebrow">Encuentra talleres en minutos</span>
                     <h1 class="hero-title">Busca e inscribete en talleres</h1>
                     <p class="hero-description">
-                        Plataforma orientada a facilitar la busqueda, comparacion e inscripcion en talleres culturales,
-                        educativos y recreativos.
+                        Descubre opciones culturales, creativas y recreativas segun tu categoria, distrito, horario y presupuesto.
                     </p>
                 </div>
-            </div>
-        </section>
 
-        <section class="section">
-            <div class="container search-shell fade-in">
-                <form class="search-form search-form-wide" action="talleres.html" method="get">
+                <div class="search-shell search-shell-home fade-in">
+                    <div class="search-shell-top">
+                        <div>
+                            <span class="eyebrow">Busqueda directa</span>
+                            <p class="panel-kicker">Filtra desde el inicio y entra rapido al taller que mejor te acomode.</p>
+                        </div>
+                        <div class="filter-chip-row" aria-label="Accesos rapidos de busqueda">
+                            <span class="filter-chip is-active">Mas buscado: Arte</span>
+                            <span class="filter-chip">Presencial</span>
+                            <span class="filter-chip">Fin de semana</span>
+                        </div>
+                    </div>
+                    
+                <form class="search-form search-form-wide search-form-home" action="talleres.html" method="get">
                     <div class="form-group search-wide">
                         <label for="homeBusqueda">Buscar taller</label>
                         <input id="homeBusqueda" name="q" type="text" placeholder="Buscar taller...">
@@ -163,9 +173,54 @@
                     </div>
 
                     <div class="form-group">
-                        <button class="btn btn-block" type="submit">Buscar talleres</button>
+                        <button class="btn btn-search-action btn-block" type="submit">Buscar talleres</button>
                     </div>
                 </form>
+
+                <div class="search-help-grid">
+                    <div class="search-help-card">
+                        <strong>Encuentra por zona</strong>
+                        <p>Usa distritos de Lima Metropolitana o filtra por modalidad virtual para ampliar opciones.</p>
+                    </div>
+                    <div class="search-help-card">
+                        <strong>Compara mas rapido</strong>
+                        <p>Revisa horarios, modalidad y precio sin salir del catalogo principal.</p>
+                    </div>
+                    <div class="search-help-card">
+                        <strong>Avanza con confianza</strong>
+                        <p>Cuando un taller te interese, entra al detalle y confirma tu reserva desde el mismo flujo.</p>
+                    </div>
+                </div>
+
+                <div class="category-shortcuts">
+                    <div class="category-shortcuts-row">
+                        <a class="category-pill" href="talleres.html" aria-label="Explorar talleres de arte">
+                            <span class="category-pill-icon" aria-hidden="true">🎨</span>
+                            <span class="category-pill-name">Arte</span>
+                        </a>
+                        <a class="category-pill" href="talleres.html" aria-label="Explorar talleres de musica">
+                            <span class="category-pill-icon" aria-hidden="true">🎵</span>
+                            <span class="category-pill-name">Musica</span>
+                        </a>
+                        <a class="category-pill" href="talleres.html" aria-label="Explorar talleres de danza">
+                            <span class="category-pill-icon" aria-hidden="true">💃</span>
+                            <span class="category-pill-name">Danza</span>
+                        </a>
+                        <a class="category-pill" href="talleres.html" aria-label="Explorar talleres de tecnologia">
+                            <span class="category-pill-icon" aria-hidden="true">💻</span>
+                            <span class="category-pill-name">Tecnologia</span>
+                        </a>
+                        <a class="category-pill" href="talleres.html" aria-label="Explorar talleres de cocina">
+                            <span class="category-pill-icon" aria-hidden="true">🍳</span>
+                            <span class="category-pill-name">Cocina</span>
+                        </a>
+                        <a class="category-pill" href="talleres.html" aria-label="Explorar talleres de idiomas">
+                            <span class="category-pill-icon" aria-hidden="true">🌐</span>
+                            <span class="category-pill-name">Idiomas</span>
+                        </a>
+                    </div>
+                </div>
+                </div>
             </div>
         </section>
 
@@ -173,7 +228,6 @@
             <div class="container">
                 <div class="section-heading">
                     <div>
-                        <span class="eyebrow">Talleres destacados</span>
                         <h2 class="section-title">Talleres destacados</h2>
                     </div>
                     <p class="section-description">Explora opciones recomendadas para empezar a comparar.</p>
@@ -195,7 +249,10 @@
                                 <div class="meta-row"><span>Horario</span><span>Domingos 10:00 AM</span></div>
                                 <div class="meta-row"><span>Precio</span><span>S/ 70</span></div>
                             </div>
-                            <a class="btn" href="detalle-taller.html" aria-label="Ver detalle del taller de pintura artistica">Ver detalle</a>
+                            <div class="workshop-card-footer">
+                                <span class="mini-note">15 vacantes</span>
+                                <a class="btn btn-detail" href="detalle-taller.html" aria-label="Ver detalle del taller de pintura artistica">Ver detalle</a>
+                            </div>
                         </div>
                     </article>
 
@@ -214,7 +271,10 @@
                                 <div class="meta-row"><span>Horario</span><span>Sabados 4:00 PM</span></div>
                                 <div class="meta-row"><span>Precio</span><span>S/ 50</span></div>
                             </div>
-                            <a class="btn" href="detalle-taller.html" aria-label="Ver detalle del taller de baile urbano">Ver detalle</a>
+                            <div class="workshop-card-footer">
+                                <span class="mini-note">12 vacantes</span>
+                                <a class="btn btn-detail" href="detalle-taller.html" aria-label="Ver detalle del taller de baile urbano">Ver detalle</a>
+                            </div>
                         </div>
                     </article>
 
@@ -233,7 +293,76 @@
                                 <div class="meta-row"><span>Horario</span><span>Viernes 7:00 PM</span></div>
                                 <div class="meta-row"><span>Precio</span><span>S/ 60</span></div>
                             </div>
-                            <a class="btn" href="detalle-taller.html" aria-label="Ver detalle del taller de canto inicial">Ver detalle</a>
+                            <div class="workshop-card-footer">
+                                <span class="mini-note">18 vacantes</span>
+                                <a class="btn btn-detail" href="detalle-taller.html" aria-label="Ver detalle del taller de canto inicial">Ver detalle</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="workshop-card fade-in">
+                        <div class="workshop-media">
+                            <img src="imagenes/oratoria.jpg" alt="Expositora guiando un taller de oratoria frente a un grupo.">
+                        </div>
+                        <div class="workshop-body">
+                            <div class="tag-list">
+                                <span class="tag">Comunicacion</span>
+                                <span class="status-pill">Mixto</span>
+                            </div>
+                            <h3>Taller de Oratoria Practica</h3>
+                            <div class="workshop-meta">
+                                <div class="meta-row"><span>Distrito</span><span>Surco</span></div>
+                                <div class="meta-row"><span>Horario</span><span>Miercoles 7:30 PM</span></div>
+                                <div class="meta-row"><span>Precio</span><span>S/ 85</span></div>
+                            </div>
+                            <div class="workshop-card-footer">
+                                <span class="mini-note">10 vacantes</span>
+                                <a class="btn btn-detail" href="detalle-taller.html" aria-label="Ver detalle del taller de oratoria practica">Ver detalle</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="workshop-card fade-in">
+                        <div class="workshop-media">
+                            <img src="imagenes/ARTES GRAFICAS.png" alt="Mesa con herramientas y materiales de diseno grafico.">
+                        </div>
+                        <div class="workshop-body">
+                            <div class="tag-list">
+                                <span class="tag">Tecnologia</span>
+                                <span class="status-pill info">Virtual</span>
+                            </div>
+                            <h3>Taller de Diseno Grafico Basico</h3>
+                            <div class="workshop-meta">
+                                <div class="meta-row"><span>Distrito</span><span>Virtual</span></div>
+                                <div class="meta-row"><span>Horario</span><span>Martes y jueves 8:00 PM</span></div>
+                                <div class="meta-row"><span>Precio</span><span>S/ 90</span></div>
+                            </div>
+                            <div class="workshop-card-footer">
+                                <span class="mini-note">20 vacantes</span>
+                                <a class="btn btn-detail" href="detalle-taller.html" aria-label="Ver detalle del taller de diseno grafico basico">Ver detalle</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="workshop-card fade-in">
+                        <div class="workshop-media">
+                            <img src="imagenes/arton28927.jpg" alt="Escenario preparado para un taller de artes escenicas.">
+                        </div>
+                        <div class="workshop-body">
+                            <div class="tag-list">
+                                <span class="tag">Teatro</span>
+                                <span class="status-pill">Presencial</span>
+                            </div>
+                            <h3>Taller de Artes Escenicas</h3>
+                            <div class="workshop-meta">
+                                <div class="meta-row"><span>Distrito</span><span>San Miguel</span></div>
+                                <div class="meta-row"><span>Horario</span><span>Sabados 11:00 AM</span></div>
+                                <div class="meta-row"><span>Precio</span><span>S/ 75</span></div>
+                            </div>
+                            <div class="workshop-card-footer">
+                                <span class="mini-note">14 vacantes</span>
+                                <a class="btn btn-detail" href="detalle-taller.html" aria-label="Ver detalle del taller de artes escenicas">Ver detalle</a>
+                            </div>
                         </div>
                     </article>
                 </div>
@@ -272,7 +401,7 @@
                         <span class="eyebrow">TuTaller.pe te acompana</span>
                         <h2 class="section-title">Todo lo que necesitas para decidir mejor</h2>
                     </div>
-                    <p class="section-description">Menos vueltas, mas claridad: descubre talleres, revisa detalles y toma accion cuando encuentres algo para ti.</p>
+                    <p class="section-description">Un recorrido claro desde la exploracion inicial hasta la reserva o la publicacion de nuevas experiencias.</p>
                 </div>
 
                 <div class="resource-grid">
@@ -311,7 +440,7 @@
                     <a href="talleres.html">Catalogo de talleres</a>
                     <a href="detalle-taller.html">Detalle del taller</a>
                     <a href="perfil.html">Mi cuenta</a>
-                    <a href="ayuda.html">Centro de soporte</a>
+                    <a href="login.html">Ingresar</a>
                 </div>
 
                 <div class="footer-column">

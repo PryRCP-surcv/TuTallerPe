@@ -7,7 +7,6 @@ Este frontend sigue en HTML, CSS y JavaScript para no romper el avance actual.
 - `index.html`, `talleres.html`, `detalle-taller.html`, `inscripcion.html`, `confirmacion.html`, `perfil.html`
 - `login.html`, `registro.html`
 - `admin.html`, `crear-taller.html`, `confirmacion-taller.html`
-- `ayuda.html`
 - `css/`
 - `js/`
 - `imagenes/`
@@ -54,4 +53,3 @@ frontend/
 - `admin.html` -> `pages/Admin.jsx`
 - `crear-taller.html` -> `pages/CrearTaller.jsx`
 - `confirmacion-taller.html` -> `pages/ConfirmacionTaller.jsx`
-- `ayuda.html` -> `pages/Ayuda.jsx`
