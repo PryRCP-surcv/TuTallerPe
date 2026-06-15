@@ -87,9 +87,9 @@ Requisitos:
 Configuracion actual en [application.properties](C:\Users\SURICH\Documents\TuTallerPe\backend\src\main\resources\application.properties):
 
 ```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/tutaller_db
+spring.datasource.url=jdbc:mysql://localhost:3307/tutaller_db
 spring.datasource.username=root
-spring.datasource.password=
+spring.datasource.password=Scv123456!
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.format_sql=true
@@ -99,8 +99,11 @@ Ejecucion:
 
 ```powershell
 cd C:\Users\SURICH\Documents\TuTallerPe\backend
+.\sync-frontend.ps1
 .\mvnw.cmd spring-boot:run
 ```
+
+Luego abre `http://localhost:8080/`.
 
 Prueba basica:
 
@@ -162,15 +165,42 @@ Auth:
 
 ## Relacion futura frontend/backend
 
-El sitio y la API quedan desacoplados a proposito.
+El sitio y la API quedan desacoplados a nivel de estructura, pero ya integrados en ejecucion.
 
-Siguiente etapa sugerida:
+Estado actual de integracion:
 
-1. Consumir `GET /api/talleres` desde el catalogo.
-2. Conectar login y registro con `/api/auth`.
-3. Registrar inscripciones reales desde el formulario.
-4. Publicar talleres desde el flujo administrador usando `/api/talleres`.
-5. Persistir comentarios y estados desde la API.
+- Spring Boot sirve el frontend desde `backend/src/main/resources/static`.
+- `http://localhost:8080/` carga el `index.html`.
+- el frontend consume la API en `/api/...`.
+- login, registro, talleres, detalle, inscripcion y publicacion ya usan backend.
+
+## Datos demo
+
+SQL de poblacion:
+
+- [backend/database/seed_tutaller.sql](C:\Users\SURICH\Documents\TuTallerPe\backend\database\seed_tutaller.sql)
+
+Contenido:
+
+- 20 usuarios
+- 60 talleres
+- 120 inscripciones
+- 72 comentarios
+
+Password de todas las cuentas demo:
+
+```text
+Demo2026!
+```
+
+Cuentas utiles:
+
+- Usuario: `camila.rojas@demo.com`
+- Usuario: `diego.salazar@demo.com`
+- Organizador: `organizador.arte@tutaller.pe`
+- Organizador: `organizador.cocina@tutaller.pe`
+
+Puedes importar ese SQL en MySQL Workbench para que tu grupo tenga exactamente la misma data.
 
 ## Estructura recomendada a futuro
 
@@ -195,4 +225,6 @@ Mas adelante, `frontend/` puede migrar a React + Vite sin afectar la API, porque
 - sitio listo para presentar.
 - documentacion separada del recorrido principal.
 - backend listo como base tecnica futura.
-- integracion frontend/backend pendiente.
+- frontend y backend conectados.
+- frontend servido desde `localhost:8080`.
+- base de datos demo cargada y lista para pruebas.

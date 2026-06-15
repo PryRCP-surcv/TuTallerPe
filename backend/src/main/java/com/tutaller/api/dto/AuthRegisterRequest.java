@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
 import lombok.Setter;
+import com.tutaller.api.model.enums.RolUsuario;
 
 @Getter
 @Setter
@@ -23,4 +24,6 @@ public class AuthRegisterRequest {
 
     @NotBlank(message = "La contrasena es obligatoria.")
     private String password;
+
+    private RolUsuario rol;
 }

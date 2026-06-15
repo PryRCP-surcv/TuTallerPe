@@ -57,7 +57,7 @@ public class UsuarioService {
         usuarioRequest.setCorreo(request.getCorreo());
         usuarioRequest.setTelefono(request.getTelefono());
         usuarioRequest.setPassword(request.getPassword());
-        usuarioRequest.setRol(RolUsuario.USUARIO);
+        usuarioRequest.setRol(request.getRol() != null ? request.getRol() : RolUsuario.USUARIO);
 
         UsuarioResponse usuario = crear(usuarioRequest);
         return AuthResponse.builder()
