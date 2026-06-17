@@ -1882,7 +1882,47 @@ document.addEventListener("DOMContentLoaded", function () {
     configurarCrearTaller();
     inicializarDatosDePagina();
     inicializarAccesibilidad();
+    inicializarModales();
 });
+
+/* ── Modales legales ────────────────────────────────────── */
+function inicializarModales() {
+    function abrirModal(id) {
+        const overlay = document.getElementById(id);
+        if (!overlay) return;
+        overlay.removeAttribute("hidden");
+        overlay.querySelector(".modal-box")?.focus?.();
+        document.body.style.overflow = "hidden";
+    }
+
+    function cerrarModal(id) {
+        const overlay = document.getElementById(id);
+        if (!overlay) return;
+        overlay.setAttribute("hidden", "");
+        document.body.style.overflow = "";
+    }
+
+    document.getElementById("btnTerminos")?.addEventListener("click", () => abrirModal("modalTerminos"));
+    document.getElementById("btnPrivacidad")?.addEventListener("click", () => abrirModal("modalPrivacidad"));
+
+    document.querySelectorAll("[data-modal-close]").forEach(btn => {
+        btn.addEventListener("click", () => cerrarModal(btn.dataset.modalClose));
+    });
+
+    // Cerrar al hacer click fuera del modal-box
+    document.querySelectorAll(".modal-overlay").forEach(overlay => {
+        overlay.addEventListener("click", e => {
+            if (e.target === overlay) cerrarModal(overlay.id);
+        });
+    });
+
+    // Cerrar con Escape
+    document.addEventListener("keydown", e => {
+        if (e.key === "Escape") {
+            document.querySelectorAll(".modal-overlay:not([hidden])").forEach(o => cerrarModal(o.id));
+        }
+    });
+}
 
 /* ── Barra de accesibilidad ─────────────────────────────── */
 function inicializarAccesibilidad() {

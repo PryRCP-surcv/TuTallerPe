@@ -6,6 +6,7 @@
     <title>Registro | TuTaller.pe</title>
     <meta name="description" content="Pantalla de registro de TuTaller.pe con validaciones de nombre, correo, telefono, categoria y contrasena segura.">
     <link rel="stylesheet" href="css/estilos.css">
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
     <script src="js/api.js" defer></script>
     <script src="js/script.js" defer></script>
 </head>
@@ -144,10 +145,10 @@
                             <div id="errorRegistroConfirmar" class="error-msg" aria-live="polite"></div>
                         </div>
 
-                        <div class="form-group" style="display:flex;align-items:flex-start;gap:10px;">
-                            <input id="registroTerminos" type="checkbox" style="margin-top:3px;width:auto;flex-shrink:0;" aria-required="true">
-                            <label for="registroTerminos" style="font-weight:normal;font-size:0.92rem;line-height:1.5;">
-                                Acepto los <a href="#" style="color:var(--color-primary,#5c6ac4);text-decoration:underline;">Terminos y Condiciones</a> y la <a href="#" style="color:var(--color-primary,#5c6ac4);text-decoration:underline;">Politica de Privacidad</a> de TuTaller.pe
+                        <div class="form-group checkbox-legal">
+                            <input id="registroTerminos" type="checkbox" aria-required="true">
+                            <label for="registroTerminos">
+                                He leido y acepto los <button type="button" class="link-legal" id="btnTerminos">Terminos y Condiciones</button> y la <button type="button" class="link-legal" id="btnPrivacidad">Politica de Privacidad</button> de TuTaller.pe
                             </label>
                         </div>
                         <div id="errorRegistroTerminos" class="error-msg" aria-live="polite"></div>
@@ -168,6 +169,109 @@
             </div>
         </section>
     </main>
+
+    <!-- Modal Términos y Condiciones -->
+    <div class="modal-overlay" id="modalTerminos" role="dialog" aria-modal="true" aria-labelledby="modalTerminosTitulo" hidden>
+        <div class="modal-box">
+            <div class="modal-header">
+                <h2 id="modalTerminosTitulo"><i class="ph ph-file-text"></i> Terminos y Condiciones</h2>
+                <button class="modal-close" aria-label="Cerrar" data-modal-close="modalTerminos"><i class="ph ph-x"></i></button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-fecha">Vigente desde el 1 de enero de 2026 &mdash; TuTaller.pe</p>
+
+                <h3>1. Aceptacion de los terminos</h3>
+                <p>Al crear una cuenta en TuTaller.pe, el usuario declara haber leido, comprendido y aceptado de forma voluntaria los presentes Terminos y Condiciones, de conformidad con el <strong>Decreto Legislativo N° 1412 &mdash; Ley de Gobierno Digital</strong> y la normativa vigente de la Republica del Peru.</p>
+
+                <h3>2. Descripcion del servicio</h3>
+                <p>TuTaller.pe es una plataforma digital que conecta a usuarios con organizadores de talleres culturales, creativos y recreativos en Lima Metropolitana. El servicio incluye busqueda, comparacion e inscripcion en talleres, asi como la publicacion de propuestas por parte de organizadores registrados.</p>
+
+                <h3>3. Registro y responsabilidad del usuario</h3>
+                <p>El usuario es responsable de:</p>
+                <ul>
+                    <li>Proporcionar informacion veraz, completa y actualizada al registrarse.</li>
+                    <li>Mantener la confidencialidad de sus credenciales de acceso.</li>
+                    <li>Notificar de inmediato cualquier uso no autorizado de su cuenta.</li>
+                    <li>No utilizar la plataforma para fines ilicitos o contrarios a la moral.</li>
+                </ul>
+
+                <h3>4. Inscripciones y pagos</h3>
+                <p>Las inscripciones a talleres constituyen un compromiso entre el usuario y el organizador. TuTaller.pe actua como intermediario y no es responsable de cancelaciones, cambios de horario o calidad del servicio brindado por el organizador. Las politicas de devolucion son establecidas por cada organizador de forma independiente.</p>
+
+                <h3>5. Propiedad intelectual</h3>
+                <p>Todos los contenidos de TuTaller.pe (marca, logotipo, diseno, codigo fuente) estan protegidos por las leyes de propiedad intelectual del Peru, conforme al <strong>Decreto Legislativo N° 822 &mdash; Ley sobre el Derecho de Autor</strong>. Queda prohibida su reproduccion sin autorizacion expresa.</p>
+
+                <h3>6. Limitacion de responsabilidad</h3>
+                <p>TuTaller.pe no garantiza la disponibilidad continua del servicio y no se responsabiliza por danos derivados de interrupciones tecnicas, errores del sistema o acciones de terceros.</p>
+
+                <h3>7. Modificaciones</h3>
+                <p>TuTaller.pe se reserva el derecho de actualizar estos terminos en cualquier momento, notificando a los usuarios con al menos 15 dias de anticipacion mediante el correo registrado.</p>
+
+                <h3>8. Ley aplicable y jurisdiccion</h3>
+                <p>Estos terminos se rigen por la legislacion peruana. Cualquier controversia sera sometida a los juzgados y tribunales competentes de la ciudad de Lima, Peru.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-modal-close="modalTerminos">Entendido</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Política de Privacidad -->
+    <div class="modal-overlay" id="modalPrivacidad" role="dialog" aria-modal="true" aria-labelledby="modalPrivacidadTitulo" hidden>
+        <div class="modal-box">
+            <div class="modal-header">
+                <h2 id="modalPrivacidadTitulo"><i class="ph ph-shield-check"></i> Politica de Privacidad</h2>
+                <button class="modal-close" aria-label="Cerrar" data-modal-close="modalPrivacidad"><i class="ph ph-x"></i></button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-fecha">Conforme a la <strong>Ley N° 29733 &mdash; Ley de Proteccion de Datos Personales del Peru</strong> y su Reglamento aprobado por <strong>Decreto Supremo N° 003-2013-JUS</strong>.</p>
+
+                <h3>1. Responsable del tratamiento</h3>
+                <p>TuTaller.pe es responsable del banco de datos personales registrado ante la <strong>Autoridad Nacional de Proteccion de Datos Personales (ANPDP)</strong>, dependiente del Ministerio de Justicia y Derechos Humanos del Peru.</p>
+
+                <h3>2. Datos que recopilamos</h3>
+                <ul>
+                    <li><strong>Datos de registro:</strong> nombres, correo electronico y numero de telefono.</li>
+                    <li><strong>Datos de uso:</strong> talleres visitados, inscripciones realizadas y preferencias de busqueda.</li>
+                    <li><strong>Datos tecnicos:</strong> direccion IP, tipo de navegador y sistema operativo (anonimizados).</li>
+                </ul>
+
+                <h3>3. Finalidad del tratamiento</h3>
+                <p>Los datos personales son utilizados exclusivamente para:</p>
+                <ul>
+                    <li>Gestionar el registro y autenticacion del usuario.</li>
+                    <li>Procesar y confirmar inscripciones a talleres.</li>
+                    <li>Enviar comunicaciones relacionadas con el servicio contratado.</li>
+                    <li>Mejorar la experiencia de uso de la plataforma.</li>
+                </ul>
+
+                <h3>4. Base legal del tratamiento</h3>
+                <p>El tratamiento se realiza con base en el <strong>consentimiento expreso</strong> del titular, otorgado al momento del registro, conforme al Art. 13 de la Ley N° 29733.</p>
+
+                <h3>5. Derechos ARCO</h3>
+                <p>El titular de los datos personales tiene derecho a:</p>
+                <ul>
+                    <li><strong>Acceso:</strong> conocer que datos tenemos sobre usted.</li>
+                    <li><strong>Rectificacion:</strong> corregir datos inexactos o incompletos.</li>
+                    <li><strong>Cancelacion:</strong> solicitar la eliminacion de sus datos.</li>
+                    <li><strong>Oposicion:</strong> oponerse al tratamiento de sus datos.</li>
+                </ul>
+                <p>Para ejercer estos derechos escriba a: <strong>privacidad@tutaller.pe</strong></p>
+
+                <h3>6. Seguridad de los datos</h3>
+                <p>TuTaller.pe implementa medidas tecnicas y organizativas para proteger sus datos personales contra acceso no autorizado, perdida o destruccion, incluyendo cifrado de contrasenas mediante algoritmo bcrypt y conexiones HTTPS.</p>
+
+                <h3>7. Transferencia de datos</h3>
+                <p>Sus datos no seran transferidos a terceros sin su consentimiento previo, salvo obligacion legal o requerimiento de autoridad competente.</p>
+
+                <h3>8. Conservacion de datos</h3>
+                <p>Los datos se conservan mientras la cuenta este activa. Al solicitar la baja, los datos seran eliminados en un plazo maximo de 30 dias habiles.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-modal-close="modalPrivacidad">Entendido</button>
+            </div>
+        </div>
+    </div>
 
     <footer class="footer">
         <div class="container">
