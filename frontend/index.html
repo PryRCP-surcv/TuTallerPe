@@ -6,6 +6,7 @@
     <title>TuTaller.pe | Descubre talleres en Lima</title>
     <meta name="description" content="Explora talleres culturales, creativos y recreativos en TuTaller.pe. Encuentra opciones por categoria, distrito y modalidad.">
     <link rel="stylesheet" href="css/estilos.css">
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
     <script src="js/api.js" defer></script>
     <script src="js/script.js" defer></script>
 </head>
@@ -201,28 +202,48 @@
                 <div class="category-shortcuts">
                     <div class="category-shortcuts-row">
                         <a class="category-pill" href="talleres.html?categoria=Arte#catalogo-filtros" aria-label="Explorar talleres de arte">
-                            <span class="category-pill-icon" aria-hidden="true">&#127912;</span>
+                            <span class="category-pill-icon" aria-hidden="true"><i class="ph ph-paint-brush"></i></span>
                             <span class="category-pill-name">Arte</span>
                         </a>
                         <a class="category-pill" href="talleres.html?categoria=Musica#catalogo-filtros" aria-label="Explorar talleres de musica">
-                            <span class="category-pill-icon" aria-hidden="true">&#127925;</span>
+                            <span class="category-pill-icon" aria-hidden="true"><i class="ph ph-music-notes"></i></span>
                             <span class="category-pill-name">Musica</span>
                         </a>
                         <a class="category-pill" href="talleres.html?categoria=Danza#catalogo-filtros" aria-label="Explorar talleres de danza">
-                            <span class="category-pill-icon" aria-hidden="true">&#128131;</span>
+                            <span class="category-pill-icon" aria-hidden="true"><i class="ph ph-person-simple-run"></i></span>
                             <span class="category-pill-name">Danza</span>
                         </a>
                         <a class="category-pill" href="talleres.html?categoria=Tecnologia#catalogo-filtros" aria-label="Explorar talleres de tecnologia">
-                            <span class="category-pill-icon" aria-hidden="true">&#128187;</span>
+                            <span class="category-pill-icon" aria-hidden="true"><i class="ph ph-laptop"></i></span>
                             <span class="category-pill-name">Tecnologia</span>
                         </a>
                         <a class="category-pill" href="talleres.html?categoria=Cocina#catalogo-filtros" aria-label="Explorar talleres de cocina">
-                            <span class="category-pill-icon" aria-hidden="true">&#127859;</span>
+                            <span class="category-pill-icon" aria-hidden="true"><i class="ph ph-cooking-pot"></i></span>
                             <span class="category-pill-name">Cocina</span>
                         </a>
                         <a class="category-pill" href="talleres.html?categoria=Idiomas#catalogo-filtros" aria-label="Explorar talleres de idiomas">
-                            <span class="category-pill-icon" aria-hidden="true">&#127760;</span>
+                            <span class="category-pill-icon" aria-hidden="true"><i class="ph ph-chat-circle-dots"></i></span>
                             <span class="category-pill-name">Idiomas</span>
+                        </a>
+                        <a class="category-pill" href="talleres.html?categoria=Teatro#catalogo-filtros" aria-label="Explorar talleres de teatro">
+                            <span class="category-pill-icon" aria-hidden="true"><i class="ph ph-mask-happy"></i></span>
+                            <span class="category-pill-name">Teatro</span>
+                        </a>
+                        <a class="category-pill" href="talleres.html?categoria=Bienestar#catalogo-filtros" aria-label="Explorar talleres de bienestar">
+                            <span class="category-pill-icon" aria-hidden="true"><i class="ph ph-heart"></i></span>
+                            <span class="category-pill-name">Bienestar</span>
+                        </a>
+                        <a class="category-pill" href="talleres.html?categoria=Fotografia#catalogo-filtros" aria-label="Explorar talleres de fotografia">
+                            <span class="category-pill-icon" aria-hidden="true"><i class="ph ph-camera"></i></span>
+                            <span class="category-pill-name">Fotografia</span>
+                        </a>
+                        <a class="category-pill" href="talleres.html?categoria=Manualidades#catalogo-filtros" aria-label="Explorar talleres de manualidades">
+                            <span class="category-pill-icon" aria-hidden="true"><i class="ph ph-scissors"></i></span>
+                            <span class="category-pill-name">Manualidades</span>
+                        </a>
+                        <a class="category-pill" href="talleres.html?categoria=Comunicacion#catalogo-filtros" aria-label="Explorar talleres de comunicacion">
+                            <span class="category-pill-icon" aria-hidden="true"><i class="ph ph-microphone"></i></span>
+                            <span class="category-pill-name">Comunicacion</span>
                         </a>
                     </div>
                 </div>
@@ -375,27 +396,31 @@
             </div>
         </section>
 
-        <section class="section">
+        <section class="section section-stats">
             <div class="container stats-grid">
                 <div class="surface-card metric-card fade-in">
-                    <span>Categorias destacadas</span>
+                    <i class="ph ph-squares-four metric-icon"></i>
                     <strong id="homeMetricCategorias">11</strong>
-                    <span>Arte, musica, danza, cocina, tecnologia, idiomas y otras categorias activas.</span>
+                    <span class="metric-label">Categorias</span>
+                    <span class="metric-desc">Arte, musica, danza, cocina, tecnologia, idiomas y mas.</span>
                 </div>
                 <div class="surface-card metric-card fade-in">
-                    <span>Modalidades</span>
-                    <strong>3</strong>
-                    <span>Presencial, virtual y mixto segun el tipo de experiencia que prefieras.</span>
-                </div>
-                <div class="surface-card metric-card fade-in">
-                    <span>Distritos disponibles</span>
+                    <i class="ph ph-map-pin metric-icon"></i>
                     <strong>50+</strong>
-                    <span>Busqueda ampliada con distritos de Lima Metropolitana y opciones virtuales.</span>
+                    <span class="metric-label">Distritos</span>
+                    <span class="metric-desc">Lima Metropolitana completa y opciones virtuales.</span>
                 </div>
                 <div class="surface-card metric-card fade-in">
-                    <span>Talleres activos</span>
-                    <strong id="homeMetricTalleres">60</strong>
-                    <span>Publicaciones visibles con precio, horario y vacantes para comparar mejor.</span>
+                    <i class="ph ph-monitor-play metric-icon"></i>
+                    <strong>3</strong>
+                    <span class="metric-label">Modalidades</span>
+                    <span class="metric-desc">Presencial, virtual y mixto segun tu preferencia.</span>
+                </div>
+                <div class="surface-card metric-card fade-in">
+                    <i class="ph ph-chalkboard-teacher metric-icon"></i>
+                    <strong id="homeMetricTalleres">80+</strong>
+                    <span class="metric-label">Talleres activos</span>
+                    <span class="metric-desc">Con precio, horario y vacantes disponibles.</span>
                 </div>
             </div>
         </section>
@@ -404,81 +429,115 @@
             <div class="container">
                 <div class="section-heading">
                     <div>
-                        <span class="eyebrow">TuTaller.pe te acompana</span>
-                        <h2 class="section-title">Todo lo que necesitas para decidir mejor</h2>
+                        <span class="eyebrow">Como funciona</span>
+                        <h2 class="section-title">De la busqueda a tu primer taller</h2>
                     </div>
-                    <p class="section-description">Un recorrido claro desde la exploracion inicial hasta la reserva o la publicacion de nuevas experiencias.</p>
+                    <p class="section-description">Cuatro pasos para encontrar, comparar y reservar sin complicaciones.</p>
                 </div>
 
                 <div class="resource-grid">
                     <a class="doc-shell fade-in" href="talleres.html">
+                        <i class="ph ph-magnifying-glass doc-shell-icon"></i>
                         <h3>Encuentra talleres</h3>
-                        <p class="panel-text">Busca por categoria, distrito, modalidad y horario segun lo que necesites hoy.</p>
+                        <p class="panel-text">Filtra por categoria, distrito, precio y horario para llegar rapido a lo que buscas.</p>
                     </a>
                     <a class="doc-shell fade-in" href="detalle-taller.html" id="homeCompararLink">
+                        <i class="ph ph-list-magnifying-glass doc-shell-icon"></i>
                         <h3>Compara opciones</h3>
                         <p class="panel-text">Revisa descripcion, precio, comentarios y vacantes antes de decidirte.</p>
                     </a>
                     <a class="doc-shell fade-in" href="inscripcion.html" id="homeReservaLink">
+                        <i class="ph ph-check-circle doc-shell-icon"></i>
                         <h3>Reserva tu cupo</h3>
-                        <p class="panel-text">Completa tu inscripcion en pocos pasos y revisa el estado desde tu perfil.</p>
+                        <p class="panel-text">Inscribete en pocos pasos y revisa el estado desde tu perfil en cualquier momento.</p>
                     </a>
                     <a class="doc-shell fade-in" href="admin.html">
+                        <i class="ph ph-megaphone doc-shell-icon"></i>
                         <h3>Publica tu taller</h3>
-                        <p class="panel-text">Comparte tu propuesta, publica nuevas fechas y manten tu oferta visible para mas personas.</p>
+                        <p class="panel-text">Comparte tu propuesta y manten tu oferta visible para mas personas.</p>
                     </a>
                 </div>
             </div>
         </section>
 
-        <section class="section" style="background:var(--color-surface,#f8f8fc);">
+        <section class="section section-testimonios">
             <div class="container">
                 <div class="section-heading">
                     <div>
                         <span class="eyebrow">Lo que dicen nuestros usuarios</span>
-                        <h2 class="section-title">Testimonios reales</h2>
+                        <h2 class="section-title">Experiencias reales</h2>
                     </div>
-                    <p class="section-description">Personas que encontraron su taller ideal y compartieron su experiencia con nosotros.</p>
+                    <p class="section-description">Personas que encontraron su taller ideal en TuTaller.pe.</p>
                 </div>
-                <div class="stats-grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;">
-                    <div class="surface-card fade-in" style="padding:1.5rem;display:flex;flex-direction:column;gap:0.75rem;">
-                        <div style="color:#f59e0b;font-size:1.1rem;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                        <p style="font-size:0.95rem;line-height:1.6;margin:0;">"Encontre el taller de pintura que buscaba hace meses. La busqueda por distrito fue clave para elegir el mas cercano a mi casa."</p>
-                        <div style="margin-top:auto;padding-top:0.75rem;border-top:1px solid var(--color-border,#e5e7eb);">
-                            <strong style="font-size:0.9rem;">Camila Rojas</strong>
-                            <span style="display:block;font-size:0.82rem;color:var(--color-text-muted,#6b7280);">Taller de Pintura Creativa, Miraflores</span>
+                <div class="testimonios-grid">
+                    <div class="testimonio-card fade-in">
+                        <i class="ph ph-quotes testimonio-quote-icon"></i>
+                        <p class="testimonio-texto">"Encontre el taller de pintura que buscaba hace meses. La busqueda por distrito fue clave para elegir el mas cercano a mi casa."</p>
+                        <div class="testimonio-stars">
+                            <i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i>
+                        </div>
+                        <div class="testimonio-autor">
+                            <div class="testimonio-avatar">CR</div>
+                            <div>
+                                <strong>Camila Rojas</strong>
+                                <span>Pintura Creativa &middot; Miraflores</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="surface-card fade-in" style="padding:1.5rem;display:flex;flex-direction:column;gap:0.75rem;">
-                        <div style="color:#f59e0b;font-size:1.1rem;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                        <p style="font-size:0.95rem;line-height:1.6;margin:0;">"Me inscribi en guitarra y en pocas semanas ya tocaba mis primeras canciones. El proceso de reserva fue muy rapido y claro."</p>
-                        <div style="margin-top:auto;padding-top:0.75rem;border-top:1px solid var(--color-border,#e5e7eb);">
-                            <strong style="font-size:0.9rem;">Diego Salazar</strong>
-                            <span style="display:block;font-size:0.82rem;color:var(--color-text-muted,#6b7280);">Guitarra desde Cero, Lince</span>
+                    <div class="testimonio-card fade-in">
+                        <i class="ph ph-quotes testimonio-quote-icon"></i>
+                        <p class="testimonio-texto">"Me inscribi en guitarra y en pocas semanas ya tocaba mis primeras canciones. El proceso de reserva fue muy rapido y claro."</p>
+                        <div class="testimonio-stars">
+                            <i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i>
+                        </div>
+                        <div class="testimonio-autor">
+                            <div class="testimonio-avatar">DS</div>
+                            <div>
+                                <strong>Diego Salazar</strong>
+                                <span>Guitarra desde Cero &middot; Lince</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="surface-card fade-in" style="padding:1.5rem;display:flex;flex-direction:column;gap:0.75rem;">
-                        <div style="color:#f59e0b;font-size:1.1rem;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                        <p style="font-size:0.95rem;line-height:1.6;margin:0;">"El filtro por precio me ayudo mucho a encontrar opciones dentro de mi presupuesto. Tome el taller de cocina peruana y fue genial."</p>
-                        <div style="margin-top:auto;padding-top:0.75rem;border-top:1px solid var(--color-border,#e5e7eb);">
-                            <strong style="font-size:0.9rem;">Valeria Paredes</strong>
-                            <span style="display:block;font-size:0.82rem;color:var(--color-text-muted,#6b7280);">Cocina Peruana Casera, Surquillo</span>
+                    <div class="testimonio-card fade-in">
+                        <i class="ph ph-quotes testimonio-quote-icon"></i>
+                        <p class="testimonio-texto">"El filtro por precio me ayudo mucho a encontrar opciones dentro de mi presupuesto. El taller de cocina peruana fue una gran experiencia."</p>
+                        <div class="testimonio-stars">
+                            <i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i>
+                        </div>
+                        <div class="testimonio-autor">
+                            <div class="testimonio-avatar">VP</div>
+                            <div>
+                                <strong>Valeria Paredes</strong>
+                                <span>Cocina Peruana &middot; Surquillo</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="surface-card fade-in" style="padding:1.5rem;display:flex;flex-direction:column;gap:0.75rem;">
-                        <div style="color:#f59e0b;font-size:1.1rem;">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
-                        <p style="font-size:0.95rem;line-height:1.6;margin:0;">"La modalidad virtual me permitio tomar ingles desde casa sin complicaciones. El panel de perfil me ayuda a seguir mis inscripciones."</p>
-                        <div style="margin-top:auto;padding-top:0.75rem;border-top:1px solid var(--color-border,#e5e7eb);">
-                            <strong style="font-size:0.9rem;">Andrea Huaman</strong>
-                            <span style="display:block;font-size:0.82rem;color:var(--color-text-muted,#6b7280);">Ingles Conversacional, Virtual</span>
+                    <div class="testimonio-card fade-in">
+                        <i class="ph ph-quotes testimonio-quote-icon"></i>
+                        <p class="testimonio-texto">"La modalidad virtual me permitio tomar ingles desde casa sin complicaciones. El panel de perfil me ayuda a seguir mis inscripciones."</p>
+                        <div class="testimonio-stars">
+                            <i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star"></i>
+                        </div>
+                        <div class="testimonio-autor">
+                            <div class="testimonio-avatar">AH</div>
+                            <div>
+                                <strong>Andrea Huaman</strong>
+                                <span>Ingles Conversacional &middot; Virtual</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="surface-card fade-in" style="padding:1.5rem;display:flex;flex-direction:column;gap:0.75rem;">
-                        <div style="color:#f59e0b;font-size:1.1rem;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                        <p style="font-size:0.95rem;line-height:1.6;margin:0;">"Como organizador, publicar mi taller fue muy sencillo. En dos dias ya tenia inscripciones confirmadas. Lo recomiendo a otros instructores."</p>
-                        <div style="margin-top:auto;padding-top:0.75rem;border-top:1px solid var(--color-border,#e5e7eb);">
-                            <strong style="font-size:0.9rem;">Paulo Mendoza</strong>
-                            <span style="display:block;font-size:0.82rem;color:var(--color-text-muted,#6b7280);">Organizador de talleres</span>
+                    <div class="testimonio-card fade-in">
+                        <i class="ph ph-quotes testimonio-quote-icon"></i>
+                        <p class="testimonio-texto">"Publicar mi taller fue muy sencillo. En dos dias ya tenia inscripciones confirmadas. Lo recomiendo a cualquier instructor."</p>
+                        <div class="testimonio-stars">
+                            <i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i>
+                        </div>
+                        <div class="testimonio-autor">
+                            <div class="testimonio-avatar">PM</div>
+                            <div>
+                                <strong>Paulo Mendoza</strong>
+                                <span>Organizador de talleres</span>
+                            </div>
                         </div>
                     </div>
                 </div>
