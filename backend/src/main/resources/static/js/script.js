@@ -1881,4 +1881,78 @@ document.addEventListener("DOMContentLoaded", function () {
     configurarRegistro();
     configurarCrearTaller();
     inicializarDatosDePagina();
+    inicializarAccesibilidad();
 });
+
+/* ── Barra de accesibilidad ─────────────────────────────── */
+function inicializarAccesibilidad() {
+    const toggle = document.getElementById("accToggle");
+    const panel  = document.getElementById("accPanel");
+    if (!toggle || !panel) return;
+
+    const SIZES   = [85, 100, 115, 130];
+    const DYSLEXIA_FONT = "'OpenDyslexic', 'Comic Sans MS', cursive";
+    let sizeIndex = 1;
+
+    // Recuperar preferencias guardadas
+    const saved = JSON.parse(localStorage.getItem("tutallerAcc") || "{}");
+    if (saved.sizeIndex !== undefined) { sizeIndex = saved.sizeIndex; aplicarFuente(sizeIndex); }
+    if (saved.contrast)  activarContraste(true);
+    if (saved.dyslexia)  activarDislexia(true);
+
+    function guardar() {
+        localStorage.setItem("tutallerAcc", JSON.stringify({
+            sizeIndex, contrast: document.body.dataset.accContrast === "1",
+            dyslexia: document.body.dataset.accDyslexia === "1"
+        }));
+    }
+
+    function aplicarFuente(idx) {
+        document.documentElement.style.fontSize = SIZES[idx] + "%";
+    }
+
+    function activarContraste(on) {
+        document.body.dataset.accContrast = on ? "1" : "0";
+        const btn = document.getElementById("accContrast");
+        if (btn) btn.setAttribute("aria-pressed", String(on));
+    }
+
+    function activarDislexia(on) {
+        document.body.dataset.accDyslexia = on ? "1" : "0";
+        document.body.style.fontFamily = on ? DYSLEXIA_FONT : "";
+        const btn = document.getElementById("accDyslexia");
+        if (btn) btn.setAttribute("aria-pressed", String(on));
+    }
+
+    toggle.addEventListener("click", function() {
+        const open = panel.hidden;
+        panel.hidden = !open;
+        toggle.setAttribute("aria-expanded", String(open));
+    });
+
+    document.getElementById("accFontUp").addEventListener("click", function() {
+        if (sizeIndex < SIZES.length - 1) { sizeIndex++; aplicarFuente(sizeIndex); guardar(); }
+    });
+    document.getElementById("accFontDown").addEventListener("click", function() {
+        if (sizeIndex > 0) { sizeIndex--; aplicarFuente(sizeIndex); guardar(); }
+    });
+    document.getElementById("accFontReset").addEventListener("click", function() {
+        sizeIndex = 1; aplicarFuente(sizeIndex); guardar();
+    });
+    document.getElementById("accContrast").addEventListener("click", function() {
+        const on = document.body.dataset.accContrast !== "1";
+        activarContraste(on); guardar();
+    });
+    document.getElementById("accDyslexia").addEventListener("click", function() {
+        const on = document.body.dataset.accDyslexia !== "1";
+        activarDislexia(on); guardar();
+    });
+
+    document.addEventListener("keydown", function(e) {
+        if (e.key === "Escape" && !panel.hidden) {
+            panel.hidden = true;
+            toggle.setAttribute("aria-expanded", "false");
+            toggle.focus();
+        }
+    });
+}

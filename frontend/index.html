@@ -13,6 +13,41 @@
 <body data-page="inicio">
     <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
 
+    <!-- Barra de accesibilidad -->
+    <div class="acc-bar" role="region" aria-label="Opciones de accesibilidad">
+        <button class="acc-toggle" id="accToggle" aria-expanded="false" aria-controls="accPanel" title="Opciones de accesibilidad">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-136a16,16,0,1,1-16-16A16,16,0,0,1,144,80Zm-8,32v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Z"/></svg>
+            <span class="acc-toggle-label">Accesibilidad</span>
+        </button>
+        <div class="acc-panel" id="accPanel" hidden>
+            <p class="acc-panel-title">Opciones de accesibilidad</p>
+            <div class="acc-options">
+                <div class="acc-group">
+                    <span class="acc-group-label">Tamaño de texto</span>
+                    <div class="acc-btn-row">
+                        <button class="acc-btn" id="accFontDown" title="Reducir texto" aria-label="Reducir tamaño de texto">A<span style="font-size:0.7em">−</span></button>
+                        <button class="acc-btn acc-btn-reset" id="accFontReset" title="Tamaño normal" aria-label="Restablecer tamaño de texto">A</button>
+                        <button class="acc-btn" id="accFontUp" title="Aumentar texto" aria-label="Aumentar tamaño de texto">A<span style="font-size:1.2em">+</span></button>
+                    </div>
+                </div>
+                <div class="acc-group">
+                    <span class="acc-group-label">Contraste</span>
+                    <button class="acc-btn acc-btn-full" id="accContrast" aria-pressed="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192V40a88,88,0,0,1,0,176Z"/></svg>
+                        Alto contraste
+                    </button>
+                </div>
+                <div class="acc-group">
+                    <span class="acc-group-label">Legibilidad</span>
+                    <button class="acc-btn acc-btn-full" id="accDyslexia" aria-pressed="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32Zm0,176H48V48H208ZM96,120h64a8,8,0,0,1,0,16H96a8,8,0,0,1,0-16Zm0-32h64a8,8,0,0,1,0,16H96a8,8,0,0,1,0-16Zm0,64h64a8,8,0,0,1,0,16H96a8,8,0,0,1,0-16Z"/></svg>
+                        Fuente dislexia
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <header class="site-header">
         <div class="container header-shell">
             <a class="brand" href="index.html" aria-label="Ir al inicio de TuTaller.pe">
