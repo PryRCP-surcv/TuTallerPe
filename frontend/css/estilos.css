@@ -1371,6 +1371,21 @@ main {
 }
 
 .success-msg {
+    min-height: 1.2rem;
+    color: #16a34a;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    animation: fadeInMsg 0.3s ease;
+}
+
+@keyframes fadeInMsg {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.success-msg {
     color: var(--success);
 }
 

@@ -1059,6 +1059,26 @@ function configurarRegistro() {
         return;
     }
 
+    // Mensajito al marcar el checkbox de políticas
+    const checkTerminos = obtenerCampo("registroTerminos");
+    const errorTerminosEl = obtenerCampo("errorRegistroTerminos");
+    if (checkTerminos && errorTerminosEl) {
+        checkTerminos.addEventListener("change", function () {
+            if (this.checked) {
+                errorTerminosEl.textContent = "";
+                errorTerminosEl.className = "success-msg";
+                errorTerminosEl.textContent = "¡Gracias! Has aceptado los Terminos y la Politica de Privacidad.";
+                setTimeout(() => {
+                    errorTerminosEl.textContent = "";
+                    errorTerminosEl.className = "error-msg";
+                }, 3500);
+            } else {
+                errorTerminosEl.className = "error-msg";
+                errorTerminosEl.textContent = "";
+            }
+        });
+    }
+
     const validaciones = [
         {
             campoId: "registroNombre",
