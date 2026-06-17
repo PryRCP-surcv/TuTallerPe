@@ -1995,4 +1995,168 @@ function inicializarAccesibilidad() {
             toggle.focus();
         }
     });
+
+    // Recuperar modo daltónico guardado
+    if (saved.colorFilter) aplicarFiltroColor(saved.colorFilter);
+
+    function aplicarFiltroColor(modo) {
+        document.body.dataset.accColor = modo === "none" ? "" : modo;
+        document.querySelectorAll(".acc-color-btn").forEach(btn => {
+            btn.setAttribute("aria-pressed", String(btn.dataset.filter === modo));
+        });
+        const s = JSON.parse(localStorage.getItem("tutallerAcc") || "{}");
+        s.colorFilter = modo;
+        localStorage.setItem("tutallerAcc", JSON.stringify(s));
+    }
+
+    document.querySelectorAll(".acc-color-btn").forEach(btn => {
+        btn.addEventListener("click", () => aplicarFiltroColor(btn.dataset.filter));
+    });
 }
+
+/* ── Lector de pantalla (Web Speech API) ─────────────────── */
+(function inicializarLector() {
+    const btnLeer  = document.getElementById("accLector");
+    const btnStop  = document.getElementById("accLectorStop");
+    if (!btnLeer || !window.speechSynthesis) return;
+
+    const synth = window.speechSynthesis;
+
+    function obtenerTextoLegible() {
+        const main = document.getElementById("contenido-principal") || document.body;
+        const clone = main.cloneNode(true);
+        // Quitar elementos que no se deben leer
+        clone.querySelectorAll("script,style,svg,.acc-bar,nav,footer,[aria-hidden='true']").forEach(el => el.remove());
+        return clone.innerText || clone.textContent || "";
+    }
+
+    function leerPagina() {
+        synth.cancel();
+        const texto = obtenerTextoLegible();
+        const chunks = texto.match(/[^.!?\n]{1,200}[.!?\n]?/g) || [texto];
+
+        let i = 0;
+        function leerChunk() {
+            if (i >= chunks.length) { detenerLectura(); return; }
+            const utt = new SpeechSynthesisUtterance(chunks[i++]);
+            utt.lang = "es-PE";
+            utt.rate = 0.95;
+            utt.pitch = 1;
+            // Elegir voz en español si está disponible
+            const voces = synth.getVoices();
+            const vozEs = voces.find(v => v.lang.startsWith("es")) || null;
+            if (vozEs) utt.voice = vozEs;
+            utt.onend = leerChunk;
+            synth.speak(utt);
+        }
+
+        leerChunk();
+        btnLeer.setAttribute("hidden", "");
+        btnStop.removeAttribute("hidden");
+        btnLeer.setAttribute("aria-pressed", "true");
+    }
+
+    function detenerLectura() {
+        synth.cancel();
+        btnLeer.removeAttribute("hidden");
+        btnStop.setAttribute("hidden", "");
+        btnLeer.setAttribute("aria-pressed", "false");
+    }
+
+    btnLeer.addEventListener("click", leerPagina);
+    btnStop.addEventListener("click", detenerLectura);
+
+    // Detener si el usuario navega fuera
+    document.addEventListener("visibilitychange", () => {
+        if (document.hidden) synth.pause();
+        else synth.resume();
+    });
+})();
+
+/* ── Control por voz (Web Speech Recognition) ────────────── */
+(function inicializarVoz() {
+    const btnVoz    = document.getElementById("accVoz");
+    const labelVoz  = document.getElementById("accVozLabel");
+    const statusDiv = document.getElementById("accVozStatus");
+    const textoDiv  = document.getElementById("accVozTexto");
+    if (!btnVoz) return;
+
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+        btnVoz.title = "Tu navegador no soporta reconocimiento de voz";
+        btnVoz.disabled = true;
+        return;
+    }
+
+    const rec = new SpeechRecognition();
+    rec.lang = "es-PE";
+    rec.continuous = false;
+    rec.interimResults = false;
+
+    const COMANDOS = {
+        "inicio":          () => { window.location.href = "index.html"; },
+        "ir a inicio":     () => { window.location.href = "index.html"; },
+        "talleres":        () => { window.location.href = "talleres.html"; },
+        "ver talleres":    () => { window.location.href = "talleres.html"; },
+        "ir a talleres":   () => { window.location.href = "talleres.html"; },
+        "registrarme":     () => { window.location.href = "registro.html"; },
+        "crear cuenta":    () => { window.location.href = "registro.html"; },
+        "ingresar":        () => { window.location.href = "login.html"; },
+        "iniciar sesion":  () => { window.location.href = "login.html"; },
+        "publicar taller": () => { window.location.href = "admin.html"; },
+        "subir":           () => { window.scrollTo({ top: 0, behavior: "smooth" }); },
+        "bajar":           () => { window.scrollBy({ top: 400, behavior: "smooth" }); },
+        "buscar":          () => { document.getElementById("searchInput")?.focus(); },
+    };
+
+    let activo = false;
+
+    function activar() {
+        activo = true;
+        btnVoz.setAttribute("aria-pressed", "true");
+        labelVoz.textContent = "Voz activa";
+        statusDiv.removeAttribute("hidden");
+        textoDiv.textContent = "Escuchando...";
+        rec.start();
+    }
+
+    function desactivar() {
+        activo = false;
+        rec.stop();
+        btnVoz.setAttribute("aria-pressed", "false");
+        labelVoz.textContent = "Activar voz";
+        statusDiv.setAttribute("hidden", "");
+    }
+
+    btnVoz.addEventListener("click", () => { activo ? desactivar() : activar(); });
+
+    rec.onresult = function(e) {
+        const dicho = e.results[0][0].transcript.toLowerCase().trim()
+            .normalize("NFD").replace(/[̀-ͯ]/g, ""); // quitar tildes
+        textoDiv.textContent = `"${dicho}"`;
+
+        const accion = COMANDOS[dicho];
+        if (accion) {
+            setTimeout(accion, 400);
+        } else {
+            textoDiv.textContent = `No reconocido: "${dicho}"`;
+            setTimeout(() => { if (activo) { textoDiv.textContent = "Escuchando..."; rec.start(); } }, 2000);
+            return;
+        }
+    };
+
+    rec.onerror = function(e) {
+        if (e.error === "no-speech") {
+            if (activo) rec.start();
+        } else {
+            textoDiv.textContent = "Error: " + e.error;
+            desactivar();
+        }
+    };
+
+    rec.onend = function() {
+        if (activo) {
+            setTimeout(() => { try { rec.start(); } catch(_) {} }, 300);
+        }
+    };
+})();

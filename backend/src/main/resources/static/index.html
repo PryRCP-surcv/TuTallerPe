@@ -44,9 +44,55 @@
                         Fuente dislexia
                     </button>
                 </div>
+                <div class="acc-group">
+                    <span class="acc-group-label">Daltonismo</span>
+                    <div class="acc-btn-row acc-color-row">
+                        <button class="acc-btn acc-color-btn" id="accColorNone" data-filter="none" aria-pressed="true" title="Sin filtro de color">Normal</button>
+                        <button class="acc-btn acc-color-btn" id="accColorDeut" data-filter="deuteranopia" aria-pressed="false" title="Deuteranopia (rojo-verde)">D</button>
+                        <button class="acc-btn acc-color-btn" id="accColorProt" data-filter="protanopia" aria-pressed="false" title="Protanopia (rojo)">P</button>
+                        <button class="acc-btn acc-color-btn" id="accColorTrit" data-filter="tritanopia" aria-pressed="false" title="Tritanopia (azul-amarillo)">T</button>
+                    </div>
+                </div>
+                <div class="acc-group">
+                    <span class="acc-group-label">Lector de pantalla</span>
+                    <button class="acc-btn acc-btn-full" id="accLector" aria-pressed="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M155.51,24.81a8,8,0,0,0-8.42.88L77.25,80H32A16,16,0,0,0,16,96v64a16,16,0,0,0,16,16H77.25l69.84,54.31A8,8,0,0,0,160,224V32A8,8,0,0,0,155.51,24.81ZM144,207.64l-57.6-44.79A8,8,0,0,0,81.6,160H32V96H81.6a8,8,0,0,0,4.8-1.85L144,49.36Zm66.06-93.7a39.78,39.78,0,0,1-11.77,28.29,8,8,0,0,1-11.31-11.31,24,24,0,0,0,0-33.94,8,8,0,0,1,11.31-11.31A39.78,39.78,0,0,1,210.06,113.94Zm32.12-37.69a80.1,80.1,0,0,1,0,75.5,8,8,0,0,1-13.94-7.85,64.09,64.09,0,0,0,0-59.8,8,8,0,0,1,13.94-7.85Z"/></svg>
+                        Leer página
+                    </button>
+                    <button class="acc-btn acc-btn-full" id="accLectorStop" hidden>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M216,48H40a16,16,0,0,0-16,16V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V64A16,16,0,0,0,216,48Zm0,144H40V64H216Z"/></svg>
+                        Detener lectura
+                    </button>
+                </div>
+                <div class="acc-group">
+                    <span class="acc-group-label">Control por voz</span>
+                    <button class="acc-btn acc-btn-full" id="accVoz" aria-pressed="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128,176a48.05,48.05,0,0,0,48-48V64a48,48,0,0,0-96,0v64A48.05,48.05,0,0,0,128,176ZM96,64a32,32,0,0,1,64,0v64a32,32,0,0,1-64,0Zm40,143.6V232a8,8,0,0,1-16,0V207.6A80.11,80.11,0,0,1,48,128a8,8,0,0,1,16,0,64,64,0,0,0,128,0,8,8,0,0,1,16,0A80.11,80.11,0,0,1,136,207.6Z"/></svg>
+                        <span id="accVozLabel">Activar voz</span>
+                    </button>
+                    <div class="acc-voz-status" id="accVozStatus" hidden>
+                        <span class="acc-voz-dot"></span>
+                        <span id="accVozTexto">Escuchando...</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+    <!-- Filtros SVG para daltonismo -->
+    <svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+        <defs>
+            <filter id="filter-deuteranopia">
+                <feColorMatrix type="matrix" values="0.367 0.861 -0.228 0 0  0.280 0.673  0.047 0 0  -0.012 0.043  0.969 0 0  0 0 0 1 0"/>
+            </filter>
+            <filter id="filter-protanopia">
+                <feColorMatrix type="matrix" values="0.152 1.053 -0.205 0 0  0.115 0.786  0.099 0 0  -0.004 -0.048 1.052 0 0  0 0 0 1 0"/>
+            </filter>
+            <filter id="filter-tritanopia">
+                <feColorMatrix type="matrix" values="1.256 -0.077 -0.179 0 0  -0.078 0.931  0.148 0 0  0.005  0.691  0.304 0 0  0 0 0 1 0"/>
+            </filter>
+        </defs>
+    </svg>
 
     <header class="site-header">
         <div class="container header-shell">
