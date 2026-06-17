@@ -1996,12 +1996,21 @@ function inicializarAccesibilidad() {
         }
     });
 
+    // Botón restablecer todo
+    document.getElementById("accResetAll")?.addEventListener("click", function() {
+        sizeIndex = 1; aplicarFuente(1);
+        activarContraste(false);
+        activarDislexia(false);
+        aplicarFiltroColor("none");
+        localStorage.removeItem("tutallerAcc");
+    });
+
     // Recuperar modo daltónico guardado
     if (saved.colorFilter) aplicarFiltroColor(saved.colorFilter);
 
     function aplicarFiltroColor(modo) {
         document.body.dataset.accColor = modo === "none" ? "" : modo;
-        document.querySelectorAll(".acc-color-btn").forEach(btn => {
+        document.querySelectorAll(".acc-color-chip").forEach(btn => {
             btn.setAttribute("aria-pressed", String(btn.dataset.filter === modo));
         });
         const s = JSON.parse(localStorage.getItem("tutallerAcc") || "{}");
@@ -2009,7 +2018,7 @@ function inicializarAccesibilidad() {
         localStorage.setItem("tutallerAcc", JSON.stringify(s));
     }
 
-    document.querySelectorAll(".acc-color-btn").forEach(btn => {
+    document.querySelectorAll(".acc-color-chip").forEach(btn => {
         btn.addEventListener("click", () => aplicarFiltroColor(btn.dataset.filter));
     });
 }
