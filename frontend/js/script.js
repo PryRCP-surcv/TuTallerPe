@@ -235,17 +235,59 @@ function limpiarResumen(formId) {
 }
 
 const IMAGENES_TALLER = {
-    arte: ["imagenes/pintura.webp", "imagenes/pintura1.webp"],
-    musica: ["imagenes/canto.png", "imagenes/hero.jpg"],
-    danza: ["imagenes/bailes.webp"],
-    tecnologia: ["imagenes/ARTES GRAFICAS.png"],
-    cocina: ["imagenes/hero.jpg"],
-    idiomas: ["imagenes/hero.jpg"],
-    comunicacion: ["imagenes/oratoria.jpg", "imagenes/oratoria1.avif"],
-    teatro: ["imagenes/arton28927.jpg"],
-    bienestar: ["imagenes/hero.jpg", "imagenes/pintura1.webp"],
-    fotografia: ["imagenes/ARTES GRAFICAS.png", "imagenes/hero.jpg"],
-    manualidades: ["imagenes/pintura.webp", "imagenes/pintura1.webp"]
+    arte: [
+        "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&q=80",
+        "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=600&q=80",
+        "imagenes/pintura.webp",
+        "imagenes/pintura1.webp"
+    ],
+    musica: [
+        "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=600&q=80",
+        "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=600&q=80",
+        "imagenes/canto.png"
+    ],
+    danza: [
+        "https://images.unsplash.com/photo-1508700929628-666bc8bd84ea?w=600&q=80",
+        "https://images.unsplash.com/photo-1547153760-18fc86324498?w=600&q=80",
+        "imagenes/bailes.webp"
+    ],
+    tecnologia: [
+        "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&q=80",
+        "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=80",
+        "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&q=80"
+    ],
+    cocina: [
+        "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80",
+        "https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=600&q=80",
+        "https://images.unsplash.com/photo-1507048331197-7d4ac70811cf?w=600&q=80"
+    ],
+    idiomas: [
+        "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=600&q=80",
+        "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=600&q=80"
+    ],
+    comunicacion: [
+        "imagenes/oratoria.jpg",
+        "imagenes/oratoria1.avif",
+        "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=600&q=80"
+    ],
+    teatro: [
+        "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=600&q=80",
+        "https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?w=600&q=80",
+        "imagenes/arton28927.jpg"
+    ],
+    bienestar: [
+        "https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=600&q=80",
+        "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80"
+    ],
+    fotografia: [
+        "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&q=80",
+        "https://images.unsplash.com/photo-1452780212461-4f9f951b6194?w=600&q=80"
+    ],
+    manualidades: [
+        "https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=600&q=80",
+        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+        "imagenes/pintura.webp"
+    ]
 };
 
 function normalizarTexto(valor) {

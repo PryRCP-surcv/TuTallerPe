@@ -100,7 +100,27 @@ INSERT INTO talleres (id, nombre, descripcion, categoria, distrito, tipo, horari
 (57, 'Marketing Digital para Emprendedores - Miraflores', 'Planifica contenido, anuncios y embudos simples para hacer crecer un negocio pequeno.', 'Tecnologia', 'Miraflores', 'PRESENCIAL', 'Sabados 3:00 PM', 125.00, 17, 'ACTIVO'),
 (58, 'Lettering y Papeleria Creativa - Magdalena del Mar', 'Aprende trazos, composicion y acabados para crear piezas personalizadas y utiles.', 'Manualidades', 'Magdalena del Mar', 'PRESENCIAL', 'Domingos 10:00 AM', 64.00, 13, 'ACTIVO'),
 (59, 'Lettering y Papeleria Creativa - Miraflores', 'Aprende trazos, composicion y acabados para crear piezas personalizadas y utiles.', 'Manualidades', 'Miraflores', 'MIXTO', 'Miercoles 6:30 PM', 68.00, 15, 'ACTIVO'),
-(60, 'Lettering y Papeleria Creativa - Virtual', 'Aprende trazos, composicion y acabados para crear piezas personalizadas y utiles.', 'Manualidades', 'Virtual', 'VIRTUAL', 'Lunes 8:00 PM', 60.00, 21, 'ACTIVO');
+(60, 'Lettering y Papeleria Creativa - Virtual', 'Aprende trazos, composicion y acabados para crear piezas personalizadas y utiles.', 'Manualidades', 'Virtual', 'VIRTUAL', 'Lunes 8:00 PM', 60.00, 21, 'ACTIVO'),
+(61, 'Yoga para Principiantes - Miraflores', 'Posturas basicas, respiracion y relajacion para iniciar una practica sostenida de bienestar.', 'Bienestar', 'Miraflores', 'PRESENCIAL', 'Sabados 8:00 AM', 55.00, 16, 'ACTIVO'),
+(62, 'Yoga para Principiantes - Virtual', 'Posturas basicas, respiracion y relajacion para iniciar una practica sostenida de bienestar.', 'Bienestar', 'Virtual', 'VIRTUAL', 'Miercoles 7:00 AM', 45.00, 25, 'ACTIVO'),
+(63, 'Acuarela Expresiva - Barranco', 'Aprende tecnicas de acuarela con enfasis en color, luz y composicion libre para distintos niveles.', 'Arte', 'Barranco', 'PRESENCIAL', 'Domingos 10:00 AM', 90.00, 12, 'ACTIVO'),
+(64, 'Acuarela Expresiva - Virtual', 'Aprende tecnicas de acuarela con enfasis en color, luz y composicion libre para distintos niveles.', 'Arte', 'Virtual', 'VIRTUAL', 'Viernes 7:00 PM', 78.00, 20, 'ACTIVO'),
+(65, 'Piano desde Cero - San Borja', 'Aprende lectura musical, tecnica basica y repertorio accesible para empezar a tocar el piano.', 'Musica', 'San Borja', 'PRESENCIAL', 'Sabados 10:00 AM', 95.00, 10, 'ACTIVO'),
+(66, 'Piano desde Cero - Virtual', 'Aprende lectura musical, tecnica basica y repertorio accesible para empezar a tocar el piano.', 'Musica', 'Virtual', 'VIRTUAL', 'Lunes y miercoles 7:00 PM', 82.00, 18, 'ACTIVO'),
+(67, 'Salsa y Ritmos Latinos - Lince', 'Pasos basicos, figuras y ritmo para bailar salsa con confianza en cualquier ambiente social.', 'Danza', 'Lince', 'PRESENCIAL', 'Viernes 7:30 PM', 60.00, 20, 'ACTIVO'),
+(68, 'Salsa y Ritmos Latinos - San Miguel', 'Pasos basicos, figuras y ritmo para bailar salsa con confianza en cualquier ambiente social.', 'Danza', 'San Miguel', 'PRESENCIAL', 'Sabados 6:00 PM', 65.00, 18, 'ACTIVO'),
+(69, 'Python para Datos - Virtual', 'Introduccion a Python aplicado al analisis de datos con pandas, visualizacion y ejercicios practicos.', 'Tecnologia', 'Virtual', 'VIRTUAL', 'Martes y jueves 8:00 PM', 140.00, 22, 'ACTIVO'),
+(70, 'Python para Datos - Miraflores', 'Introduccion a Python aplicado al analisis de datos con pandas, visualizacion y ejercicios practicos.', 'Tecnologia', 'Miraflores', 'MIXTO', 'Sabados 9:00 AM', 150.00, 16, 'ACTIVO'),
+(71, 'Reposteria Sin Gluten - Surco', 'Elabora postres y panes sin gluten con tecnicas adaptadas para celiacos e intolerantes.', 'Cocina', 'Surco', 'PRESENCIAL', 'Domingos 10:00 AM', 88.00, 10, 'ACTIVO'),
+(72, 'Reposteria Sin Gluten - Virtual', 'Elabora postres y panes sin gluten con tecnicas adaptadas para celiacos e intolerantes.', 'Cocina', 'Virtual', 'VIRTUAL', 'Sabados 11:00 AM', 75.00, 20, 'ACTIVO'),
+(73, 'Frances Basico - Miraflores', 'Curso introductorio de frances con enfasis en pronunciacion, saludos y conversacion cotidiana.', 'Idiomas', 'Miraflores', 'PRESENCIAL', 'Martes y jueves 7:00 PM', 105.00, 15, 'ACTIVO'),
+(74, 'Frances Basico - Virtual', 'Curso introductorio de frances con enfasis en pronunciacion, saludos y conversacion cotidiana.', 'Idiomas', 'Virtual', 'VIRTUAL', 'Lunes y miercoles 8:00 PM', 92.00, 22, 'ACTIVO'),
+(75, 'Dibujo de Retrato - Jesus Maria', 'Tecnicas de proporciones, sombras y expresion para capturar rostros con lapiz y carbon.', 'Arte', 'Jesus Maria', 'PRESENCIAL', 'Sabados 3:00 PM', 85.00, 12, 'ACTIVO'),
+(76, 'Dibujo de Retrato - Virtual', 'Tecnicas de proporciones, sombras y expresion para capturar rostros con lapiz y carbon.', 'Arte', 'Virtual', 'VIRTUAL', 'Jueves 7:30 PM', 72.00, 20, 'ACTIVO'),
+(77, 'Fotografia de Retrato - San Isidro', 'Iluminacion, encuadre y direccion de modelo para crear retratos profesionales en estudio y exterior.', 'Fotografia', 'San Isidro', 'PRESENCIAL', 'Sabados 10:00 AM', 95.00, 12, 'ACTIVO'),
+(78, 'Fotografia de Retrato - Virtual', 'Iluminacion, encuadre y direccion de modelo para crear retratos profesionales en estudio y exterior.', 'Fotografia', 'Virtual', 'VIRTUAL', 'Miercoles 7:30 PM', 80.00, 18, 'ACTIVO'),
+(79, 'Tejido a Crochet - Pueblo Libre', 'Aprende puntos basicos e intermedios para crear accesorios, bolsos y prendas con crochet.', 'Manualidades', 'Pueblo Libre', 'PRESENCIAL', 'Domingos 3:00 PM', 55.00, 14, 'ACTIVO'),
+(80, 'Tejido a Crochet - Virtual', 'Aprende puntos basicos e intermedios para crear accesorios, bolsos y prendas con crochet.', 'Manualidades', 'Virtual', 'VIRTUAL', 'Viernes 7:00 PM', 48.00, 22, 'ACTIVO');
 
 INSERT INTO inscripciones (id, usuario_id, taller_id, fecha_inscripcion, estado) VALUES
 (1, 1, 1, '2026-06-01 13:17:00', 'CONFIRMADA'),
