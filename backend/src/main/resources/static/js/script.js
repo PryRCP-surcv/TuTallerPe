@@ -1133,6 +1133,19 @@ function configurarRegistro() {
             }
         });
 
+        const terminosCheckbox = obtenerCampo("registroTerminos");
+        const errorTerminos = obtenerCampo("errorRegistroTerminos");
+        if (terminosCheckbox && !terminosCheckbox.checked) {
+            if (errorTerminos) {
+                errorTerminos.textContent = "Debes aceptar los Terminos y Condiciones para continuar.";
+            }
+            if (!primerCampoConError) {
+                primerCampoConError = terminosCheckbox;
+            }
+        } else if (errorTerminos) {
+            errorTerminos.textContent = "";
+        }
+
         if (primerCampoConError) {
             mostrarResumen("registroForm", "Completa correctamente la informacion obligatoria.");
             primerCampoConError.focus();
