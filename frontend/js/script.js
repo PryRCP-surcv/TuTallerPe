@@ -518,12 +518,59 @@ function obtenerSesionActiva() {
     return obtenerSesion();
 }
 
+function obtenerPrimerNombreUsuario(usuario) {
+    const nombreCompleto = (usuario?.nombres || "").toString().trim();
+
+    if (!nombreCompleto) {
+        return "Tu cuenta";
+    }
+
+    return nombreCompleto.split(/\s+/)[0];
+}
+
 function usuarioEsOrganizador() {
     return obtenerRolInterfaz(obtenerSesionActiva()) === "organizador";
 }
 
 function usuarioEsCliente() {
     return obtenerRolInterfaz(obtenerSesionActiva()) === "usuario";
+}
+
+function actualizarNavegacionSesion() {
+    const enlaceLogin = document.querySelector('[data-nav-item="login"]');
+    const enlaceRegistro = document.querySelector('[data-nav-item="registro"]');
+    const sesion = obtenerSesionActiva();
+
+    if (!enlaceLogin && !enlaceRegistro) {
+        return;
+    }
+
+    if (!sesion) {
+        return;
+    }
+
+    const esOrganizador = obtenerRolInterfaz(sesion) === "organizador";
+    const destinoCuenta = esOrganizador ? "admin.html" : "perfil.html";
+    const etiquetaCuenta = esOrganizador ? "tu panel de organizador" : "tu perfil";
+    const primerNombre = obtenerPrimerNombreUsuario(sesion);
+
+    if (enlaceLogin) {
+        enlaceLogin.textContent = `Hola, ${primerNombre}`;
+        enlaceLogin.setAttribute("href", destinoCuenta);
+        enlaceLogin.dataset.navItem = esOrganizador ? "sesion" : "perfil";
+        enlaceLogin.classList.add("nav-session");
+        enlaceLogin.setAttribute("title", `Sesion iniciada como ${sesion.nombres}`);
+        enlaceLogin.setAttribute("aria-label", `Ir a ${etiquetaCuenta}. Sesion iniciada como ${sesion.nombres}`);
+    }
+
+    if (enlaceRegistro) {
+        enlaceRegistro.textContent = "Cerrar sesion";
+        enlaceRegistro.setAttribute("href", "index.html");
+        enlaceRegistro.dataset.navItem = "salir";
+        enlaceRegistro.classList.add("nav-logout");
+        enlaceRegistro.setAttribute("title", "Cerrar sesion");
+        enlaceRegistro.setAttribute("aria-label", `Cerrar sesion de ${sesion.nombres}`);
+    }
 }
 
 function obtenerIdTallerDesdePagina() {
@@ -942,9 +989,11 @@ function protegerRutaPerfil() {
 
 function configurarCierreSesion() {
     document.querySelectorAll('[data-nav-item="salir"]').forEach(function (enlace) {
-        enlace.addEventListener("click", function () {
+        enlace.addEventListener("click", function (event) {
+            event.preventDefault();
             limpiarSesion();
             localStorage.removeItem("tutallerRole");
+            window.location.href = "index.html";
         });
     });
 }
@@ -2157,6 +2206,7 @@ function inicializarDatosDePagina() {
 document.addEventListener("DOMContentLoaded", function () {
     asegurarWidgetAccesibilidad();
     sincronizarSesionConRol();
+    actualizarNavegacionSesion();
     configurarTema();
     protegerRutasOrganizador();
     protegerRutasUsuario();
