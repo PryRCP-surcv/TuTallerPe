@@ -2058,6 +2058,8 @@ body[data-theme="dark"] .message-box,
 body[data-theme="dark"] .friendly-card,
 body[data-theme="dark"] .search-help-card,
 body[data-theme="dark"] .category-pill,
+body[data-theme="dark"] .media-card,
+body[data-theme="dark"] .callout-item,
 body[data-theme="dark"] .workshop-card,
 body[data-theme="dark"] .route-pill,
 body[data-theme="dark"] .access-choice-link {
@@ -2103,6 +2105,7 @@ body[data-theme="dark"] .nav-link:focus-visible {
 }
 
 body[data-theme="dark"] .surface-card,
+body[data-theme="dark"] .panel,
 body[data-theme="dark"] .search-shell,
 body[data-theme="dark"] .form-shell,
 body[data-theme="dark"] .table-shell,
@@ -2113,8 +2116,58 @@ body[data-theme="dark"] .detail-panel,
 body[data-theme="dark"] .message-box,
 body[data-theme="dark"] .friendly-card,
 body[data-theme="dark"] .search-help-card,
+body[data-theme="dark"] .media-card,
+body[data-theme="dark"] .callout-item,
 body[data-theme="dark"] .workshop-card {
     background: rgba(11, 23, 40, 0.92);
+}
+
+body[data-theme="dark"] .media-caption {
+    background: rgba(11, 23, 40, 0.96);
+    color: rgba(226, 236, 250, 0.9);
+    border-top: 1px solid rgba(70, 100, 135, 0.32);
+}
+
+body[data-theme="dark"] .check-list li,
+body[data-theme="dark"] .steps-list li,
+body[data-theme="dark"] .timeline li {
+    color: rgba(226, 236, 250, 0.9);
+}
+
+body[data-theme="dark"] .callout-item {
+    background: linear-gradient(180deg, rgba(16, 29, 49, 0.96), rgba(11, 23, 40, 0.96));
+    box-shadow: 0 14px 30px rgba(2, 6, 23, 0.22);
+}
+
+body[data-theme="dark"] .callout-item strong {
+    color: #f8fbff;
+}
+
+body[data-theme="dark"] .callout-item .panel-text {
+    color: rgba(219, 231, 249, 0.86);
+}
+
+body[data-theme="dark"] .checkbox-legal {
+    background: linear-gradient(180deg, rgba(19, 33, 56, 0.96), rgba(12, 23, 40, 0.96));
+    border-color: rgba(120, 163, 255, 0.36);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+body[data-theme="dark"] .checkbox-legal label {
+    color: #eef5ff;
+}
+
+body[data-theme="dark"] .checkbox-legal input[type="checkbox"] {
+    accent-color: #8db2ff;
+}
+
+body[data-theme="dark"] .checkbox-legal .link-legal {
+    color: #9ec1ff;
+}
+
+body[data-theme="dark"] .checkbox-legal .link-legal:hover,
+body[data-theme="dark"] .checkbox-legal .link-legal:focus-visible {
+    color: #ffffff;
 }
 
 body[data-theme="dark"] .search-shell-home {
@@ -3032,6 +3085,10 @@ body[data-theme="dark"] .acc-reset-all {
     justify-content: center;
     padding: 1rem;
     animation: fadeInOverlay 0.2s ease;
+}
+
+.modal-overlay[hidden] {
+    display: none !important;
 }
 
 @keyframes fadeInOverlay {

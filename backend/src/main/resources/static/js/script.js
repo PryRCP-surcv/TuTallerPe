@@ -2178,9 +2178,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 /* â”€â”€ Modales legales â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 function inicializarModales() {
-    function abrirModal(id) {
+    let ultimoDisparadorModal = null;
+
+    function abrirModal(id, trigger = null) {
         const overlay = document.getElementById(id);
         if (!overlay) return;
+        ultimoDisparadorModal = trigger;
         overlay.removeAttribute("hidden");
         overlay.querySelector(".modal-box")?.focus?.();
         document.body.style.overflow = "hidden";
@@ -2191,13 +2194,29 @@ function inicializarModales() {
         if (!overlay) return;
         overlay.setAttribute("hidden", "");
         document.body.style.overflow = "";
+        if (ultimoDisparadorModal) {
+            ultimoDisparadorModal.focus();
+            ultimoDisparadorModal = null;
+        }
     }
 
-    document.getElementById("btnTerminos")?.addEventListener("click", () => abrirModal("modalTerminos"));
-    document.getElementById("btnPrivacidad")?.addEventListener("click", () => abrirModal("modalPrivacidad"));
+    document.getElementById("btnTerminos")?.addEventListener("click", e => {
+        e.preventDefault();
+        e.stopPropagation();
+        abrirModal("modalTerminos", e.currentTarget);
+    });
+    document.getElementById("btnPrivacidad")?.addEventListener("click", e => {
+        e.preventDefault();
+        e.stopPropagation();
+        abrirModal("modalPrivacidad", e.currentTarget);
+    });
 
     document.querySelectorAll("[data-modal-close]").forEach(btn => {
-        btn.addEventListener("click", () => cerrarModal(btn.dataset.modalClose));
+        btn.addEventListener("click", e => {
+            e.preventDefault();
+            e.stopPropagation();
+            cerrarModal(btn.dataset.modalClose);
+        });
     });
 
     // Cerrar al hacer click fuera del modal-box

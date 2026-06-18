@@ -1,6 +1,10 @@
-const API_BASE_URL = window.location.port === "8080"
-    ? `${window.location.origin}/api`
-    : "http://localhost:8080/api";
+const isLocalPreview =
+    ["localhost", "127.0.0.1"].includes(window.location.hostname) &&
+    window.location.port !== "8080";
+
+const API_BASE_URL = isLocalPreview
+    ? "http://localhost:8080/api"
+    : `${window.location.origin}/api`;
 const SESSION_STORAGE_KEY = "tutallerSession";
 const SELECTED_TALLER_KEY = "tutallerSelectedTaller";
 const LAST_INSCRIPCION_KEY = "tutallerLastInscripcion";
@@ -126,4 +130,3 @@ function obtenerUltimoTallerPublicado() {
         return null;
     }
 }
-
