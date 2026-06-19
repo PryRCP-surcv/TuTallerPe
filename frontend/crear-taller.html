@@ -180,9 +180,55 @@
                             <div id="errorTallerTipo" class="error-msg" aria-live="polite"></div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="tallerHorario">Horario</label>
-                            <input id="tallerHorario" type="text" placeholder="Ejemplo: Sabados 4:00 PM">
+                        <div class="form-group form-group-full">
+                            <span class="form-label" id="tallerHorarioLabel">Horario</span>
+                            <div class="schedule-builder" aria-labelledby="tallerHorarioLabel">
+                                <fieldset class="schedule-days">
+                                    <legend>Dias del taller</legend>
+                                    <div class="schedule-day-grid">
+                                        <label class="schedule-day">
+                                            <input type="checkbox" name="tallerDias" value="Lunes">
+                                            <span>L</span>
+                                        </label>
+                                        <label class="schedule-day">
+                                            <input type="checkbox" name="tallerDias" value="Martes">
+                                            <span>M</span>
+                                        </label>
+                                        <label class="schedule-day">
+                                            <input type="checkbox" name="tallerDias" value="Miercoles">
+                                            <span>Mi</span>
+                                        </label>
+                                        <label class="schedule-day">
+                                            <input type="checkbox" name="tallerDias" value="Jueves">
+                                            <span>J</span>
+                                        </label>
+                                        <label class="schedule-day">
+                                            <input type="checkbox" name="tallerDias" value="Viernes">
+                                            <span>V</span>
+                                        </label>
+                                        <label class="schedule-day">
+                                            <input type="checkbox" name="tallerDias" value="Sabados">
+                                            <span>S</span>
+                                        </label>
+                                        <label class="schedule-day">
+                                            <input type="checkbox" name="tallerDias" value="Domingos">
+                                            <span>D</span>
+                                        </label>
+                                    </div>
+                                </fieldset>
+                                <div class="schedule-times">
+                                    <div class="form-group">
+                                        <label for="tallerHoraInicio">Hora de inicio</label>
+                                        <select id="tallerHoraInicio"></select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="tallerHoraFin">Hora de fin</label>
+                                        <select id="tallerHoraFin"></select>
+                                    </div>
+                                </div>
+                                <p class="schedule-preview" id="tallerHorarioPreview" aria-live="polite">Selecciona dias y horario para publicar.</p>
+                                <input id="tallerHorario" type="hidden">
+                            </div>
                             <div id="errorTallerHorario" class="error-msg" aria-live="polite"></div>
                         </div>
 

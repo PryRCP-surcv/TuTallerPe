@@ -55,6 +55,9 @@ public class Taller {
     @Column(nullable = false)
     private Integer vacantes;
 
+    @Column(name = "organizador_id")
+    private Long organizadorId;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private EstadoTaller estado;

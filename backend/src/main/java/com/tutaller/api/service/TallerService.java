@@ -41,6 +41,7 @@ public class TallerService {
                 .horario(request.getHorario())
                 .precio(request.getPrecio())
                 .vacantes(request.getVacantes())
+                .organizadorId(request.getOrganizadorId())
                 .estado(request.getEstado() != null ? request.getEstado() : EstadoTaller.ACTIVO)
                 .build();
 
@@ -58,6 +59,7 @@ public class TallerService {
         taller.setHorario(request.getHorario());
         taller.setPrecio(request.getPrecio());
         taller.setVacantes(request.getVacantes());
+        taller.setOrganizadorId(request.getOrganizadorId());
         taller.setEstado(request.getEstado() != null ? request.getEstado() : taller.getEstado());
 
         return toResponse(tallerRepository.save(taller));
@@ -86,6 +88,7 @@ public class TallerService {
                 .horario(taller.getHorario())
                 .precio(taller.getPrecio())
                 .vacantes(taller.getVacantes())
+                .organizadorId(taller.getOrganizadorId())
                 .estado(taller.getEstado())
                 .build();
     }

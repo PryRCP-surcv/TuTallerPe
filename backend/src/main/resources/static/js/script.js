@@ -451,6 +451,85 @@ const STOP_WORDS_BUSQUEDA = new Set([
     "talleres"
 ]);
 
+const CATEGORIAS_BUSQUEDA = [
+    "Arte",
+    "Musica",
+    "Danza",
+    "Tecnologia",
+    "Cocina",
+    "Idiomas",
+    "Comunicacion",
+    "Teatro",
+    "Bienestar",
+    "Fotografia",
+    "Manualidades"
+];
+
+const DISTRITOS_BUSQUEDA = [
+    "Ancon",
+    "Ate",
+    "Barranco",
+    "Bellavista",
+    "Brena",
+    "Callao",
+    "Carabayllo",
+    "Carmen de la Legua-Reynoso",
+    "Chaclacayo",
+    "Chorrillos",
+    "Cieneguilla",
+    "Comas",
+    "El Agustino",
+    "Independencia",
+    "Jesus Maria",
+    "La Molina",
+    "La Perla",
+    "La Punta",
+    "La Victoria",
+    "Lima Cercado",
+    "Lince",
+    "Los Olivos",
+    "Lurigancho-Chosica",
+    "Lurin",
+    "Magdalena del Mar",
+    "Mi Peru",
+    "Miraflores",
+    "Pachacamac",
+    "Pucusana",
+    "Pueblo Libre",
+    "Puente Piedra",
+    "Punta Hermosa",
+    "Punta Negra",
+    "Rimac",
+    "San Bartolo",
+    "San Borja",
+    "San Isidro",
+    "San Juan de Lurigancho",
+    "San Juan de Miraflores",
+    "San Luis",
+    "San Martin de Porres",
+    "San Miguel",
+    "Santa Anita",
+    "Santa Maria del Mar",
+    "Santa Rosa",
+    "Santiago de Surco",
+    "Surco",
+    "Surquillo",
+    "Virtual",
+    "Ventanilla",
+    "Villa El Salvador",
+    "Villa Maria del Triunfo"
+];
+
+const DIAS_TALLER = [
+    ["Lunes", "L"],
+    ["Martes", "M"],
+    ["Miercoles", "Mi"],
+    ["Jueves", "J"],
+    ["Viernes", "V"],
+    ["Sabados", "S"],
+    ["Domingos", "D"]
+];
+
 function normalizarTexto(valor) {
     return (valor || "")
         .toString()
@@ -536,12 +615,44 @@ function usuarioEsCliente() {
     return obtenerRolInterfaz(obtenerSesionActiva()) === "usuario";
 }
 
+function crearEnlaceNavegacion(nav, etiqueta, href, navItem, clases = "") {
+    const enlace = document.createElement("a");
+    enlace.className = `nav-link ${clases}`.trim();
+    enlace.href = href;
+    enlace.dataset.navItem = navItem;
+    enlace.textContent = etiqueta;
+    nav.appendChild(enlace);
+    return enlace;
+}
+
+function obtenerOcrearEnlaceNavegacion(nav, selector, etiqueta, href, navItem, clases = "") {
+    const existente = nav.querySelector(selector);
+
+    if (existente) {
+        return existente;
+    }
+
+    const enlaceSalida = nav.querySelector('[data-nav-item="salir"], [data-nav-item="registro"]');
+    const enlace = document.createElement("a");
+    enlace.className = `nav-link ${clases}`.trim();
+    enlace.href = href;
+    enlace.dataset.navItem = navItem;
+    enlace.textContent = etiqueta;
+
+    if (enlaceSalida) {
+        nav.insertBefore(enlace, enlaceSalida);
+    } else {
+        nav.appendChild(enlace);
+    }
+
+    return enlace;
+}
+
 function actualizarNavegacionSesion() {
-    const enlaceLogin = document.querySelector('[data-nav-item="login"]');
-    const enlaceRegistro = document.querySelector('[data-nav-item="registro"]');
+    const nav = document.querySelector("[data-nav-menu]");
     const sesion = obtenerSesionActiva();
 
-    if (!enlaceLogin && !enlaceRegistro) {
+    if (!nav) {
         return;
     }
 
@@ -553,12 +664,48 @@ function actualizarNavegacionSesion() {
     const destinoCuenta = esOrganizador ? "admin.html" : "perfil.html";
     const etiquetaCuenta = esOrganizador ? "tu panel de organizador" : "tu perfil";
     const primerNombre = obtenerPrimerNombreUsuario(sesion);
+    const perfilLink = obtenerOcrearEnlaceNavegacion(
+        nav,
+        '[data-nav-item="perfil"]',
+        "Mi cuenta",
+        "perfil.html",
+        "perfil"
+    );
+    let adminLink = nav.querySelector('[data-nav-item="admin"]');
+    const enlaceLogin = obtenerOcrearEnlaceNavegacion(
+        nav,
+        '[data-nav-item="login"], [data-nav-item="sesion"]',
+        `Hola, ${primerNombre}`,
+        destinoCuenta,
+        "sesion",
+        "nav-session"
+    );
+    const enlaceRegistro = obtenerOcrearEnlaceNavegacion(
+        nav,
+        '[data-nav-item="registro"], [data-nav-item="salir"]',
+        "Cerrar sesion",
+        "index.html",
+        "salir",
+        "nav-logout"
+    );
+
+    perfilLink.textContent = "Mi cuenta";
+    perfilLink.setAttribute("href", "perfil.html");
+    perfilLink.dataset.navItem = "perfil";
+
+    if (adminLink) {
+        adminLink.textContent = esOrganizador ? "Mi panel" : "Publica tu taller";
+        adminLink.setAttribute("href", esOrganizador ? "admin.html" : construirUrlAccesoOrganizador("admin.html"));
+    } else if (esOrganizador) {
+        adminLink = crearEnlaceNavegacion(nav, "Mi panel", "admin.html", "admin");
+    }
 
     if (enlaceLogin) {
         enlaceLogin.textContent = `Hola, ${primerNombre}`;
         enlaceLogin.setAttribute("href", destinoCuenta);
-        enlaceLogin.dataset.navItem = esOrganizador ? "sesion" : "perfil";
+        enlaceLogin.dataset.navItem = "sesion";
         enlaceLogin.classList.add("nav-session");
+        enlaceLogin.classList.remove("nav-cta");
         enlaceLogin.setAttribute("title", `Sesion iniciada como ${sesion.nombres}`);
         enlaceLogin.setAttribute("aria-label", `Ir a ${etiquetaCuenta}. Sesion iniciada como ${sesion.nombres}`);
     }
@@ -568,8 +715,17 @@ function actualizarNavegacionSesion() {
         enlaceRegistro.setAttribute("href", "index.html");
         enlaceRegistro.dataset.navItem = "salir";
         enlaceRegistro.classList.add("nav-logout");
+        enlaceRegistro.classList.remove("nav-cta");
         enlaceRegistro.setAttribute("title", "Cerrar sesion");
         enlaceRegistro.setAttribute("aria-label", `Cerrar sesion de ${sesion.nombres}`);
+    }
+
+    if (adminLink && perfilLink) {
+        nav.insertBefore(perfilLink, adminLink);
+    }
+
+    if (adminLink && enlaceLogin) {
+        nav.insertBefore(enlaceLogin, enlaceRegistro);
     }
 }
 
@@ -677,12 +833,80 @@ function enfocarCampoBusqueda() {
     campo?.focus();
 }
 
+function buscarCoincidenciaEnLista(texto, opciones) {
+    const normalizado = normalizarTexto(texto);
+    return opciones.find(function (opcion) {
+        const valor = normalizarTexto(opcion);
+        return normalizado.includes(valor) || valor.includes(normalizado);
+    }) || "";
+}
+
+function detectarFiltroHorarioPorVoz(texto) {
+    const normalizado = normalizarTexto(texto);
+
+    if (normalizado.includes("fin de semana") || normalizado.includes("sabado") || normalizado.includes("domingo")) {
+        return "Fin de semana";
+    }
+
+    if (normalizado.includes("manana")) {
+        return "Manana";
+    }
+
+    if (normalizado.includes("tarde")) {
+        return "Tarde";
+    }
+
+    if (normalizado.includes("noche")) {
+        return "Noche";
+    }
+
+    return "";
+}
+
+function detectarTipoPorVoz(texto) {
+    const normalizado = normalizarTexto(texto);
+
+    if (normalizado.includes("virtual") || normalizado.includes("online")) {
+        return "Virtual";
+    }
+
+    if (normalizado.includes("mixto") || normalizado.includes("hibrido")) {
+        return "Mixto";
+    }
+
+    if (normalizado.includes("presencial")) {
+        return "Presencial";
+    }
+
+    return "";
+}
+
 function construirUrlBusquedaVoz(texto) {
     const consulta = obtenerConsultaBusqueda(texto);
     const params = new URLSearchParams();
+    const categoria = buscarCoincidenciaEnLista(texto, CATEGORIAS_BUSQUEDA);
+    const distrito = buscarCoincidenciaEnLista(texto, DISTRITOS_BUSQUEDA);
+    const horario = detectarFiltroHorarioPorVoz(texto);
+    const tipo = detectarTipoPorVoz(texto);
 
     if (consulta) {
         params.set("q", consulta);
+    }
+
+    if (categoria) {
+        params.set("categoria", categoria);
+    }
+
+    if (distrito) {
+        params.set("distrito", distrito);
+    }
+
+    if (horario) {
+        params.set("horario", horario);
+    }
+
+    if (tipo) {
+        params.set("tipo", tipo);
     }
 
     const query = params.toString();
@@ -980,7 +1204,7 @@ function protegerRutaPerfil() {
         return;
     }
 
-    if (usuarioEsCliente()) {
+    if (obtenerSesionActiva()) {
         return;
     }
 
@@ -1562,12 +1786,114 @@ function configurarRegistro() {
     });
 }
 
+function minutosAHoraTexto(totalMinutos) {
+    const horas24 = Math.floor(totalMinutos / 60);
+    const minutos = totalMinutos % 60;
+    const periodo = horas24 >= 12 ? "PM" : "AM";
+    const horas12 = horas24 % 12 || 12;
+
+    return `${horas12}:${String(minutos).padStart(2, "0")} ${periodo}`;
+}
+
+function llenarSelectHorario(select, inicio = 6 * 60, fin = 23 * 60 + 45) {
+    if (!select || select.options.length) {
+        return;
+    }
+
+    for (let minuto = inicio; minuto <= fin; minuto += 15) {
+        const option = document.createElement("option");
+        option.value = String(minuto);
+        option.textContent = minutosAHoraTexto(minuto);
+        select.appendChild(option);
+    }
+}
+
+function obtenerDiasSeleccionadosTaller() {
+    return Array.from(document.querySelectorAll('input[name="tallerDias"]:checked'))
+        .map(function (input) {
+            return input.value;
+        });
+}
+
+function unirDiasHorario(dias) {
+    if (dias.length <= 1) {
+        return dias[0] || "";
+    }
+
+    if (dias.length === 2) {
+        return `${dias[0]} y ${dias[1]}`;
+    }
+
+    return `${dias.slice(0, -1).join(", ")} y ${dias[dias.length - 1]}`;
+}
+
+function construirHorarioTaller() {
+    const dias = obtenerDiasSeleccionadosTaller();
+    const inicio = obtenerCampo("tallerHoraInicio");
+    const fin = obtenerCampo("tallerHoraFin");
+
+    if (!dias.length || !inicio?.value || !fin?.value) {
+        return "";
+    }
+
+    const inicioMinutos = Number(inicio.value);
+    const finMinutos = Number(fin.value);
+
+    if (Number.isNaN(inicioMinutos) || Number.isNaN(finMinutos) || finMinutos <= inicioMinutos) {
+        return "";
+    }
+
+    return `${unirDiasHorario(dias)} ${minutosAHoraTexto(inicioMinutos)} a ${minutosAHoraTexto(finMinutos)}`;
+}
+
+function actualizarHorarioTaller() {
+    const hidden = obtenerCampo("tallerHorario");
+    const preview = obtenerCampo("tallerHorarioPreview");
+    const horario = construirHorarioTaller();
+
+    if (hidden) {
+        hidden.value = horario;
+        hidden.dispatchEvent(new Event("input", { bubbles: true }));
+    }
+
+    if (preview) {
+        preview.textContent = horario || "Selecciona dias y horario para publicar.";
+    }
+
+    return horario;
+}
+
+function inicializarSelectorHorarioTaller() {
+    const inicio = obtenerCampo("tallerHoraInicio");
+    const fin = obtenerCampo("tallerHoraFin");
+    const hidden = obtenerCampo("tallerHorario");
+
+    if (!inicio || !fin || !hidden) {
+        return;
+    }
+
+    llenarSelectHorario(inicio);
+    llenarSelectHorario(fin);
+    inicio.value = String(18 * 60);
+    fin.value = String(19 * 60);
+
+    document.querySelectorAll('input[name="tallerDias"]').forEach(function (input) {
+        input.addEventListener("change", actualizarHorarioTaller);
+    });
+
+    inicio.addEventListener("change", actualizarHorarioTaller);
+    fin.addEventListener("change", actualizarHorarioTaller);
+    actualizarHorarioTaller();
+}
+
 function configurarCrearTaller() {
     const form = obtenerCampo("crearTallerForm");
 
     if (!form) {
         return;
     }
+
+    inicializarSelectorHorarioTaller();
 
     const validaciones = [
         {
@@ -1602,7 +1928,22 @@ function configurarCrearTaller() {
             campoId: "tallerHorario",
             errorId: "errorTallerHorario",
             validar: function (valor) {
-                return valor.trim() ? "" : "El horario es obligatorio.";
+                const inicio = Number(obtenerCampo("tallerHoraInicio")?.value);
+                const fin = Number(obtenerCampo("tallerHoraFin")?.value);
+
+                if (!obtenerDiasSeleccionadosTaller().length) {
+                    return "Selecciona al menos un dia del taller.";
+                }
+
+                if (!valor.trim()) {
+                    return "Selecciona hora de inicio y fin del taller.";
+                }
+
+                if (fin <= inicio) {
+                    return "La hora de fin debe ser posterior a la hora de inicio.";
+                }
+
+                return "";
             }
         },
         {
@@ -1672,7 +2013,10 @@ function configurarCrearTaller() {
 
         if (primerCampoConError) {
             mostrarResumen("crearTallerForm", "Completa los datos obligatorios antes de publicar el taller.");
-            primerCampoConError.focus();
+            const campoFoco = primerCampoConError.type === "hidden"
+                ? document.querySelector('input[name="tallerDias"]') || obtenerCampo("tallerHoraInicio")
+                : primerCampoConError;
+            campoFoco?.focus();
             return;
         }
 
@@ -1683,15 +2027,17 @@ function configurarCrearTaller() {
         }
 
         try {
+            const sesion = obtenerSesionActiva();
             const taller = await apiPost("/talleres", {
                 nombre: obtenerCampo("tallerNombre").value.trim(),
                 descripcion: obtenerCampo("tallerDescripcion").value.trim(),
                 categoria: obtenerCampo("tallerCategoria").value,
                 distrito: obtenerCampo("tallerDistrito").value,
                 tipo: obtenerCampo("tallerTipo").value.toUpperCase(),
-                horario: obtenerCampo("tallerHorario").value.trim(),
+                horario: actualizarHorarioTaller(),
                 precio: Number(obtenerCampo("tallerPrecio").value),
                 vacantes: Number(obtenerCampo("tallerVacantes").value),
+                organizadorId: sesion?.id || null,
                 estado: "ACTIVO"
             });
 
@@ -2035,6 +2381,142 @@ async function configurarInscripcion() {
     });
 }
 
+function obtenerTalleresGestionables(talleres, usuario) {
+    if (!usuario?.id) {
+        return [];
+    }
+
+    const propios = talleres.filter(function (taller) {
+        return Number(taller.organizadorId) === Number(usuario.id);
+    });
+
+    if (propios.length) {
+        return propios;
+    }
+
+    // Compatibilidad con data inicial antigua, que aun no tiene organizadorId.
+    return talleres.filter(function (taller) {
+        return !taller.organizadorId;
+    }).slice(0, 8);
+}
+
+function obtenerInscripcionesDeTalleres(inscripciones, talleres) {
+    const ids = new Set(talleres.map(function (taller) {
+        return Number(taller.id);
+    }));
+
+    return inscripciones.filter(function (inscripcion) {
+        return ids.has(Number(inscripcion.tallerId));
+    });
+}
+
+function obtenerIniciales(nombre) {
+    return (nombre || "TuTaller")
+        .toString()
+        .trim()
+        .split(/\s+/)
+        .slice(0, 2)
+        .map(function (parte) {
+            return parte.charAt(0).toUpperCase();
+        })
+        .join("") || "TT";
+}
+
+function contarPorClave(items, obtenerClave) {
+    return items.reduce(function (acc, item) {
+        const clave = obtenerClave(item) || "Sin categoria";
+        acc[clave] = (acc[clave] || 0) + 1;
+        return acc;
+    }, {});
+}
+
+function ordenarConteos(conteos) {
+    return Object.entries(conteos)
+        .sort(function (a, b) {
+            return b[1] - a[1];
+        });
+}
+
+function calcularReservasPorTaller(inscripciones) {
+    return contarPorClave(inscripciones, function (inscripcion) {
+        return Number(inscripcion.tallerId);
+    });
+}
+
+function calcularCapacidadEstimada(taller, reservas) {
+    return Math.max(Number(taller.vacantes || 0) + Number(reservas || 0), Number(reservas || 0), 1);
+}
+
+function calcularMetricasOrganizador(talleres, inscripciones) {
+    const reservasPorTaller = calcularReservasPorTaller(inscripciones);
+    const rendimiento = talleres.map(function (taller) {
+        const reservas = Number(reservasPorTaller[Number(taller.id)] || 0);
+        const precio = Number(taller.precio || 0);
+        const ingresos = reservas * precio;
+        const capacidad = calcularCapacidadEstimada(taller, reservas);
+        const ocupacion = Math.round((reservas / capacidad) * 100);
+
+        return {
+            taller,
+            reservas,
+            ingresos,
+            capacidad,
+            ocupacion
+        };
+    });
+    const ingresosTotal = rendimiento.reduce(function (total, item) {
+        return total + item.ingresos;
+    }, 0);
+    const reservasTotal = rendimiento.reduce(function (total, item) {
+        return total + item.reservas;
+    }, 0);
+    const capacidadTotal = rendimiento.reduce(function (total, item) {
+        return total + item.capacidad;
+    }, 0);
+    const ocupacionPromedio = capacidadTotal ? Math.round((reservasTotal / capacidadTotal) * 100) : 0;
+    const ticketPromedio = reservasTotal ? ingresosTotal / reservasTotal : 0;
+    const categorias = contarPorClave(inscripciones, function (inscripcion) {
+        const taller = talleres.find(function (item) {
+            return Number(item.id) === Number(inscripcion.tallerId);
+        });
+        return taller?.categoria;
+    });
+
+    return {
+        rendimiento,
+        ingresosTotal,
+        reservasTotal,
+        capacidadTotal,
+        ocupacionPromedio,
+        ticketPromedio,
+        categoriasOrdenadas: ordenarConteos(categorias)
+    };
+}
+
+function crearBarraAnaliticaHtml(label, valor, maximo, detalle) {
+    const porcentaje = maximo ? Math.max(6, Math.round((Number(valor || 0) / maximo) * 100)) : 0;
+
+    return `
+        <div class="chart-row">
+            <div class="chart-row-head">
+                <strong>${escapeHtml(label)}</strong>
+                <span>${escapeHtml(detalle)}</span>
+            </div>
+            <div class="chart-track" aria-hidden="true">
+                <span style="width: ${porcentaje}%"></span>
+            </div>
+        </div>
+    `;
+}
+
+function obtenerCategoriaPreferida(inscripciones, talleresPorId) {
+    const categorias = contarPorClave(inscripciones, function (inscripcion) {
+        return talleresPorId.get(inscripcion.tallerId)?.categoria;
+    });
+    const primera = ordenarConteos(categorias)[0];
+    return primera ? primera[0] : "Por descubrir";
+}
+
 async function cargarPerfil() {
     const datosList = obtenerCampo("perfilDatosList");
     const tbody = obtenerCampo("perfilInscripcionesBody");
@@ -2058,6 +2540,25 @@ async function cargarPerfil() {
 
         guardarSesion(usuario);
         sincronizarSesionConRol();
+        actualizarNavegacionSesion();
+
+        const avatar = obtenerCampo("perfilAvatar");
+        const roleEyebrow = obtenerCampo("perfilRoleEyebrow");
+        const welcomeTitle = obtenerCampo("perfilWelcomeTitle");
+        const welcomeCopy = obtenerCampo("perfilWelcomeCopy");
+        const focusCard = obtenerCampo("perfilFocusCard");
+        const statPrincipal = obtenerCampo("perfilStatPrincipal");
+        const statPrincipalLabel = obtenerCampo("perfilStatPrincipalLabel");
+        const statSecundario = obtenerCampo("perfilStatSecundario");
+        const statSecundarioLabel = obtenerCampo("perfilStatSecundarioLabel");
+        const statPreferencia = obtenerCampo("perfilStatPreferencia");
+        const statPreferenciaLabel = obtenerCampo("perfilStatPreferenciaLabel");
+        const accionesList = obtenerCampo("perfilNextActionsList");
+        const accionesButtons = obtenerCampo("perfilActionButtons");
+
+        if (avatar) {
+            avatar.textContent = obtenerIniciales(usuario.nombres);
+        }
 
         datosList.innerHTML = `
             <li><strong>Nombre</strong><span>${escapeHtml(usuario.nombres)}</span></li>
@@ -2070,9 +2571,179 @@ async function cargarPerfil() {
             return [taller.id, taller];
         }));
 
+        if (usuario.rol === "ADMINISTRADOR") {
+            const talleresGestionables = obtenerTalleresGestionables(talleres, usuario);
+            const inscripcionesGestionadas = obtenerInscripcionesDeTalleres(inscripciones, talleresGestionables);
+            const metricas = calcularMetricasOrganizador(talleresGestionables, inscripcionesGestionadas);
+            const titulo = document.querySelector("#talleres-inscritos .section-title");
+            const caption = document.querySelector("#talleres-inscritos caption");
+            const seguimientoTitle = document.querySelector("#siguientes-pasos .section-title");
+            const accionesTitle = document.querySelector("#siguientes-pasos .panel:last-child .section-title");
+
+            if (roleEyebrow) {
+                roleEyebrow.textContent = "Cuenta de organizador";
+            }
+
+            if (welcomeTitle) {
+                welcomeTitle.textContent = `Hola, ${obtenerPrimerNombreUsuario(usuario)}`;
+            }
+
+            if (welcomeCopy) {
+                welcomeCopy.textContent = "Este es tu espacio para seguir talleres publicados, reservas e ingresos estimados.";
+            }
+
+            if (focusCard) {
+                focusCard.innerHTML = `
+                    <span>Prioridad de gestion</span>
+                    <strong>${metricas.reservasTotal ? "Revisa tus reservas recientes" : "Publica tu primera experiencia"}</strong>
+                    <p>${metricas.reservasTotal ? "Tus participantes ya estan interactuando con tu oferta." : "Empieza creando un taller con horario y cupos claros."}</p>
+                `;
+            }
+
+            if (statPrincipal) {
+                statPrincipal.textContent = String(talleresGestionables.length);
+            }
+
+            if (statPrincipalLabel) {
+                statPrincipalLabel.textContent = "talleres publicados";
+            }
+
+            if (statSecundario) {
+                statSecundario.textContent = formatearPrecio(metricas.ingresosTotal);
+            }
+
+            if (statSecundarioLabel) {
+                statSecundarioLabel.textContent = "ingresos estimados";
+            }
+
+            if (statPreferencia) {
+                statPreferencia.textContent = `${metricas.ocupacionPromedio}%`;
+            }
+
+            if (statPreferenciaLabel) {
+                statPreferenciaLabel.textContent = "ocupacion promedio";
+            }
+
+            if (titulo) {
+                titulo.textContent = "Talleres publicados";
+            }
+
+            if (caption) {
+                caption.textContent = "Seguimiento de talleres publicados por el organizador.";
+            }
+
+            if (seguimientoTitle) {
+                seguimientoTitle.textContent = "Acciones de organizador";
+            }
+
+            if (accionesTitle) {
+                accionesTitle.textContent = "Gestion de tu oferta";
+            }
+
+            if (accionesList) {
+                accionesList.innerHTML = `
+                    <li>Revisar inscritos y cupos disponibles en tus talleres publicados.</li>
+                    <li>Crear nuevas experiencias con horario, precio y vacantes actualizadas.</li>
+                    <li>Actualizar la informacion de tus talleres para mantener tu oferta clara.</li>
+                `;
+            }
+
+            if (accionesButtons) {
+                accionesButtons.innerHTML = `
+                    <a class="btn" href="crear-taller.html">Crear nuevo taller</a>
+                    <a class="btn-secondary" href="admin.html">Ver panel</a>
+                `;
+            }
+
+            if (!talleresGestionables.length) {
+                tbody.innerHTML = `<tr><td colspan="4">Aun no tienes talleres publicados.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = talleresGestionables.map(function (taller) {
+                const reservas = inscripcionesGestionadas.filter(function (inscripcion) {
+                    return Number(inscripcion.tallerId) === Number(taller.id);
+                }).length;
+
+                return `
+                    <tr>
+                        <td>${escapeHtml(obtenerNombreVisibleTaller(taller.nombre))}</td>
+                        <td>${escapeHtml(obtenerEtiquetaTipo(taller.tipo))}</td>
+                        <td>${escapeHtml(taller.horario || "Por confirmar")}</td>
+                        <td><span class="status-pill">${escapeHtml(`${reservas} inscritos`)}</span></td>
+                    </tr>
+                `;
+            }).join("");
+            return;
+        }
+
         const propias = inscripciones.filter(function (inscripcion) {
             return inscripcion.usuarioId === usuario.id;
         });
+        const categoriaPreferida = obtenerCategoriaPreferida(propias, talleresPorId);
+        const siguiente = propias[0];
+        const tallerSiguiente = siguiente ? talleresPorId.get(siguiente.tallerId) : null;
+
+        if (roleEyebrow) {
+            roleEyebrow.textContent = "Cuenta de participante";
+        }
+
+        if (welcomeTitle) {
+            welcomeTitle.textContent = `Hola, ${obtenerPrimerNombreUsuario(usuario)}`;
+        }
+
+        if (welcomeCopy) {
+            welcomeCopy.textContent = propias.length
+                ? "Aqui tienes tus reservas activas y recomendaciones para seguir explorando."
+                : "Aun no tienes reservas. Puedes comenzar buscando talleres por categoria, distrito u horario.";
+        }
+
+        if (focusCard) {
+            focusCard.innerHTML = `
+                <span>Proximo paso</span>
+                <strong>${propias.length ? "Revisa tu taller inscrito" : "Encuentra tu primer taller"}</strong>
+                <p>${propias.length ? "Confirma horario, modalidad y estado antes de asistir." : "Usa filtros o busqueda por voz para encontrar opciones segun tus intereses."}</p>
+            `;
+        }
+
+        if (statPrincipal) {
+            statPrincipal.textContent = String(propias.length);
+        }
+
+        if (statPrincipalLabel) {
+            statPrincipalLabel.textContent = "inscripciones";
+        }
+
+        if (statSecundario) {
+            statSecundario.textContent = tallerSiguiente ? formatearEstadoTexto(siguiente.estado) : "Buscar";
+        }
+
+        if (statSecundarioLabel) {
+            statSecundarioLabel.textContent = tallerSiguiente ? obtenerNombreVisibleTaller(tallerSiguiente.nombre) : "nuevo taller";
+        }
+
+        if (statPreferencia) {
+            statPreferencia.textContent = categoriaPreferida;
+        }
+
+        if (statPreferenciaLabel) {
+            statPreferenciaLabel.textContent = "categoria mas frecuente";
+        }
+
+        if (accionesList) {
+            accionesList.innerHTML = `
+                <li>${propias.length ? "Revisa el horario y modalidad de tus talleres inscritos." : "Explora talleres destacados para iniciar tu primera reserva."}</li>
+                <li>Usa filtros por distrito, precio y horario para comparar opciones rapidamente.</li>
+                <li>Activa lectura o busqueda por voz si prefieres navegar con asistencia.</li>
+            `;
+        }
+
+        if (accionesButtons) {
+            accionesButtons.innerHTML = `
+                <a class="btn" href="talleres.html#catalogo-filtros">Buscar talleres</a>
+                <a class="btn-secondary" href="${propias.length ? construirUrlDetalleTaller(propias[0].tallerId) : "index.html"}">${propias.length ? "Ver ultimo taller" : "Volver al inicio"}</a>
+            `;
+        }
 
         if (!propias.length) {
             tbody.innerHTML = `<tr><td colspan="4">Aun no tienes inscripciones registradas.</td></tr>`;
@@ -2100,6 +2771,14 @@ async function cargarAdmin() {
     const metricUsuarios = obtenerCampo("adminMetricUsuarios");
     const metricReservas = obtenerCampo("adminMetricReservas");
     const metricAlertas = obtenerCampo("adminMetricAlertas");
+    const metricIngresos = obtenerCampo("adminMetricIngresos");
+    const metricOcupacion = obtenerCampo("adminMetricOcupacion");
+    const metricTicket = obtenerCampo("adminMetricTicket");
+    const revenueBars = obtenerCampo("adminRevenueBars");
+    const categoryBars = obtenerCampo("adminCategoryBars");
+    const insightsList = obtenerCampo("adminInsightsList");
+    const quickStatus = obtenerCampo("adminQuickStatus");
+    const quickStatusCopy = obtenerCampo("adminQuickStatusCopy");
     const talleresBody = obtenerCampo("adminTalleresBody");
     const usuariosBody = obtenerCampo("adminUsuariosBody");
 
@@ -2107,43 +2786,132 @@ async function cargarAdmin() {
         return;
     }
 
+    const sesion = obtenerSesionActiva();
+
     try {
         const [talleres, usuarios, inscripciones] = await Promise.all([
             apiGet("/talleres"),
             apiGet("/usuarios"),
             apiGet("/inscripciones")
         ]);
+        const talleresGestionables = obtenerTalleresGestionables(talleres, sesion);
+        const inscripcionesGestionadas = obtenerInscripcionesDeTalleres(inscripciones, talleresGestionables);
+        const usuariosPorId = new Map(usuarios.map(function (usuario) {
+            return [Number(usuario.id), usuario];
+        }));
+        const participantesIds = new Set(inscripcionesGestionadas.map(function (inscripcion) {
+            return Number(inscripcion.usuarioId);
+        }));
+        const metricas = calcularMetricasOrganizador(talleresGestionables, inscripcionesGestionadas);
+        const alertas = metricas.rendimiento.filter(function (item) {
+            return Number(item.taller.vacantes || 0) <= 3 || item.ocupacion >= 85;
+        }).length;
+        const topCategoria = metricas.categoriasOrdenadas[0]?.[0] || "Sin datos";
 
-        metricTalleres.textContent = String(talleres.filter(function (taller) {
+        metricTalleres.textContent = String(talleresGestionables.filter(function (taller) {
             return taller.estado === "ACTIVO";
         }).length);
-        metricUsuarios.textContent = String(usuarios.length);
-        metricReservas.textContent = String(inscripciones.length);
-        metricAlertas.textContent = String(talleres.filter(function (taller) {
-            return Number(taller.vacantes || 0) <= 3;
-        }).length);
+        metricUsuarios.textContent = String(participantesIds.size);
+        metricReservas.textContent = String(metricas.reservasTotal);
+        metricAlertas.textContent = String(alertas);
 
-        talleresBody.innerHTML = talleres.length ? talleres.slice(0, 5).map(function (taller) {
+        if (metricIngresos) {
+            metricIngresos.textContent = formatearPrecio(metricas.ingresosTotal);
+        }
+
+        if (metricOcupacion) {
+            metricOcupacion.textContent = `${metricas.ocupacionPromedio}%`;
+        }
+
+        if (metricTicket) {
+            metricTicket.textContent = `Ticket ${formatearPrecio(metricas.ticketPromedio)}`;
+        }
+
+        if (quickStatus) {
+            quickStatus.textContent = metricas.reservasTotal
+                ? `${metricas.reservasTotal} reservas en seguimiento`
+                : "Sin reservas todavia";
+        }
+
+        if (quickStatusCopy) {
+            quickStatusCopy.textContent = metricas.reservasTotal
+                ? `Categoria con mas movimiento: ${topCategoria}. Prioriza talleres con alta ocupacion.`
+                : "Publica o actualiza talleres para empezar a recibir inscripciones.";
+        }
+
+        if (revenueBars) {
+            const topIngresos = metricas.rendimiento
+                .slice()
+                .sort(function (a, b) {
+                    return b.ingresos - a.ingresos;
+                })
+                .slice(0, 5);
+            const maxIngreso = Math.max(...topIngresos.map(function (item) {
+                return item.ingresos;
+            }), 0);
+
+            revenueBars.innerHTML = topIngresos.length && maxIngreso
+                ? topIngresos.map(function (item) {
+                    return crearBarraAnaliticaHtml(
+                        obtenerNombreVisibleTaller(item.taller.nombre),
+                        item.ingresos,
+                        maxIngreso,
+                        formatearPrecio(item.ingresos)
+                    );
+                }).join("")
+                : `<p class="panel-text">Aun no hay ingresos estimados porque no existen reservas asociadas.</p>`;
+        }
+
+        if (categoryBars) {
+            const maxCategoria = Math.max(...metricas.categoriasOrdenadas.map(function (item) {
+                return item[1];
+            }), 0);
+
+            categoryBars.innerHTML = metricas.categoriasOrdenadas.length
+                ? metricas.categoriasOrdenadas.slice(0, 5).map(function ([categoria, total]) {
+                    return crearBarraAnaliticaHtml(categoria, total, maxCategoria, `${total} reservas`);
+                }).join("")
+                : `<p class="panel-text">Cuando lleguen reservas, aqui veras las categorias con mas demanda.</p>`;
+        }
+
+        if (insightsList) {
+            insightsList.innerHTML = `
+                <li>${topCategoria !== "Sin datos" ? `${topCategoria} concentra la mayor demanda actual.` : "Aun falta movimiento para detectar una categoria fuerte."}</li>
+                <li>${alertas ? `${alertas} taller(es) requieren revisar cupos o disponibilidad.` : "No hay alertas criticas de vacantes por ahora."}</li>
+                <li>Ingresos estimados: ${formatearPrecio(metricas.ingresosTotal)} con ticket promedio de ${formatearPrecio(metricas.ticketPromedio)}.</li>
+            `;
+        }
+
+        talleresBody.innerHTML = talleresGestionables.length ? talleresGestionables.slice(0, 6).map(function (taller) {
+            const item = metricas.rendimiento.find(function (rendimiento) {
+                return Number(rendimiento.taller.id) === Number(taller.id);
+            }) || { reservas: 0, ingresos: 0, capacidad: calcularCapacidadEstimada(taller, 0) };
+
             return `
                 <tr>
                     <td>${escapeHtml(obtenerNombreVisibleTaller(taller.nombre))}</td>
                     <td>${escapeHtml(taller.categoria)}</td>
-                    <td>${escapeHtml(obtenerEtiquetaTipo(taller.tipo))}</td>
-                    <td><span class="status-pill">${escapeHtml(formatearEstadoTexto(taller.estado))}</span></td>
+                    <td><span class="status-pill">${escapeHtml(`${item.reservas}/${item.capacidad} cupos`)}</span></td>
+                    <td>${escapeHtml(formatearPrecio(item.ingresos))}</td>
                 </tr>
             `;
         }).join("") : `<tr><td colspan="4">Aun no hay talleres publicados.</td></tr>`;
 
-        usuariosBody.innerHTML = usuarios.length ? usuarios.slice(0, 5).map(function (usuario) {
+        usuariosBody.innerHTML = inscripcionesGestionadas.length ? inscripcionesGestionadas.slice(0, 6).map(function (inscripcion) {
+            const usuario = usuariosPorId.get(Number(inscripcion.usuarioId));
+            const taller = talleresGestionables.find(function (item) {
+                return Number(item.id) === Number(inscripcion.tallerId);
+            });
+
             return `
                 <tr>
-                    <td>${escapeHtml(usuario.nombres)}</td>
-                    <td>${escapeHtml(usuario.correo)}</td>
-                    <td>${escapeHtml(formatearRol(usuario.rol))}</td>
-                    <td><span class="status-pill">Activo</span></td>
+                    <td>${escapeHtml(usuario?.nombres || inscripcion.usuarioNombre)}</td>
+                    <td>${escapeHtml(usuario?.correo || "No disponible")}</td>
+                    <td>${escapeHtml(obtenerNombreVisibleTaller(taller?.nombre || inscripcion.tallerNombre))}</td>
+                    <td><span class="status-pill">${escapeHtml(formatearEstadoTexto(inscripcion.estado))}</span></td>
                 </tr>
             `;
-        }).join("") : `<tr><td colspan="4">Aun no hay usuarios registrados.</td></tr>`;
+        }).join("") : `<tr><td colspan="4">Aun no hay inscritos en tus talleres.</td></tr>`;
     } catch (error) {
         talleresBody.innerHTML = `<tr><td colspan="4">${escapeHtml(error.message || "No se pudo cargar el panel.")}</td></tr>`;
         usuariosBody.innerHTML = `<tr><td colspan="4">${escapeHtml(error.message || "No se pudo cargar el panel.")}</td></tr>`;
@@ -2203,27 +2971,37 @@ function inicializarDatosDePagina() {
     cargarConfirmacionTaller();
 }
 
+function ejecutarInicializadorSeguro(nombre, callback) {
+    try {
+        callback();
+    } catch (error) {
+        console.error(`Error al inicializar ${nombre}:`, error);
+    }
+}
+
 document.addEventListener("DOMContentLoaded", function () {
-    asegurarWidgetAccesibilidad();
-    sincronizarSesionConRol();
-    actualizarNavegacionSesion();
-    configurarTema();
-    protegerRutasOrganizador();
-    protegerRutasUsuario();
-    protegerRutaPerfil();
-    activarMenu();
-    activarPaginaActual();
-    reescribirAccesosOrganizador();
-    reescribirAccesosUsuario();
-    configurarCierreSesion();
-    configurarVistaLogin();
-    configurarVistaRegistro();
-    configurarLogin();
-    configurarRegistro();
-    configurarCrearTaller();
-    inicializarDatosDePagina();
-    inicializarAccesibilidad();
-    inicializarModales();
+    ejecutarInicializadorSeguro("widget de accesibilidad", asegurarWidgetAccesibilidad);
+    ejecutarInicializadorSeguro("sincronizacion de sesion", sincronizarSesionConRol);
+    ejecutarInicializadorSeguro("navegacion de sesion", actualizarNavegacionSesion);
+    ejecutarInicializadorSeguro("tema", configurarTema);
+    ejecutarInicializadorSeguro("barra de accesibilidad", inicializarAccesibilidad);
+    ejecutarInicializadorSeguro("lector de pagina", inicializarLector);
+    ejecutarInicializadorSeguro("control por voz", inicializarVoz);
+    ejecutarInicializadorSeguro("proteccion organizador", protegerRutasOrganizador);
+    ejecutarInicializadorSeguro("proteccion usuario", protegerRutasUsuario);
+    ejecutarInicializadorSeguro("proteccion perfil", protegerRutaPerfil);
+    ejecutarInicializadorSeguro("menu", activarMenu);
+    ejecutarInicializadorSeguro("pagina activa", activarPaginaActual);
+    ejecutarInicializadorSeguro("accesos organizador", reescribirAccesosOrganizador);
+    ejecutarInicializadorSeguro("accesos usuario", reescribirAccesosUsuario);
+    ejecutarInicializadorSeguro("cierre de sesion", configurarCierreSesion);
+    ejecutarInicializadorSeguro("vista login", configurarVistaLogin);
+    ejecutarInicializadorSeguro("vista registro", configurarVistaRegistro);
+    ejecutarInicializadorSeguro("login", configurarLogin);
+    ejecutarInicializadorSeguro("registro", configurarRegistro);
+    ejecutarInicializadorSeguro("crear taller", configurarCrearTaller);
+    ejecutarInicializadorSeguro("datos de pagina", inicializarDatosDePagina);
+    ejecutarInicializadorSeguro("modales", inicializarModales);
 });
 
 /* â”€â”€ Modales legales â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
@@ -2302,8 +3080,11 @@ function inicializarAccesibilidad() {
     if (saved.dyslexia)  activarDislexia(true);
 
     function guardar() {
+        const actual = JSON.parse(localStorage.getItem("tutallerAcc") || "{}");
         localStorage.setItem("tutallerAcc", JSON.stringify({
-            sizeIndex, contrast: document.body.dataset.accContrast === "1",
+            ...actual,
+            sizeIndex,
+            contrast: document.body.dataset.accContrast === "1",
             dyslexia: document.body.dataset.accDyslexia === "1"
         }));
     }
@@ -2418,10 +3199,16 @@ function inicializarAccesibilidad() {
 }
 
 /* â”€â”€ Lector de pantalla (Web Speech API) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-(function inicializarLector() {
+function inicializarLector() {
     const btnLeer  = document.getElementById("accLector");
     const btnStop  = document.getElementById("accLectorStop");
     if (!btnLeer || !window.speechSynthesis) return;
+    if (btnLeer.dataset.accBound === "true") return;
+
+    btnLeer.dataset.accBound = "true";
+    if (btnStop) {
+        btnStop.dataset.accBound = "true";
+    }
 
     const synth = window.speechSynthesis;
     const leerTitle = btnLeer.querySelector("strong");
@@ -2497,7 +3284,7 @@ function inicializarAccesibilidad() {
         const main = document.getElementById("contenido-principal") || document.body;
         const clone = main.cloneNode(true);
         // Quitar elementos que no se deben leer
-        clone.querySelectorAll("script,style,svg,.acc-bar,nav,footer,[aria-hidden='true']").forEach(el => el.remove());
+        clone.querySelectorAll("script,style,svg,.acc-bar,.acc-widget,nav,footer,[aria-hidden='true']").forEach(el => el.remove());
         return clone.innerText || clone.textContent || "";
     }
 
@@ -2546,16 +3333,19 @@ function inicializarAccesibilidad() {
         if (document.hidden) synth.pause();
         else synth.resume();
     });
-})();
+}
 
 /* â”€â”€ Control por voz (Web Speech Recognition) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-(function inicializarVoz() {
+function inicializarVoz() {
     const btnVoz    = document.getElementById("accVoz");
     const labelVoz  = document.getElementById("accVozLabel");
     const statusDiv = document.getElementById("accVozStatus");
     const textoDiv  = document.getElementById("accVozTexto");
     const vozCopy   = btnVoz?.querySelector("small");
     if (!btnVoz) return;
+    if (btnVoz.dataset.accBound === "true") return;
+
+    btnVoz.dataset.accBound = "true";
 
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (!SpeechRecognition) {
@@ -2579,7 +3369,13 @@ function inicializarAccesibilidad() {
         "crear cuenta":    () => { window.location.href = "registro.html"; },
         "ingresar":        () => { window.location.href = "login.html"; },
         "iniciar sesion":  () => { window.location.href = "login.html"; },
-        "publicar taller": () => { window.location.href = "admin.html"; },
+        "mi cuenta":       () => { window.location.href = obtenerSesionActiva() ? "perfil.html" : construirUrlAccesoUsuario("perfil.html"); },
+        "abrir mi cuenta": () => { window.location.href = obtenerSesionActiva() ? "perfil.html" : construirUrlAccesoUsuario("perfil.html"); },
+        "perfil":          () => { window.location.href = obtenerSesionActiva() ? "perfil.html" : construirUrlAccesoUsuario("perfil.html"); },
+        "mi panel":        () => { window.location.href = usuarioEsOrganizador() ? "admin.html" : construirUrlAccesoOrganizador("admin.html"); },
+        "publicar taller": () => { window.location.href = usuarioEsOrganizador() ? "crear-taller.html" : construirUrlAccesoOrganizador("crear-taller.html"); },
+        "crear taller":    () => { window.location.href = usuarioEsOrganizador() ? "crear-taller.html" : construirUrlAccesoOrganizador("crear-taller.html"); },
+        "inscribirme":     () => { window.location.href = "talleres.html#catalogo-filtros"; },
         "subir":           () => { window.scrollTo({ top: 0, behavior: "smooth" }); },
         "bajar":           () => { window.scrollBy({ top: 400, behavior: "smooth" }); },
         "buscar":          () => { enfocarCampoBusqueda(); },
@@ -2659,4 +3455,4 @@ function inicializarAccesibilidad() {
             setTimeout(() => { try { rec.start(); } catch(_) {} }, 300);
         }
     };
-})();
+}

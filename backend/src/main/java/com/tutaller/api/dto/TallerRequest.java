@@ -40,5 +40,7 @@ public class TallerRequest {
     @Min(value = 1, message = "Las vacantes deben ser mayores a 0.")
     private Integer vacantes;
 
+    private Long organizadorId;
+
     private EstadoTaller estado;
 }

@@ -18,5 +18,6 @@ public class TallerResponse {
     private String horario;
     private BigDecimal precio;
     private Integer vacantes;
+    private Long organizadorId;
     private EstadoTaller estado;
 }

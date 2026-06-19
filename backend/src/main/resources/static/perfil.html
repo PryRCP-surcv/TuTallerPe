@@ -51,9 +51,9 @@
         <section class="page-hero">
             <div class="container surface-card page-hero-card fade-in">
                 <span class="eyebrow">Mi cuenta</span>
-                <h1 class="page-title">Gestiona tus datos y tus talleres en un solo lugar</h1>
+                <h1 class="page-title">Tu espacio personal en TuTaller.pe</h1>
                 <p class="page-description">
-                    Revisa tu informacion personal, consulta el estado de tus reservas y encuentra nuevas acciones para seguir explorando experiencias.
+                    Consulta tu actividad, revisa lo importante y continua desde el punto exacto donde dejaste tu recorrido.
                 </p>
             </div>
         </section>
@@ -63,24 +63,53 @@
                 <aside class="sidebar-card fade-in">
                     <div>
                         <span class="eyebrow">Menu del perfil</span>
-                        <h2 class="section-title">Accesos rapidos</h2>
+                        <h2 class="section-title">Tu espacio</h2>
                     </div>
                     <div class="sidebar-links">
-                        <a href="#datos-personales">Datos personales</a>
+                        <a href="#resumen-cuenta">Resumen</a>
+                        <a href="#datos-personales">Datos de cuenta</a>
                         <a href="#talleres-inscritos">Mis talleres</a>
-                        <a href="#siguientes-pasos">Siguientes pasos</a>
-                        <a href="talleres.html">Explorar nuevos talleres</a>
+                        <a href="#siguientes-pasos">Acciones recomendadas</a>
                     </div>
-                    <div class="message-box info">
-                        <strong>Estado actual</strong>
-                        <p class="panel-text">El usuario ya cuenta con una inscripcion confirmada y puede revisar el resumen desde este panel.</p>
+                    <div class="profile-focus-card" id="perfilFocusCard">
+                        <span>Estado actual</span>
+                        <strong>Actividad personalizada</strong>
+                        <p>La vista se actualiza segun tu rol y tus registros reales.</p>
                     </div>
                 </aside>
 
                 <div class="section-stack">
-                    <article class="panel fade-in" id="datos-personales">
+                    <article class="profile-overview-card fade-in" id="resumen-cuenta">
+                        <div class="profile-identity">
+                            <div class="profile-avatar" id="perfilAvatar">TT</div>
+                            <div>
+                                <span class="eyebrow" id="perfilRoleEyebrow">Cuenta activa</span>
+                                <h2 class="section-title" id="perfilWelcomeTitle">Hola, bienvenido</h2>
+                                <p class="panel-text" id="perfilWelcomeCopy">Aqui veras tus datos y actividad mas importante.</p>
+                            </div>
+                        </div>
+                        <div class="profile-stats-grid" id="perfilStatsGrid" aria-label="Resumen de actividad">
+                            <div class="profile-stat-card">
+                                <span>Actividad</span>
+                                <strong id="perfilStatPrincipal">0</strong>
+                                <small id="perfilStatPrincipalLabel">registros</small>
+                            </div>
+                            <div class="profile-stat-card">
+                                <span>Proximo paso</span>
+                                <strong id="perfilStatSecundario">--</strong>
+                                <small id="perfilStatSecundarioLabel">por definir</small>
+                            </div>
+                            <div class="profile-stat-card">
+                                <span>Preferencia</span>
+                                <strong id="perfilStatPreferencia">--</strong>
+                                <small id="perfilStatPreferenciaLabel">segun tu actividad</small>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="panel account-details-panel fade-in" id="datos-personales">
                         <span class="eyebrow">Datos personales</span>
-                        <h2 class="section-title">Informacion del usuario</h2>
+                        <h2 class="section-title">Datos de cuenta</h2>
                         <ul class="detail-list" id="perfilDatosList">
                             <li><strong>Nombre</strong><span>Usuario de prueba</span></li>
                             <li><strong>Correo</strong><span>usuario@tutaller.pe</span></li>
@@ -125,7 +154,7 @@
                         <div class="panel fade-in">
                             <span class="eyebrow">Seguimiento</span>
                             <h2 class="section-title">Proximas acciones</h2>
-                            <ul class="check-list">
+                            <ul class="check-list" id="perfilNextActionsList">
                                 <li>Revisar el correo de confirmacion del taller inscrito.</li>
                                 <li>Explorar nuevas opciones relacionadas con arte y musica.</li>
                                 <li>Actualizar preferencias para recibir mejores recomendaciones.</li>
@@ -134,7 +163,7 @@
                         <div class="panel fade-in">
                             <span class="eyebrow">Navegacion</span>
                             <h2 class="section-title">Acciones disponibles</h2>
-                            <div class="button-row">
+                            <div class="button-row" id="perfilActionButtons">
                                 <a class="btn" href="talleres.html">Buscar nuevos talleres</a>
                                 <a class="btn-secondary" href="detalle-taller.html">Volver al detalle</a>
                             </div>

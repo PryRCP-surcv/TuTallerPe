@@ -59,74 +59,91 @@
         </section>
 
         <section class="section">
-            <div class="container friendly-grid">
-                <article class="friendly-card fade-in">
-                    <strong>Publica mas rapido</strong>
-                    <p>Registra nombre, categoria, modalidad, precio y vacantes en pocos pasos.</p>
-                </article>
-                <article class="friendly-card fade-in">
-                    <strong>Sigue tu actividad</strong>
-                    <p>Revisa talleres activos, reservas y alertas desde un mismo espacio.</p>
-                </article>
-                <article class="friendly-card fade-in">
-                    <strong>Ordena mejor tu oferta</strong>
-                    <p>Visualiza estados, categorias y modalidades con menos friccion.</p>
-                </article>
-                <article class="friendly-card fade-in">
-                    <strong>Llega a mas personas</strong>
-                    <p>Mantente visible dentro del catalogo y presenta experiencias mas claras.</p>
-                </article>
-            </div>
-        </section>
-
-        <section class="section">
             <div class="container dashboard-layout">
                 <aside class="sidebar-card fade-in">
                     <div>
                         <span class="eyebrow">Accesos rapidos</span>
-                        <h2 class="section-title">Empieza por lo importante</h2>
+                        <h2 class="section-title">Gestiona tu oferta</h2>
                     </div>
                     <div class="sidebar-links">
                         <a href="admin.html">Resumen general</a>
                         <a href="crear-taller.html">Publicar taller</a>
                         <a href="talleres.html">Ver catalogo publico</a>
-                        <a href="confirmacion-taller.html">Ultima publicacion</a>
+                        <a href="#rendimiento">Rendimiento</a>
                     </div>
-                    <div class="message-box info">
-                        <strong>Gestion centralizada</strong>
-                        <p class="panel-text">Ten a la mano tus publicaciones, movimientos recientes y proximas oportunidades en un panel mucho mas claro.</p>
+                    <div class="organizer-status-card">
+                        <span>Vista del dia</span>
+                        <strong id="adminQuickStatus">Cargando actividad...</strong>
+                        <p id="adminQuickStatusCopy">Revisaremos tus talleres, inscritos y vacantes para priorizar acciones.</p>
                     </div>
                 </aside>
 
                 <div class="section-stack">
-                    <div class="stats-grid">
+                    <div class="stats-grid dashboard-stats">
                         <div class="surface-card metric-card fade-in">
                             <span>Talleres activos</span>
                             <strong id="adminMetricTalleres">12</strong>
                             <span>Publicaciones visibles para usuarios.</span>
                         </div>
                         <div class="surface-card metric-card fade-in">
-                            <span>Usuarios registrados</span>
+                            <span>Participantes</span>
                             <strong id="adminMetricUsuarios">85</strong>
-                            <span>Personas interesadas en nuevas experiencias.</span>
+                            <span>Personas inscritas en tus talleres.</span>
                         </div>
                         <div class="surface-card metric-card fade-in">
                             <span>Reservas recibidas</span>
                             <strong id="adminMetricReservas">34</strong>
-                            <span>Solicitudes pendientes de seguimiento.</span>
+                            <span>Inscripciones registradas en tu oferta.</span>
+                        </div>
+                        <div class="surface-card metric-card fade-in">
+                            <span>Ingresos estimados</span>
+                            <strong id="adminMetricIngresos">S/ 0</strong>
+                            <span>Precio por reservas confirmadas.</span>
+                        </div>
+                        <div class="surface-card metric-card fade-in">
+                            <span>Ocupacion promedio</span>
+                            <strong id="adminMetricOcupacion">0%</strong>
+                            <span>Reservas frente a vacantes disponibles.</span>
                         </div>
                         <div class="surface-card metric-card fade-in">
                             <span>Alertas</span>
-                            <strong id="adminMetricAlertas">3</strong>
-                            <span>Talleres con vacantes por revisar.</span>
+                            <strong id="adminMetricAlertas">0</strong>
+                            <span>Talleres con baja disponibilidad.</span>
                         </div>
                     </div>
 
-                    <article class="panel fade-in">
+                    <section class="analytics-grid" id="rendimiento" aria-label="Graficos de rendimiento">
+                        <article class="panel dashboard-chart-card fade-in">
+                            <div class="section-heading compact-heading">
+                                <div>
+                                    <span class="eyebrow">Ingresos</span>
+                                    <h2 class="section-title">Monto por taller</h2>
+                                </div>
+                                <span class="status-pill info" id="adminMetricTicket">Ticket S/ 0</span>
+                            </div>
+                            <div class="bar-chart" id="adminRevenueBars" aria-live="polite">
+                                <p class="panel-text">Cargando ingresos estimados...</p>
+                            </div>
+                        </article>
+
+                        <article class="panel dashboard-chart-card fade-in">
+                            <div class="section-heading compact-heading">
+                                <div>
+                                    <span class="eyebrow">Demanda</span>
+                                    <h2 class="section-title">Categorias con mas reservas</h2>
+                                </div>
+                            </div>
+                            <div class="bar-chart" id="adminCategoryBars" aria-live="polite">
+                                <p class="panel-text">Cargando categorias...</p>
+                            </div>
+                        </article>
+                    </section>
+
+                    <article class="panel dashboard-table-card fade-in">
                         <div class="section-heading">
                             <div>
                                 <span class="eyebrow">Gestion de talleres</span>
-                                <h2 class="section-title">Publicaciones recientes</h2>
+                                <h2 class="section-title">Publicaciones y ocupacion</h2>
                             </div>
                             <a class="btn" href="crear-taller.html">Agregar taller</a>
                         </div>
@@ -136,8 +153,8 @@
                                     <tr>
                                         <th scope="col">Taller</th>
                                         <th scope="col">Categoria</th>
-                                        <th scope="col">Modalidad</th>
-                                        <th scope="col">Estado</th>
+                                        <th scope="col">Reservas</th>
+                                        <th scope="col">Ingresos</th>
                                     </tr>
                                 </thead>
                                 <tbody id="adminTalleresBody">
@@ -166,15 +183,15 @@
 
                     <div class="info-grid">
                         <article class="table-shell fade-in">
-                            <span class="eyebrow">Usuarios recientes</span>
-                            <h2 class="section-title">Ultimos registros</h2>
+                            <span class="eyebrow">Inscritos recientes</span>
+                            <h2 class="section-title">Participantes de tus talleres</h2>
                             <div class="table-wrapper">
                                 <table>
                                     <thead>
                                         <tr>
                                             <th scope="col">Usuario</th>
                                             <th scope="col">Correo</th>
-                                            <th scope="col">Tipo</th>
+                                            <th scope="col">Taller</th>
                                             <th scope="col">Estado</th>
                                         </tr>
                                     </thead>
@@ -203,12 +220,12 @@
                         </article>
 
                         <article class="panel fade-in">
-                            <span class="eyebrow">Reportes basicos</span>
-                            <h2 class="section-title">Hallazgos rapidos</h2>
-                            <ul class="timeline">
-                                <li>Arte y musica concentran una alta demanda entre las publicaciones visibles.</li>
-                                <li>La accion "Publicar taller" se mantiene siempre visible para acelerar la gestion.</li>
-                                <li>Las tablas con estados y categorias ayudan a ordenar mejor la operacion diaria.</li>
+                            <span class="eyebrow">Recomendaciones</span>
+                            <h2 class="section-title">Acciones sugeridas</h2>
+                            <ul class="timeline insight-list" id="adminInsightsList">
+                                <li>Publica un taller nuevo si deseas ampliar tu alcance esta semana.</li>
+                                <li>Revisa los talleres con pocas vacantes para evitar sobrecupos.</li>
+                                <li>Observa que categorias generan mas reservas antes de crear tu siguiente taller.</li>
                             </ul>
                         </article>
                     </div>
